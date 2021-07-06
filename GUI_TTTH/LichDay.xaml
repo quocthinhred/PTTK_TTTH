@@ -1,0 +1,14 @@
+﻿<Window x:Class="GUI_TTTH.LichDay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_TTTH"
+        mc:Ignorable="d"
+        Title="LichDay" Height="700" Width="1300" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="LỊCH DẠY" HorizontalAlignment="Left" Margin="545,100,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
+        <DataGrid x:Name="dtg_schedule" HorizontalAlignment="Left" Height="387" Margin="206,217,0,0" VerticalAlignment="Top" Width="873" Loaded="dtg_schedule_Loaded"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,9 @@
+C:\Users\Kuokkutin\source\repos\TrungTamTinHoc\DAL_TTTH\bin\Debug\DAL_TTTH.dll
+C:\Users\Kuokkutin\source\repos\TrungTamTinHoc\DAL_TTTH\bin\Debug\DAL_TTTH.pdb
+C:\Users\Kuokkutin\source\repos\TrungTamTinHoc\DAL_TTTH\bin\Debug\DTO_TTTH.dll
+C:\Users\Kuokkutin\source\repos\TrungTamTinHoc\DAL_TTTH\bin\Debug\DTO_TTTH.pdb
+C:\Users\Kuokkutin\source\repos\TrungTamTinHoc\DAL_TTTH\obj\Debug\DAL_TTTH.csprojAssemblyReference.cache
+C:\Users\Kuokkutin\source\repos\TrungTamTinHoc\DAL_TTTH\obj\Debug\DAL_TTTH.csproj.CoreCompileInputs.cache
+C:\Users\Kuokkutin\source\repos\TrungTamTinHoc\DAL_TTTH\obj\Debug\DAL_TTTH.csproj.CopyComplete
+C:\Users\Kuokkutin\source\repos\TrungTamTinHoc\DAL_TTTH\obj\Debug\DAL_TTTH.dll
+C:\Users\Kuokkutin\source\repos\TrungTamTinHoc\DAL_TTTH\obj\Debug\DAL_TTTH.pdb
