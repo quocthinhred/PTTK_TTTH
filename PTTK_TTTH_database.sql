@@ -13,7 +13,6 @@ create table Account
 go
 insert into Account values ('admin', 'admin', 1);
 insert into Account values ('GV01', 'a', 2);
-insert into Account values ('GV01', 'a', 2);
 insert into Account values ('GV02', 'a', 2);
 insert into Account values ('GV03', 'a', 2);
 insert into Account values ('GV04', 'a', 2);
@@ -829,12 +828,6 @@ create table HocVien_ChungChi
 	KetQua varchar(50),
 	primary key (MaHV, MaLCC)
 )
-
-create procedure fill_HocVien_ChungChi ()
-
-
-
-
 
 
 
