@@ -14,16 +14,16 @@ namespace DAL_TTTH
         public static List<DTO_LopCCMo> getDSLopCCMo()
         {
             List<DTO_LopCCMo> DSLopCCMo = new List<DTO_LopCCMo>();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM LopCCMo", DBConnect.conn);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM LopChungChi LCC, LopChungChiMo LCCM WHERE LCC.MaLCC = LCCM.MaLCC", DBConnect.conn);
             DataTable dtAccount = new DataTable();
             da.Fill(dtAccount);
             foreach (DataRow row in dtAccount.Rows)
             {
-                string id = row["ID"].ToString();
-                string name = "Lop Chung chi";
-                string id_Course = row["ID_Course"].ToString();
-                string id_Teacher = row["ID_Teacher"].ToString();
-                string schedule = row["Schedule"].ToString();
+                string id = row["MaLCC"].ToString();
+                string name = row["TenLCC"].ToString() ;
+                string id_Course = row["MaKhoa"].ToString();
+                string id_Teacher = row["MaGV"].ToString();
+                string schedule = row["LichHoc"].ToString();
                 DTO_LopCCMo lop = new DTO_LopCCMo(id, name, id_Course, id_Teacher, schedule);
                 DSLopCCMo.Add(lop);
             }

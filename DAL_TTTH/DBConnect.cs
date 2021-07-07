@@ -9,6 +9,6 @@ namespace DAL_TTTH
 {
     public class DBConnect
     {
-        public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-0JGF0C9\\SQLEXPRESS;Initial Catalog=testapp;Integrated Security=True");
+        public static SqlConnection conn = new SqlConnection("Data Source=DESKTOP-0JGF0C9\\SQLEXPRESS;Initial Catalog=TTTH;Integrated Security=True");
     }
 }

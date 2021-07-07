@@ -42,7 +42,7 @@ namespace GUI_TTTH
                 }
                 else if (account.Type == "2")
                 {
-                    Menu_GiangVien giangVien = new Menu_GiangVien(tb_username.Text.Substring(2));
+                    Menu_GiangVien giangVien = new Menu_GiangVien(tb_username.Text);
                     this.Hide();
                     giangVien.ShowDialog();
                     this.ShowDialog();

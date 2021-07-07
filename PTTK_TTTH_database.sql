@@ -181,36 +181,35 @@ insert into NhomHocPhanMo values ('NHP02','K2');
 insert into NhomHocPhanMo values ('NHP01','K3');
 insert into NhomHocPhanMo values ('NHP02','K4');
 go
-
 create table LopKTVMo
 (
 	MaMon varchar(10),
 	MaKhoa varchar(10),
 	MaGV varchar(10),
-	LichHoc nvarchar(100),
+	LichHoc varchar(100),
 	primary key(MaMon, MaKhoa)
 )
 go
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV01', 'M01', 'Phòng E101, 17:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV02', 'M02', 'Phòng E102, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV03', 'M03', 'Phòng E103, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV04', 'M04', 'Phòng E104, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV05', 'M05', 'Phòng E105, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV01', 'M06', 'Phòng E101, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV02', 'M07', 'Phòng E102, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV03', 'M08', 'Phòng E103, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV04', 'M09', 'Phòng E104, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV05', 'M10', 'Phòng E105, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV01', 'M01', 'Phòng E101, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV02', 'M02', 'Phòng E102, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV03', 'M03', 'Phòng E103, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV04', 'M04', 'Phòng E104, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV05', 'M05', 'Phòng E105, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV01', 'M06', 'Phòng E101, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV02', 'M07', 'Phòng E102, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV03', 'M08', 'Phòng E103, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV04', 'M09', 'Phòng E104, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV05', 'M10', 'Phòng E105, 17:00 Thứ 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV01', 'M01', 'E101, 17:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV02', 'M02', 'E102, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV03', 'M03', 'E103, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV04', 'M04', 'E104, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV05', 'M05', 'E105, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV01', 'M06', 'E101, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV02', 'M07', 'E102, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV03', 'M08', 'E103, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV04', 'M09', 'E104, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV05', 'M10', 'E105, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV01', 'M01', 'E101, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV02', 'M02', 'E102, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV03', 'M03', 'E103, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV04', 'M04', 'E104, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV05', 'M05', 'E105, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV01', 'M06', 'E101, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV02', 'M07', 'E102, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV03', 'M08', 'E103, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV04', 'M09', 'E104, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV05', 'M10', 'E105, 17:00 Thu 3, 5, 7');
 
 
 go
@@ -585,18 +584,19 @@ go
 create table LopChungChi
 (
 	MaLCC varchar(10),
+	TenLCC varchar(50),
 	MaNhanh varchar(10),
 	primary key (MaLCC)
 )
 go
-insert into LopChungChi values ('LCC01', 'NCCA1');
-insert into LopChungChi values ('LCC02', 'NCCA1');
-insert into LopChungChi values ('LCC03', 'NCCA1');
+insert into LopChungChi values ('LCC01', 'Lop Chung Chi 1', 'NCCA1');
+insert into LopChungChi values ('LCC02', 'Lop Chung Chi 2', 'NCCA1');
+insert into LopChungChi values ('LCC03', 'Lop Chung Chi 3', 'NCCA1');
 
-insert into LopChungChi values ('LCC04', 'NCCB1');
-insert into LopChungChi values ('LCC05', 'NCCB1');
-insert into LopChungChi values ('LCC06', 'NCCB2');
-insert into LopChungChi values ('LCC07', 'NCCB2');
+insert into LopChungChi values ('LCC04', 'Lop Chung Chi 4', 'NCCB1');
+insert into LopChungChi values ('LCC05', 'Lop Chung Chi 5', 'NCCB1');
+insert into LopChungChi values ('LCC06', 'Lop Chung Chi 6', 'NCCB2');
+insert into LopChungChi values ('LCC07', 'Lop Chung Chi 7', 'NCCB2');
 
 
 create table LopChungChiMo
@@ -841,6 +841,7 @@ go
 insert into NhomChuyenDe values ('NCD01', 'Nhom Chuyen De 1');
 insert into NhomChuyenDe values ('NCD02', 'Nhom Chuyen De 2');
 
+go
 
 create table LopChuyenDe
 (
@@ -850,10 +851,10 @@ create table LopChuyenDe
 	primary key (MaLCD)
 )
 go
-insert into LopChuyenDe values ('CD01', 'Chuyen De 1');
-insert into LopChuyenDe values ('CD02', 'Chuyen De 2');
-insert into LopChuyenDe values ('CD03', 'Chuyen De 3');
-insert into LopChuyenDe values ('CD04', 'Chuyen De 4');
+insert into LopChuyenDe values ('CD01', 'Chuyen De 1', 'NCD01');
+insert into LopChuyenDe values ('CD02', 'Chuyen De 2', 'NCD01');
+insert into LopChuyenDe values ('CD03', 'Chuyen De 3', 'NCD02');
+insert into LopChuyenDe values ('CD04', 'Chuyen De 4', 'NCD02');
 
 create table LopChuyenDeMo
 (

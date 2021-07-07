@@ -11,7 +11,6 @@ namespace DTO_TTTH
         public string ID { get; set; }
         public string Name { get; set; }
         public string ID_Course { get; set; }
-        public string ID_Subject { get; set; }
         public string ID_Teacher { get; set; }
         public string Schedule { get; set; }
 
@@ -20,16 +19,14 @@ namespace DTO_TTTH
             ID = "";
             Name = "";
             ID_Course = "";
-            ID_Subject = "";
             ID_Teacher = "";
             Schedule = "";
         }
-        public DTO_LopKTVMo(string id, string name, string id_Course, string id_Subject, string id_Teacher, string schedule)
+        public DTO_LopKTVMo(string id, string name, string id_Course, string id_Teacher, string schedule)
         {
             ID = id;
             Name = name;
             ID_Course = id_Course;
-            ID_Subject = id_Subject;
             ID_Teacher = id_Teacher;
             Schedule = schedule;
         }

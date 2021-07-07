@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="LichDay" Height="700" Width="1300" ResizeMode="NoResize">
     <Grid>
-        <Label Content="LỊCH DẠY" HorizontalAlignment="Left" Margin="545,100,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
+        <Label Content="LỊCH DẠY" HorizontalAlignment="Left" Margin="545,70,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
         <DataGrid x:Name="dtg_schedule" HorizontalAlignment="Left" Height="387" Margin="206,217,0,0" VerticalAlignment="Top" Width="873" Loaded="dtg_schedule_Loaded"/>
 
     </Grid>

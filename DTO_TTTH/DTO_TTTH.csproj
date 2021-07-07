@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DTO_Account.cs" />
     <Compile Include="DTO_GiangVien.cs" />
     <Compile Include="DTO_HocVien.cs" />
