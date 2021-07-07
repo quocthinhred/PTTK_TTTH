@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DAL_Account.cs" />
     <Compile Include="DAL_HocVien.cs" />
+    <Compile Include="DAL_Khoa.cs" />
     <Compile Include="DAL_LopCCMo.cs" />
     <Compile Include="DAL_LopCDMo.cs" />
     <Compile Include="DAL_LopKTVMo.cs" />

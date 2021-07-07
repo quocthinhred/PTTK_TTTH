@@ -43,7 +43,8 @@
   <ItemGroup>
     <Compile Include="BUS_Account.cs" />
     <Compile Include="BUS_HocVien.cs" />
-    <Compile Include="BUS_LichHoc.cs" />
+    <Compile Include="BUS_Khoa.cs" />
+    <Compile Include="BUS_Lop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

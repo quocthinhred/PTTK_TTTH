@@ -8,7 +8,7 @@
         Title="GV_LopHoc" Height="700" Width="1300" ResizeMode="NoResize">
     <Grid>
         <Label Content="DANH SÁCH LỚP CỦA BẠN" HorizontalAlignment="Left" Margin="339,60,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
-        <DataGrid x:Name="dtg_class" HorizontalAlignment="Left" Height="478" Margin="188,154,0,0" VerticalAlignment="Top" Width="938"/>
+        <DataGrid x:Name="dtg_class" HorizontalAlignment="Left" Height="478" Margin="188,154,0,0" VerticalAlignment="Top" Width="938" Loaded="dtg_class_Loaded" VerticalContentAlignment="Center"/>
 
     </Grid>
 </Window>

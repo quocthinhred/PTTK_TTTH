@@ -11,13 +11,13 @@ namespace DAL_TTTH
 {
     public class DAL_HocVien
     {
-        public List<DTO_HocVien> getStudents()
+        public static List<DTO_HocVien> getStudents()
         {
             List<DTO_HocVien> Students = new List<DTO_HocVien>();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM HocVien", DBConnect.conn);
-            DataTable dtAccount = new DataTable();
-            da.Fill(dtAccount);
-            foreach (DataRow row in dtAccount.Rows)
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow row in dt.Rows)
             {
                 string id = row["MaHV"].ToString();
                 string name = row["HoTen"].ToString();

@@ -6,22 +6,29 @@ using System.Threading.Tasks;
 
 namespace DTO_TTTH
 {
-    public class DTO_LichHoc
+    public class DTO_Lop
     {
         public string ID_Class { get; set; }
         public string Name { get; set; }
+        public string ID_Course { get; set; }
         public string Schedule { get; set; }
-        public DTO_LichHoc()
+        public string ID_Teacher { get; set; }
+        public DTO_Lop()
         {
             ID_Class = "";
             Name = "";
             Schedule = "";
+            ID_Course = "";
+            ID_Teacher = ""; 
         }
-        public DTO_LichHoc(string id, string name, string schedule)
+        public DTO_Lop(string id, string name, string id_Course, string schedule, string id_Teacher)
         {
             ID_Class = id;
             Name = name;
             Schedule = schedule;
+            ID_Course = id_Course;
+            ID_Teacher = id_Teacher;
         }
+
     }
 }

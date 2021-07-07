@@ -15,9 +15,9 @@ namespace DAL_TTTH
         {
             List<DTO_LopKTVMo> DSLopKTVMo = new List<DTO_LopKTVMo>();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Mon M, LopKTVMo LKTVM WHERE M.MaMon = LKTVM.MaMon", DBConnect.conn);
-            DataTable dtAccount = new DataTable();
-            da.Fill(dtAccount);
-            foreach (DataRow row in dtAccount.Rows)
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow row in dt.Rows)
             {
                 string id = row["MaMon"].ToString();
                 string name = row["TenMon"].ToString();

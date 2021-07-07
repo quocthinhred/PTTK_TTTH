@@ -11,10 +11,10 @@ namespace DAL_TTTH
 {
     public class DAL_Khoa
     {
-        public List<DTO_Khoa> getCourses()
+        public static List<DTO_Khoa> getCourses()
         {
             List<DTO_Khoa> Courses = new List<DTO_Khoa>();
-            SqlDataAdapter da = new SqlDataAdapter("", DBConnect.conn);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Khoa", DBConnect.conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
             foreach(DataRow row in dt.Rows)
@@ -22,10 +22,11 @@ namespace DAL_TTTH
                 string id = row["MaKhoa"].ToString();
                 string startDate = row["NgayBD"].ToString();
                 string endDate = row["NgayKT"].ToString();
-                DTO_Khoa course = new DTO_Khoa();
+                DTO_Khoa course = new DTO_Khoa(id, startDate, endDate);
                 Courses.Add(course);
             }
             return Courses;
         }
+        
     }
 }

@@ -44,7 +44,8 @@
     <Compile Include="DTO_Account.cs" />
     <Compile Include="DTO_GiangVien.cs" />
     <Compile Include="DTO_HocVien.cs" />
-    <Compile Include="DTO_LichHoc.cs" />
+    <Compile Include="DTO_Khoa.cs" />
+    <Compile Include="DTO_Lop.cs" />
     <Compile Include="DTO_LopCCMo.cs" />
     <Compile Include="DTO_LopCDMo.cs" />
     <Compile Include="DTO_LopKTVMo.cs" />

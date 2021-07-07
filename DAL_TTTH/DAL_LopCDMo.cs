@@ -14,9 +14,9 @@ namespace DAL_TTTH
         {
             List<DTO_LopCDMo> DSLopCDMo = new List<DTO_LopCDMo>();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM LopChuyenDe LCD, LopChuyenDeMo LCDM WHERE LCD.MaLCD = LCDM.MaLCD", DBConnect.conn);
-            DataTable dtAccount = new DataTable();
-            da.Fill(dtAccount);
-            foreach (DataRow row in dtAccount.Rows)
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow row in dt.Rows)
             {
                 string id = row["MaLCD"].ToString();
                 string name = row["TenCD"].ToString();
