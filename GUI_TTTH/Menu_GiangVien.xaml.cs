@@ -38,5 +38,13 @@ namespace GUI_TTTH
             lichDay.ShowDialog();
             this.ShowDialog();
         }
+
+        private void bt_class_Click(object sender, RoutedEventArgs e)
+        {
+            GV_LopHoc lop = new GV_LopHoc(id2);
+            this.Hide();
+            lop.ShowDialog();
+            this.ShowDialog();
+        }
     }
 }
