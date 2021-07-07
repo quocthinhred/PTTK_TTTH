@@ -9,16 +9,92 @@ create table Account
 	type char(1),
 	primary key(username)
 )
-
+go
+alter table Account add check (type = 1 or type = 2 or type = 3)
 go
 insert into Account values ('admin', 'admin', 1);
-insert into Account values ('GV01', 'a', 2);
+
 insert into Account values ('GV01', 'a', 2);
 insert into Account values ('GV02', 'a', 2);
 insert into Account values ('GV03', 'a', 2);
 insert into Account values ('GV04', 'a', 2);
 insert into Account values ('GV05', 'a', 2);
+insert into Account values ('GV06', 'a', 2);
+insert into Account values ('GV07', 'a', 2);
+insert into Account values ('GV08', 'a', 2);
+insert into Account values ('GV09', 'a', 2);
+insert into Account values ('GV10', 'a', 2);
+insert into Account values ('GV11', 'a', 2);
+insert into Account values ('GV12', 'a', 2);
+insert into Account values ('GV13', 'a', 2);
+insert into Account values ('GV14', 'a', 2);
+
 insert into Account values ('HV01', 'a', 3);
+insert into Account values ('HV02', 'a', 3);
+insert into Account values ('HV03', 'a', 3);
+insert into Account values ('HV04', 'a', 3);
+insert into Account values ('HV05', 'a', 3);
+insert into Account values ('HV06', 'a', 3);
+insert into Account values ('HV07', 'a', 3);
+insert into Account values ('HV08', 'a', 3);
+insert into Account values ('HV09', 'a', 3);
+insert into Account values ('HV10', 'a', 3);
+
+insert into Account values ('HV11', 'a', 3);
+insert into Account values ('HV12', 'a', 3);
+insert into Account values ('HV13', 'a', 3);
+insert into Account values ('HV14', 'a', 3);
+insert into Account values ('HV15', 'a', 3);
+insert into Account values ('HV16', 'a', 3);
+insert into Account values ('HV17', 'a', 3);
+insert into Account values ('HV18', 'a', 3);
+insert into Account values ('HV19', 'a', 3);
+insert into Account values ('HV20', 'a', 3);
+
+insert into Account values ('HV21', 'a', 3);
+insert into Account values ('HV22', 'a', 3);
+insert into Account values ('HV23', 'a', 3);
+insert into Account values ('HV24', 'a', 3);
+insert into Account values ('HV25', 'a', 3);
+insert into Account values ('HV26', 'a', 3);
+insert into Account values ('HV27', 'a', 3);
+insert into Account values ('HV28', 'a', 3);
+insert into Account values ('HV29', 'a', 3);
+insert into Account values ('HV30', 'a', 3);
+
+insert into Account values ('HV31', 'a', 3);
+insert into Account values ('HV32', 'a', 3);
+insert into Account values ('HV33', 'a', 3);
+insert into Account values ('HV34', 'a', 3);
+insert into Account values ('HV35', 'a', 3);
+insert into Account values ('HV36', 'a', 3);
+insert into Account values ('HV37', 'a', 3);
+insert into Account values ('HV38', 'a', 3);
+insert into Account values ('HV39', 'a', 3);
+insert into Account values ('HV40', 'a', 3);
+
+insert into Account values ('HV41', 'a', 3);
+insert into Account values ('HV42', 'a', 3);
+insert into Account values ('HV43', 'a', 3);
+insert into Account values ('HV44', 'a', 3);
+insert into Account values ('HV45', 'a', 3);
+insert into Account values ('HV46', 'a', 3);
+insert into Account values ('HV47', 'a', 3);
+insert into Account values ('HV48', 'a', 3);
+insert into Account values ('HV49', 'a', 3);
+insert into Account values ('HV50', 'a', 3);
+
+insert into Account values ('HV51', 'a', 3);
+insert into Account values ('HV52', 'a', 3);
+insert into Account values ('HV53', 'a', 3);
+insert into Account values ('HV54', 'a', 3);
+insert into Account values ('HV55', 'a', 3);
+insert into Account values ('HV56', 'a', 3);
+insert into Account values ('HV57', 'a', 3);
+insert into Account values ('HV58', 'a', 3);
+insert into Account values ('HV59', 'a', 3);
+insert into Account values ('HV60', 'a', 3);
+
 go
 
 create table GiangVien
@@ -31,20 +107,20 @@ create table GiangVien
 )
 
 go
-insert into GiangVien values ('GV01', 'Nguyễn Văn A', '1990', '0123456789');
-insert into GiangVien values ('GV02', 'Nguyễn Văn B', '1991', '0123456788');
-insert into GiangVien values ('GV03', 'Nguyễn Văn C', '1992', '0123456787');
-insert into GiangVien values ('GV04', 'Nguyễn Văn D', '1993', '0123456786');
-insert into GiangVien values ('GV05', 'Nguyễn Văn E', '1994', '0123456785');
-insert into GiangVien values ('GV06', 'Nguyễn Văn F', '1990', '0123456784');
-insert into GiangVien values ('GV07', 'Nguyễn Văn G', '1991', '0123456783');
-insert into GiangVien values ('GV08', 'Nguyễn Văn H', '1992', '0123456782');
-insert into GiangVien values ('GV09', 'Nguyễn Văn J', '1993', '0123456781');
-insert into GiangVien values ('GV10', 'Nguyễn Văn K', '1994', '0123456780');
-insert into GiangVien values ('GV11', 'Nguyễn Văn L', '1990', '0123456789');
-insert into GiangVien values ('GV12', 'Nguyễn Văn M', '1991', '0123456788');
-insert into GiangVien values ('GV13', 'Nguyễn Văn N', '1992', '0123456787');
-insert into GiangVien values ('GV14', 'Nguyễn Văn O', '1993', '0123456786');
+insert into GiangVien values ('GV01', 'Nguyen Van A', '1990', '0123456789');
+insert into GiangVien values ('GV02', 'Nguyen Van B', '1991', '0123456788');
+insert into GiangVien values ('GV03', 'Nguyen Van C', '1992', '0123456787');
+insert into GiangVien values ('GV04', 'Nguyen Van D', '1993', '0123456786');
+insert into GiangVien values ('GV05', 'Nguyen Van E', '1994', '0123456785');
+insert into GiangVien values ('GV06', 'Nguyen Van F', '1990', '0123456784');
+insert into GiangVien values ('GV07', 'Nguyen Van G', '1991', '0123456783');
+insert into GiangVien values ('GV08', 'Nguyen Van H', '1992', '0123456782');
+insert into GiangVien values ('GV09', 'Nguyen Van J', '1993', '0123456781');
+insert into GiangVien values ('GV10', 'Nguyen Van K', '1994', '0123456780');
+insert into GiangVien values ('GV11', 'Nguyen Van L', '1990', '0123456789');
+insert into GiangVien values ('GV12', 'Nguyen Van M', '1991', '0123456788');
+insert into GiangVien values ('GV13', 'Nguyen Van N', '1992', '0123456787');
+insert into GiangVien values ('GV14', 'Nguyen Van O', '1993', '0123456786');
 
 go
 
@@ -57,71 +133,71 @@ create table HocVien
 	primary key(MaHV)
 )
 go
-insert into HocVien values ('HV01', 'Trần Văn A', '2000', '0123456789');
-insert into HocVien values ('HV02', 'Trần Văn B', '2001', '0123456778');
-insert into HocVien values ('HV03', 'Trần Văn C', '2002', '0123456767');
-insert into HocVien values ('HV04', 'Trần Văn D', '2003', '0123456756');
-insert into HocVien values ('HV05', 'Trần Văn E', '2001', '0123456745');
-insert into HocVien values ('HV06', 'Trần Văn F', '2002', '0123456734');
-insert into HocVien values ('HV07', 'Trần Văn G', '2003', '0123456723');
-insert into HocVien values ('HV08', 'Trần Văn H', '2001', '0123456712');
-insert into HocVien values ('HV09', 'Trần Văn J', '2002', '0123456701');
-insert into HocVien values ('HV10', 'Trần Văn K', '2003', '0123456790');
+insert into HocVien values ('HV01', 'Tran Van A', '2000', '0123456789');
+insert into HocVien values ('HV02', 'Tran Van B', '2001', '0123456778');
+insert into HocVien values ('HV03', 'Tran Van C', '2002', '0123456767');
+insert into HocVien values ('HV04', 'Tran Van D', '2003', '0123456756');
+insert into HocVien values ('HV05', 'Tran Van E', '2001', '0123456745');
+insert into HocVien values ('HV06', 'Tran Van F', '2002', '0123456734');
+insert into HocVien values ('HV07', 'Tran Van G', '2003', '0123456723');
+insert into HocVien values ('HV08', 'Tran Van H', '2001', '0123456712');
+insert into HocVien values ('HV09', 'Tran Van J', '2002', '0123456701');
+insert into HocVien values ('HV10', 'Tran Van K', '2003', '0123456790');
 
-insert into HocVien values ('HV11', 'Phan Văn A', '2000', '0123456789');
-insert into HocVien values ('HV12', 'Phan Văn B', '2001', '0123456778');
-insert into HocVien values ('HV13', 'Phan Văn C', '2002', '0123456767');
-insert into HocVien values ('HV14', 'Phan Văn D', '2003', '0123456756');
-insert into HocVien values ('HV15', 'Phan Văn E', '2001', '0123456745');
-insert into HocVien values ('HV16', 'Phan Văn F', '2002', '0123456734');
-insert into HocVien values ('HV17', 'Phan Văn G', '2003', '0123456723');
-insert into HocVien values ('HV18', 'Phan Văn H', '2001', '0123456712');
-insert into HocVien values ('HV19', 'Phan Văn J', '2002', '0123456701');
-insert into HocVien values ('HV20', 'Phan Văn K', '2003', '0123456790');
+insert into HocVien values ('HV11', 'Phan Van A', '2000', '0123456789');
+insert into HocVien values ('HV12', 'Phan Van B', '2001', '0123456778');
+insert into HocVien values ('HV13', 'Phan Van C', '2002', '0123456767');
+insert into HocVien values ('HV14', 'Phan Van D', '2003', '0123456756');
+insert into HocVien values ('HV15', 'Phan Van E', '2001', '0123456745');
+insert into HocVien values ('HV16', 'Phan Van F', '2002', '0123456734');
+insert into HocVien values ('HV17', 'Phan Van G', '2003', '0123456723');
+insert into HocVien values ('HV18', 'Phan Van H', '2001', '0123456712');
+insert into HocVien values ('HV19', 'Phan Van J', '2002', '0123456701');
+insert into HocVien values ('HV20', 'Phan Van K', '2003', '0123456790');
 
-insert into HocVien values ('HV21', 'Phạm Văn A', '2000', '0123456789');
-insert into HocVien values ('HV22', 'Phạm Văn B', '2001', '0123456778');
-insert into HocVien values ('HV23', 'Phạm Văn C', '2002', '0123456767');
-insert into HocVien values ('HV24', 'Phạm Văn D', '2003', '0123456756');
-insert into HocVien values ('HV25', 'Phạm Văn E', '2001', '0123456745');
-insert into HocVien values ('HV26', 'Phạm Văn F', '2002', '0123456734');
-insert into HocVien values ('HV27', 'Phạm Văn G', '2003', '0123456723');
-insert into HocVien values ('HV28', 'Phạm Văn H', '2001', '0123456712');
-insert into HocVien values ('HV29', 'Phạm Văn J', '2002', '0123456701');
-insert into HocVien values ('HV30', 'Phạm Văn K', '2003', '0123456790');
+insert into HocVien values ('HV21', 'Pham Van A', '2000', '0123456789');
+insert into HocVien values ('HV22', 'Pham Van B', '2001', '0123456778');
+insert into HocVien values ('HV23', 'Pham Van C', '2002', '0123456767');
+insert into HocVien values ('HV24', 'Pham Van D', '2003', '0123456756');
+insert into HocVien values ('HV25', 'Pham Van E', '2001', '0123456745');
+insert into HocVien values ('HV26', 'Pham Van F', '2002', '0123456734');
+insert into HocVien values ('HV27', 'Pham Van G', '2003', '0123456723');
+insert into HocVien values ('HV28', 'Pham Van H', '2001', '0123456712');
+insert into HocVien values ('HV29', 'Pham Van J', '2002', '0123456701');
+insert into HocVien values ('HV30', 'Pham Van K', '2003', '0123456790');
 
-insert into HocVien values ('HV31', 'Phùng Văn A', '2000', '0123456789');
-insert into HocVien values ('HV32', 'Phùng Văn B', '2001', '0123456778');
-insert into HocVien values ('HV33', 'Phùng Văn C', '2002', '0123456767');
-insert into HocVien values ('HV34', 'Phùng Văn D', '2003', '0123456756');
-insert into HocVien values ('HV35', 'Phùng Văn E', '2001', '0123456745');
-insert into HocVien values ('HV36', 'Phùng Văn F', '2002', '0123456734');
-insert into HocVien values ('HV37', 'Phùng Văn G', '2003', '0123456723');
-insert into HocVien values ('HV38', 'Phùng Văn H', '2001', '0123456712');
-insert into HocVien values ('HV39', 'Phùng Văn J', '2002', '0123456701');
-insert into HocVien values ('HV40', 'Phùng Văn K', '2003', '0123456790');
+insert into HocVien values ('HV31', 'Phung Van A', '2000', '0123456789');
+insert into HocVien values ('HV32', 'Phung Van B', '2001', '0123456778');
+insert into HocVien values ('HV33', 'Phung Van C', '2002', '0123456767');
+insert into HocVien values ('HV34', 'Phung Van D', '2003', '0123456756');
+insert into HocVien values ('HV35', 'Phung Van E', '2001', '0123456745');
+insert into HocVien values ('HV36', 'Phung Van F', '2002', '0123456734');
+insert into HocVien values ('HV37', 'Phung Van G', '2003', '0123456723');
+insert into HocVien values ('HV38', 'Phung Van H', '2001', '0123456712');
+insert into HocVien values ('HV39', 'Phung Van J', '2002', '0123456701');
+insert into HocVien values ('HV40', 'Phung Van K', '2003', '0123456790');
 
-insert into HocVien values ('HV41', 'Hồ Văn A', '2000', '0123456789');
-insert into HocVien values ('HV42', 'Hồ Văn B', '2001', '0123456778');
-insert into HocVien values ('HV43', 'Hồ Văn C', '2002', '0123456767');
-insert into HocVien values ('HV44', 'Hồ Văn D', '2003', '0123456756');
-insert into HocVien values ('HV45', 'Hồ Văn E', '2001', '0123456745');
-insert into HocVien values ('HV46', 'Hồ Văn F', '2002', '0123456734');
-insert into HocVien values ('HV47', 'Hồ Văn G', '2003', '0123456723');
-insert into HocVien values ('HV48', 'Hồ Văn H', '2001', '0123456712');
-insert into HocVien values ('HV49', 'Hồ Văn J', '2002', '0123456701');
-insert into HocVien values ('HV50', 'Hồ Văn K', '2003', '0123456790');
+insert into HocVien values ('HV41', 'Ho Van A', '2000', '0123456789');
+insert into HocVien values ('HV42', 'Ho Van B', '2001', '0123456778');
+insert into HocVien values ('HV43', 'Ho Van C', '2002', '0123456767');
+insert into HocVien values ('HV44', 'Ho Van D', '2003', '0123456756');
+insert into HocVien values ('HV45', 'Ho Van E', '2001', '0123456745');
+insert into HocVien values ('HV46', 'Ho Van F', '2002', '0123456734');
+insert into HocVien values ('HV47', 'Ho Van G', '2003', '0123456723');
+insert into HocVien values ('HV48', 'Ho Van H', '2001', '0123456712');
+insert into HocVien values ('HV49', 'Ho Van J', '2002', '0123456701');
+insert into HocVien values ('HV50', 'Ho Van K', '2003', '0123456790');
 
-insert into HocVien values ('HV51', 'Lê Văn A', '2000', '0123456789');
-insert into HocVien values ('HV52', 'Lê Văn B', '2001', '0123456778');
-insert into HocVien values ('HV53', 'Lê Văn C', '2002', '0123456767');
-insert into HocVien values ('HV54', 'Lê Văn D', '2003', '0123456756');
-insert into HocVien values ('HV55', 'Lê Văn E', '2001', '0123456745');
-insert into HocVien values ('HV56', 'Lê Văn F', '2002', '0123456734');
-insert into HocVien values ('HV57', 'Lê Văn G', '2003', '0123456723');
-insert into HocVien values ('HV58', 'Lê Văn H', '2001', '0123456712');
-insert into HocVien values ('HV59', 'Lê Văn J', '2002', '0123456701');
-insert into HocVien values ('HV60', 'Lê Văn K', '2003', '0123456790');
+insert into HocVien values ('HV51', 'Le Van A', '2000', '0123456789');
+insert into HocVien values ('HV52', 'Le Van B', '2001', '0123456778');
+insert into HocVien values ('HV53', 'Le Van C', '2002', '0123456767');
+insert into HocVien values ('HV54', 'Le Van D', '2003', '0123456756');
+insert into HocVien values ('HV55', 'Le Van E', '2001', '0123456745');
+insert into HocVien values ('HV56', 'Le Van F', '2002', '0123456734');
+insert into HocVien values ('HV57', 'Le Van G', '2003', '0123456723');
+insert into HocVien values ('HV58', 'Le Van H', '2001', '0123456712');
+insert into HocVien values ('HV59', 'Le Van J', '2002', '0123456701');
+insert into HocVien values ('HV60', 'Le Van K', '2003', '0123456790');
 go
 create table Khoa
 (
@@ -130,6 +206,8 @@ create table Khoa
 	NgayKT date,
 	primary key (MaKhoa)
 )
+go
+alter table Khoa add check (NgayKT > NgayBD)
 go
 --delete from Khoa where MaKhoa = 'K1'
 insert into Khoa values ('K1','01/01/2020','06/30/2020');
@@ -158,6 +236,8 @@ create table Mon
 	primary key (MaMon)
 )
 go
+alter table Mon add constraint FK_Mon_MaNHP foreign key (MaNHP) references NhomHocPhan(MaNHP);
+go
 insert into Mon values ('M01', 'Mon 1', 1, 'NHP01');
 insert into Mon values ('M02', 'Mon 2', 1, 'NHP01');
 insert into Mon values ('M03', 'Mon 3', 1, 'NHP01');
@@ -177,6 +257,9 @@ create table NhomHocPhanMo
 	primary key (MaNHP,MaKhoa)
 )
 go
+alter table NhomHocPhanMo add constraint FK_NhomHocPhanMo_NHP foreign key (MaNHP) references NhomHocPhan(MaNHP);
+alter table NhomHocPhanMo add constraint FK_NhomHocPhanMo_Khoa foreign key (MaKhoa) references Khoa(MaKhoa);
+go
 insert into NhomHocPhanMo values ('NHP01','K1');
 insert into NhomHocPhanMo values ('NHP02','K2');
 insert into NhomHocPhanMo values ('NHP01','K3');
@@ -188,31 +271,34 @@ create table LopKTVMo
 	MaMon varchar(10),
 	MaKhoa varchar(10),
 	MaGV varchar(10),
-	LichHoc nvarchar(100),
+	LichHoc varchar(100),
 	primary key(MaMon, MaKhoa)
 )
 go
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV01', 'M01', 'Phòng E101, 17:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV02', 'M02', 'Phòng E102, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV03', 'M03', 'Phòng E103, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV04', 'M04', 'Phòng E104, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV05', 'M05', 'Phòng E105, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV01', 'M06', 'Phòng E101, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV02', 'M07', 'Phòng E102, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV03', 'M08', 'Phòng E103, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV04', 'M09', 'Phòng E104, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV05', 'M10', 'Phòng E105, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV01', 'M01', 'Phòng E101, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV02', 'M02', 'Phòng E102, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV03', 'M03', 'Phòng E103, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV04', 'M04', 'Phòng E104, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV05', 'M05', 'Phòng E105, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV01', 'M06', 'Phòng E101, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV02', 'M07', 'Phòng E102, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV03', 'M08', 'Phòng E103, 17:00 Thứ 3, 5, 7');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV04', 'M09', 'Phòng E104, 19:00 Thứ 2, 4, 6');
-insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV05', 'M10', 'Phòng E105, 17:00 Thứ 3, 5, 7');
-
+alter table LopKTVMo add constraint FK_LopKTVMo_Mon foreign key (MaMon) references Mon(MaMon);
+alter table LopKTVMo add constraint FK_LopKTVMo_Khoa foreign key (MaKhoa) references Khoa(MaKhoa);
+alter table LopKTVMo add constraint FK_LopKTVMo_GiangVien foreign key (MaGV) references GiangVien(MaGV);
+go
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV01', 'M01', 'E101, 17:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV02', 'M02', 'E102, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV03', 'M03', 'E103, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV04', 'M04', 'E104, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K1', 'GV05', 'M05', 'E105, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV01', 'M06', 'E101, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV02', 'M07', 'E102, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV03', 'M08', 'E103, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV04', 'M09', 'E104, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K2', 'GV05', 'M10', 'E105, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV01', 'M01', 'E101, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV02', 'M02', 'E102, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV03', 'M03', 'E103, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV04', 'M04', 'E104, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K3', 'GV05', 'M05', 'E105, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV01', 'M06', 'E101, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV02', 'M07', 'E102, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV03', 'M08', 'E103, 17:00 Thu 3, 5, 7');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV04', 'M09', 'E104, 19:00 Thu 2, 4, 6');
+insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV05', 'M10', 'E105, 17:00 Thu 3, 5, 7');
 
 
 go
@@ -227,6 +313,14 @@ create table DangKiNhomHocPhan
 	KetQua int,
 	primary key (MaHV,MaNHP,MaKhoa)
 )
+go
+alter table DangKiNhomHocPhan add check (SoLanThiLai >= 0 and SoLanThiLai <= 3);
+alter table DangKiNhomHocPhan add check (KetQua = 0 or KetQua = 1 or KetQua = null);
+alter table DangKiNhomHocPhan add check ((DTB >= 0 and DTB <= 10) or DTB = null);
+go
+alter table DangKiNhomHocPhan add constraint FK_DKNHP_HocVien foreign key (MaHV) references HocVien(MaHV);
+alter table DangKiNhomHocPhan add constraint FK_DKNHP_NHPM foreign key (MaNHP,MaKhoa) references NhomHocPhanMo(MaNHP,MaKhoa);
+
 go
 insert into DangKiNhomHocPhan values ('HV01','NHP01','K1',8,1000000,0,1);
 insert into DangKiNhomHocPhan values ('HV02','NHP01','K1',9,1000000,0,1);
@@ -282,6 +376,13 @@ create table BangDiem
 	NgayThi date,
 	primary key (MaHV,MaMon,MaKhoa,LanThi)
 )
+go
+alter table BangDiem add constraint FK_BangDiem_HV foreign key (MaHV) references HocVien(MaHV);
+alter table BangDiem add constraint FK_BangDiem_Mon foreign key (MaMon,MaKhoa) references LopKTVMo(MaMon,MaKhoa);
+--alter table BangDiem add constraint FK_BangDiem_Khoa foreign key (MaKhoa) references Khoa(MaKhoa);
+go
+alter table BangDiem add check (LanThi >= 0 and LanThi <= 4);
+alter table BangDiem add check ((DiemThi >= 0 and DiemThi <= 10) or DiemThi = null);
 go
 insert into BangDiem values ('HV01','M01', 'K1', 1, 8, '06/15/2020');
 insert into BangDiem values ('HV01','M02', 'K1', 1, 8, '06/15/2020');
@@ -576,7 +677,8 @@ create table Nhanh
 	MaCC varchar(10),
 	primary key (MaNhanh)
 )
-
+go
+alter table Nhanh add constraint FK_Nhanh_CC foreign key (MaCC) references ChungChi(MaCC);
 go
 
 insert into Nhanh values ('NCCA1', 'Nhanh chung chi A 1', 'CCA');
@@ -587,18 +689,21 @@ go
 create table LopChungChi
 (
 	MaLCC varchar(10),
+	TenLCC varchar(50),
 	MaNhanh varchar(10),
 	primary key (MaLCC)
 )
 go
-insert into LopChungChi values ('LCC01', 'NCCA1');
-insert into LopChungChi values ('LCC02', 'NCCA1');
-insert into LopChungChi values ('LCC03', 'NCCA1');
+alter table LopChungChi add constraint FK_LCC_Nhanh foreign key (MaNhanh) references Nhanh(MaNhanh);
+go
+insert into LopChungChi values ('LCC01', 'Lop Chung Chi 1', 'NCCA1');
+insert into LopChungChi values ('LCC02', 'Lop Chung Chi 2','NCCA1');
+insert into LopChungChi values ('LCC03', 'Lop Chung Chi 3','NCCA1');
 
-insert into LopChungChi values ('LCC04', 'NCCB1');
-insert into LopChungChi values ('LCC05', 'NCCB1');
-insert into LopChungChi values ('LCC06', 'NCCB2');
-insert into LopChungChi values ('LCC07', 'NCCB2');
+insert into LopChungChi values ('LCC04', 'Lop Chung Chi 4','NCCB1');
+insert into LopChungChi values ('LCC05', 'Lop Chung Chi 5','NCCB1');
+insert into LopChungChi values ('LCC06', 'Lop Chung Chi 6','NCCB2');
+insert into LopChungChi values ('LCC07', 'Lop Chung Chi 7','NCCB2');
 
 
 create table LopChungChiMo
@@ -609,6 +714,10 @@ create table LopChungChiMo
 	MaGV varchar(10),
 	primary key (MaLCC, MaKhoa)
 )
+go
+alter table LopChungChiMo add constraint FK_LCCM_LCC foreign key (MaLCC) references LopChungChi(MaLCC);
+alter table LopChungChiMo add constraint FK_LCCM_Khoa foreign key (MaKhoa) references Khoa(MaKhoa);
+alter table LopChungChiMo add constraint FK_LCCM_GV foreign key (MaGV) references GiangVien(MaGV);
 go
 insert into LopChungChiMo values ('LCC01', 'K1', 'A101, 7:30, Thu 2, 4, 6', 'GV06');
 insert into LopChungChiMo values ('LCC02', 'K1', 'A102, 7:30, Thu 3, 5, 7', 'GV07');
@@ -650,9 +759,15 @@ create table DangKyLopChungChi
 	HocPhi int,
 	DiemThi float,
 	NgayThi date,
-
 	primary key (MaHV, MaLCC, MaKhoa)
 )
+go
+alter table DangKyLopChungChi add constraint FK_DKLCC_HV foreign key (MaHV) references HocVien(MaHV);
+alter table DangKyLopChungChi add constraint FK_DKLCC_LVV foreign key (MaLCC,MaKhoa) references LopChungChiMo(MaLCC,MaKhoa);
+--alter table DangKyLopChungChi add constraint FK_DKLCC_Khoa foreign key (MaKhoa) references LopChungChi(MaKhoa);
+go
+alter table DangKyLopChungChi add check (HocPhi > 0);
+alter table DangKyLopChungChi add check ((DiemThi >= 0 and DiemThi <= 10) or DiemThi = null);
 go
 insert into DangKyLopChungChi values ('HV01', 'LCC01', 'K1', 1000000, 5, '06/15/2020');
 insert into DangKyLopChungChi values ('HV02', 'LCC01', 'K1', 1000000, 6, '06/15/2020');
@@ -826,19 +941,85 @@ go
 create table HocVien_ChungChi
 (
 	MaHV varchar(10),
-	MaLCC varchar(10),
-	KetQua varchar(50),
-	primary key (MaHV, MaLCC)
+	MaCC varchar(10),
+	KetQua int,
+	primary key (MaHV, MaCC)
 )
+go
+alter table HocVien_ChungChi add constraint FK_HVCCC_HV foreign key (MaHV) references HocVien(MaHV);
+alter table HocVien_ChungChi add constraint FK_HVCCC_CC foreign key (MaCC) references ChungChi(MaCC);
+go
+alter table HocVien_ChungChi add check (KetQua = null or KetQua = 0 or KetQua = 1)
+go
+insert into HocVien_ChungChi values ('HV01','CCA', 1);
+insert into HocVien_ChungChi values ('HV02','CCA', 1);
+insert into HocVien_ChungChi values ('HV03','CCA', 1);
+insert into HocVien_ChungChi values ('HV04','CCA', 1);
+insert into HocVien_ChungChi values ('HV05','CCA', 1);
 
-create procedure fill_HocVien_ChungChi ()
+insert into HocVien_ChungChi values ('HV06','CCB', 1);
+insert into HocVien_ChungChi values ('HV07','CCB', 1);
+insert into HocVien_ChungChi values ('HV08','CCB', 1);
+insert into HocVien_ChungChi values ('HV09','CCB', 1);
+insert into HocVien_ChungChi values ('HV10','CCB', 1);
+insert into HocVien_ChungChi values ('HV11','CCB', 1);
+insert into HocVien_ChungChi values ('HV12','CCB', 1);
+insert into HocVien_ChungChi values ('HV13','CCB', 1);
+insert into HocVien_ChungChi values ('HV14','CCB', 1);
+insert into HocVien_ChungChi values ('HV15','CCB', 1);
 
+insert into HocVien_ChungChi values ('HV16','CCA', 1);
+insert into HocVien_ChungChi values ('HV17','CCA', 1);
+insert into HocVien_ChungChi values ('HV18','CCA', 1);
+insert into HocVien_ChungChi values ('HV19','CCA', 1);
+insert into HocVien_ChungChi values ('HV20','CCA', 1);
 
+insert into HocVien_ChungChi values ('HV21','CCB', 1);
+insert into HocVien_ChungChi values ('HV22','CCB', 1);
+insert into HocVien_ChungChi values ('HV23','CCB', 1);
+insert into HocVien_ChungChi values ('HV24','CCB', 1);
+insert into HocVien_ChungChi values ('HV25','CCB', 1);
+insert into HocVien_ChungChi values ('HV26','CCB', 1);
+insert into HocVien_ChungChi values ('HV27','CCB', 1);
+insert into HocVien_ChungChi values ('HV28','CCB', 1);
+insert into HocVien_ChungChi values ('HV29','CCB', 1);
+insert into HocVien_ChungChi values ('HV30','CCB', 1);
 
+insert into HocVien_ChungChi values ('HV31','CCA', 1);
+insert into HocVien_ChungChi values ('HV32','CCA', 1);
+insert into HocVien_ChungChi values ('HV33','CCA', 1);
+insert into HocVien_ChungChi values ('HV34','CCA', 1);
+insert into HocVien_ChungChi values ('HV35','CCA', 1);
 
+insert into HocVien_ChungChi values ('HV36','CCB', 1);
+insert into HocVien_ChungChi values ('HV37','CCB', 1);
+insert into HocVien_ChungChi values ('HV38','CCB', 1);
+insert into HocVien_ChungChi values ('HV39','CCB', 1);
+insert into HocVien_ChungChi values ('HV40','CCB', 1);
+insert into HocVien_ChungChi values ('HV41','CCB', 1);
+insert into HocVien_ChungChi values ('HV42','CCB', 1);
+insert into HocVien_ChungChi values ('HV43','CCB', 1);
+insert into HocVien_ChungChi values ('HV44','CCB', 1);
+insert into HocVien_ChungChi values ('HV45','CCB', 1);
 
+insert into HocVien_ChungChi values ('HV46','CCA', null);
+insert into HocVien_ChungChi values ('HV47','CCA', null);
+insert into HocVien_ChungChi values ('HV48','CCA', null);
+insert into HocVien_ChungChi values ('HV49','CCA', null);
+insert into HocVien_ChungChi values ('HV50','CCA', null);
 
+insert into HocVien_ChungChi values ('HV51','CCB', null);
+insert into HocVien_ChungChi values ('HV52','CCB', null);
+insert into HocVien_ChungChi values ('HV53','CCB', null);
+insert into HocVien_ChungChi values ('HV54','CCB', null);
+insert into HocVien_ChungChi values ('HV55','CCB', null);
+insert into HocVien_ChungChi values ('HV56','CCB', null);
+insert into HocVien_ChungChi values ('HV57','CCB', null);
+insert into HocVien_ChungChi values ('HV58','CCB', null);
+insert into HocVien_ChungChi values ('HV59','CCB', null);
+insert into HocVien_ChungChi values ('HV60','CCB', null);
 
+go
 create table NhomChuyenDe
 (
 	MaNCD varchar(10),
@@ -858,10 +1039,12 @@ create table LopChuyenDe
 	primary key (MaLCD)
 )
 go
-insert into LopChuyenDe values ('CD01', 'Chuyen De 1');
-insert into LopChuyenDe values ('CD02', 'Chuyen De 2');
-insert into LopChuyenDe values ('CD03', 'Chuyen De 3');
-insert into LopChuyenDe values ('CD04', 'Chuyen De 4');
+alter table LopChuyenDe add constraint FK_LCD_NCD foreign key (MaNCD) references NhomChuyenDe(MaNCD);
+go
+insert into LopChuyenDe values ('CD01', 'Chuyen De 1', 'NCD01');
+insert into LopChuyenDe values ('CD02', 'Chuyen De 2', 'NCD01');
+insert into LopChuyenDe values ('CD03', 'Chuyen De 3', 'NCD02');
+insert into LopChuyenDe values ('CD04', 'Chuyen De 4', 'NCD02');
 
 create table LopChuyenDeMo
 (
@@ -871,6 +1054,10 @@ create table LopChuyenDeMo
 	MaGV varchar(10),
 	primary key (MaLCD, MaKhoa)
 )
+go
+alter table LopChuyenDeMo add constraint FK_LCDM_LCD foreign key (MaLCD) references LopChuyenDe(MaLCD);
+alter table LopChuyenDeMo add constraint FK_LCDM_Khoa foreign key (MaKhoa) references Khoa(MaKhoa);
+alter table LopChuyenDeMo add constraint FK_LCDM_GV foreign key (MaGV) references GiangVien(MaGV);
 go
 insert into LopChuyenDeMo values ('CD01', 'K1', 'C101, 12:30, Thu 2, 4, 6', 'GV11');
 insert into LopChuyenDeMo values ('CD02', 'K1', 'C102, 12:30, Thu 2, 4, 6', 'GV12');
@@ -902,6 +1089,11 @@ create table DangKyLopChuyenDe
 	HocPhi int,
 	primary key (MaHV, MaLCD, MaKhoa)
 )
+go
+alter table DangKyLopChuyenDe add constraint FK_DKLCD_HV foreign key (MaHV) references HocVien(MaHV);
+alter table DangKyLopChuyenDe add constraint FK_DKLCD_LCDM foreign key (MaLCD,MaKhoa) references LopChuyenDeMo(MaLCD,MaKhoa);
+go
+alter table DangKyLopChuyenDe add check (HocPhi > 0);
 go
 --21-30 hoc 1-2 31-40 hoc 3-4
 insert into DangKyLopChuyenDe values ('HV21', 'CD01', 'K1', 1500000);
@@ -1092,6 +1284,13 @@ create table HocVien_TotNghiep
 	primary key (MaHV, MaKhoa)
 )
 go 
+alter table HocVien_TotNghiep add constraint FK_HVTN_HV foreign key (MaHV) references HocVien(MaHV);
+alter table HocVien_TotNghiep add constraint FK_HVTN_Khoa foreign key (MaKhoa) references Khoa(MaKhoa);
+alter table HocVien_TotNghiep add constraint FK_HVTN_GV foreign key (MaGV) references GiangVien(MaGV);
+go
+alter table HocVien_TotNghiep add check (PhiDuThi > 0);
+alter table HocVien_TotNghiep add check ((Diem >= 0 and Diem <= 10) or Diem = null);
+go
 insert into HocVien_TotNghiep values ('HV01', 'K2', 5, 100000, '12/30/2020', 'GV01');
 insert into HocVien_TotNghiep values ('HV02', 'K2', 6, 100000, '12/30/2020', 'GV02');
 insert into HocVien_TotNghiep values ('HV03', 'K2', 7, 100000, '12/30/2020', 'GV03');
