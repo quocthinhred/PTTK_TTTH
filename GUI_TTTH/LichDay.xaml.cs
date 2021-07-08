@@ -41,16 +41,12 @@ namespace GUI_TTTH
             tb_time.Text = tb_time.Text + course.StartDate.Substring(0, course.StartDate.IndexOf(" ")) + " - " + course.EndDate.Substring(0, course.EndDate.IndexOf(" "));
         }
 
-        private void dtg_schedule_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            
-
-        }
 
         private void dtg_schedule_Loaded(object sender, RoutedEventArgs e)
         {
             dtg_schedule.Columns[0].Width = 100;
-            dtg_schedule.FontSize = 18;
+            dtg_schedule.FontSize = 20;
+            dtg_schedule.RowHeight = 35;
             dtg_schedule.Columns[1].Width = 200;
             dtg_schedule.Columns[3].Width = dtg_schedule.Width - 310;
             dtg_schedule.Columns[2].Visibility = Visibility.Hidden;

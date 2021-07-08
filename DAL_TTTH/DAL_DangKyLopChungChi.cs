@@ -10,7 +10,7 @@ namespace DAL_TTTH
 {
     public class DAL_DangKyLopChungChi
     {
-        public List<DTO_DangKyLopChungChi> getRegisterCerti()
+        public static List<DTO_DangKyLopChungChi> getRegisterCerti()
         {
             List<DTO_DangKyLopChungChi> Registers = new List<DTO_DangKyLopChungChi>();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM DangKyLopChungChi", DBConnect.conn);

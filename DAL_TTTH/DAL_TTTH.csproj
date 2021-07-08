@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL_Account.cs" />
+    <Compile Include="DAL_BangDiem.cs" />
+    <Compile Include="DAL_DangKyLopChungChi.cs" />
+    <Compile Include="DAL_DangKyLopChuyenDe.cs" />
     <Compile Include="DAL_HocVien.cs" />
     <Compile Include="DAL_Khoa.cs" />
     <Compile Include="DAL_LopCCMo.cs" />
