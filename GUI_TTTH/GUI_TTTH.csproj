@@ -38,6 +38,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -76,6 +78,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GV_BangDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GV_BangDiem.Designer.cs">
+      <DependentUpon>GV_BangDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="GV_LopHoc.xaml.cs">
       <DependentUpon>GV_LopHoc.xaml</DependentUpon>
     </Compile>
@@ -111,6 +119,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="GV_BangDiem.resx">
+      <DependentUpon>GV_BangDiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

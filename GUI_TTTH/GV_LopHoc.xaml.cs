@@ -66,10 +66,9 @@ namespace GUI_TTTH
             }
             else
             {
-                status = 0;
                 DTO_HocVien student = (DTO_HocVien)dtg_class.SelectedItem;
                 id_student = student.ID;
-                GV_BangDiem table = new GV_BangDiem();
+                GV_BangDiem table = new GV_BangDiem(id_student, id_class);
                 this.Hide();
                 table.ShowDialog();
                 this.ShowDialog();

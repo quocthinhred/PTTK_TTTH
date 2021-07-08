@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DTO_Account.cs" />
     <Compile Include="DTO_BangDiem.cs" />
+    <Compile Include="DTO_BangDiemHV.cs" />
     <Compile Include="DTO_DangKyLopChungChi.cs" />
     <Compile Include="DTO_DangKyLopChuyenDe.cs" />
     <Compile Include="DTO_GiangVien.cs" />

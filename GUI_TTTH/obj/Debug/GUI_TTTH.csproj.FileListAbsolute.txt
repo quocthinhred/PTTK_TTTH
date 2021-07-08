@@ -56,3 +56,4 @@ C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.csproj.Cor
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.csproj.CopyComplete
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.exe
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.pdb
+C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.GV_BangDiem.resources

@@ -42,10 +42,10 @@ namespace GUI_TTTH
             this.label6 = new System.Windows.Forms.Label();
             this.tb_point = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.tb_examcount = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.tb_examdate = new System.Windows.Forms.Label();
+            this.tb_examcount = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tb_examdate = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.bt_ok = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -173,43 +173,43 @@ namespace GUI_TTTH
             this.label7.TabIndex = 11;
             this.label7.Text = "Điểm";
             // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox1.Location = new System.Drawing.Point(124, 634);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(544, 35);
-            this.textBox1.TabIndex = 7;
-            // 
             // tb_examcount
             // 
-            this.tb_examcount.AutoSize = true;
+            this.tb_examcount.Enabled = false;
             this.tb_examcount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tb_examcount.Location = new System.Drawing.Point(119, 597);
+            this.tb_examcount.Location = new System.Drawing.Point(124, 634);
             this.tb_examcount.Name = "tb_examcount";
-            this.tb_examcount.Size = new System.Drawing.Size(93, 29);
-            this.tb_examcount.TabIndex = 13;
-            this.tb_examcount.Text = "Lần Thi";
+            this.tb_examcount.Size = new System.Drawing.Size(544, 35);
+            this.tb_examcount.TabIndex = 7;
             // 
-            // textBox2
+            // label8
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox2.Location = new System.Drawing.Point(124, 715);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(544, 35);
-            this.textBox2.TabIndex = 8;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label8.Location = new System.Drawing.Point(119, 597);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 29);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Lần Thi";
             // 
             // tb_examdate
             // 
-            this.tb_examdate.AutoSize = true;
+            this.tb_examdate.Enabled = false;
             this.tb_examdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tb_examdate.Location = new System.Drawing.Point(119, 678);
+            this.tb_examdate.Location = new System.Drawing.Point(124, 715);
             this.tb_examdate.Name = "tb_examdate";
-            this.tb_examdate.Size = new System.Drawing.Size(110, 29);
-            this.tb_examdate.TabIndex = 15;
-            this.tb_examdate.Text = "Ngày Thi";
+            this.tb_examdate.Size = new System.Drawing.Size(544, 35);
+            this.tb_examdate.TabIndex = 8;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label9.Location = new System.Drawing.Point(119, 678);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(110, 29);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Ngày Thi";
             // 
             // bt_ok
             // 
@@ -222,6 +222,7 @@ namespace GUI_TTTH
             this.bt_ok.TabIndex = 17;
             this.bt_ok.Text = "Xác Nhận";
             this.bt_ok.UseVisualStyleBackColor = false;
+            this.bt_ok.Click += new System.EventHandler(this.bt_ok_Click);
             // 
             // GV_BangDiem
             // 
@@ -229,10 +230,10 @@ namespace GUI_TTTH
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 892);
             this.Controls.Add(this.bt_ok);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.tb_examdate);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.tb_examcount);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.tb_point);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tb_idcourse);
@@ -268,10 +269,10 @@ namespace GUI_TTTH
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tb_point;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label tb_examcount;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label tb_examdate;
+        private System.Windows.Forms.TextBox tb_examcount;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tb_examdate;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button bt_ok;
     }
 }
