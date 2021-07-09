@@ -34,7 +34,7 @@ namespace BUS_TTTH
             }
             for (int i = 0; i < Registers2.Count; i++)
             {
-                DTO_HocVien student = BUS_HocVien.getStudent(Tables[i].ID_Student);
+                DTO_HocVien student = BUS_HocVien.getStudent(Registers2[i].ID_Student);
                 DTO_Lop Class = BUS_Lop.getClass(Registers2[i].ID_Class, Registers2[i].ID_Course);
                 DTO_BangDiemHV table = new DTO_BangDiemHV(student.ID, student.Name, Class.ID_Class, Class.Name, Registers2[i].ID_Course, "NONE", "1", "NONE");
                 StudentTables.Add(table);

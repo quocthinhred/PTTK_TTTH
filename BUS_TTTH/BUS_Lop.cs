@@ -107,5 +107,21 @@ namespace BUS_TTTH
             return Class;
         }
 
+        public static List<DTO_Lop> getScheduleStudent(string id_student)
+        {
+            List<DTO_Lop> schedules = new List<DTO_Lop>();
+            List<DTO_BangDiemHV> studentTable = BUS_BangDiemHV.getAll();
+            DTO_Khoa course = BUS_Khoa.getNewCourse();
+            for (int i = 0; i < studentTable.Count; i++)
+            {
+                if (studentTable[i].ID_Student == id_student && studentTable[i].ID_Course == course.ID && studentTable[i].ExamCount == "1")
+                {
+                    DTO_Lop schedule = getClass(studentTable[i].ID_Class, studentTable[i].ID_Course);
+                    schedules.Add(schedule);
+                }
+            }  
+            return schedules;
+        }
+
     }
 }
