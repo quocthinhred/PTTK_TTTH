@@ -39,3 +39,5 @@ C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\Menu_NhanVien.g.cs
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\NV_HocVien.g.cs
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\Menu_NhanVien.baml
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\NV_HocVien.baml
+C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\NV_GiangVien.g.cs
+C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\NV_GiangVien.baml

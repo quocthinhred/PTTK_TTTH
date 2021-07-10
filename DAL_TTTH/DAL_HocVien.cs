@@ -43,5 +43,12 @@ namespace DAL_TTTH
             da.Fill(dt);
         }
 
+        public static void updateStudent(DTO_HocVien student)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("UPDATE HOCVIEN SET HOTEN = '" + student.Name + "', NAMSINH = '" + student.Birth + "', SDT = '" + student.Phone + "' WHERE MAHV = '" + student.ID + "'", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
+
     }
 }

@@ -5,29 +5,30 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO_TTTH;
 using DAL_TTTH;
+
 namespace BUS_TTTH
 {
-    public class BUS_HocVien
+    public class BUS_GiangVien
     {
-        public static List<DTO_HocVien> AllStudents = DAL_HocVien.getStudents();
-        public static DTO_HocVien getStudent(string id)
+        public static List<DTO_GiangVien> AllTeachers = DAL_GiangVien.getTeachers();
+        public static DTO_GiangVien getStudent(string id)
         {
-            DTO_HocVien student = new DTO_HocVien();
-            for (int i = 0; i < AllStudents.Count; i++)
+            DTO_GiangVien teacher = new DTO_GiangVien();
+            for (int i = 0; i < AllTeachers.Count; i++)
             {
-                if (AllStudents[i].ID == id)
+                if (AllTeachers[i].ID == id)
                 {
-                    student = AllStudents[i];
+                    teacher = AllTeachers[i];
                 }
             }
-            return student;
+            return teacher;
         }
 
-        public static string insertStudent(DTO_HocVien student)
+        public static string insertTeacher(DTO_GiangVien teacher)
         {
             try
             {
-                DAL_HocVien.insertStudent(student);
+                DAL_GiangVien.insertTeacher(teacher);
                 return "Thêm Thành Công!";
             }
             catch (Exception exc)
@@ -37,11 +38,11 @@ namespace BUS_TTTH
         }
 
 
-        public static string deleteStudent(DTO_HocVien student)
+        public static string deleteTeacher(DTO_GiangVien teacher)
         {
             try
             {
-                DAL_HocVien.deleteStudent(student);
+                DAL_GiangVien.deleteTeacher(teacher);
                 return "Xoá Thành Công!";
             }
             catch (Exception exc)
@@ -50,12 +51,12 @@ namespace BUS_TTTH
             }
         }
 
-        public static string updateStudent(DTO_HocVien student)
+        public static string updateTeacher(DTO_GiangVien teacher)
         {
             try
             {
-                DAL_HocVien.updateStudent(student);
-                return "Cập Viên Thành Công!";
+                DAL_GiangVien.updateTeacher(teacher);
+                return "Cập Nhật Thành Công!";
             }
             catch (Exception exc)
             {

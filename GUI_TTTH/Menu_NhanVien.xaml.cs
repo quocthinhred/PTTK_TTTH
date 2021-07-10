@@ -34,7 +34,10 @@ namespace GUI_TTTH
 
         private void bt_teacher_Click(object sender, RoutedEventArgs e)
         {
-
+            NV_GiangVien teacher = new NV_GiangVien();
+            this.Hide();
+            teacher.ShowDialog();
+            this.ShowDialog();
         }
 
         private void bt_class_Click(object sender, RoutedEventArgs e)

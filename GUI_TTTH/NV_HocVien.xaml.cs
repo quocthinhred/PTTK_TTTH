@@ -35,9 +35,9 @@ namespace GUI_TTTH
         private void dtg_student_Loaded(object sender, RoutedEventArgs e)
         {
             dtg_student.Columns[0].Width = 100;
-            dtg_student.Columns[1].Width = 200;
+            dtg_student.Columns[1].Width = 300;
             dtg_student.Columns[2].Width = 200;
-            dtg_student.Columns[3].Width = dtg_student.Width - 525;
+            dtg_student.Columns[3].Width = dtg_student.Width - 625;
             dtg_student.FontSize = 20;
             dtg_student.RowHeight = 35;
         }
@@ -50,13 +50,24 @@ namespace GUI_TTTH
             }
             else
             {
-                DTO_HocVien student = (DTO_HocVien)dtg_student.SelectedItem;
-                string notifi = BUS_HocVien.insertStudent(student);
-                MessageBox.Show(notifi);
-                NV_HocVien hocvien = new NV_HocVien();
-                this.Hide();
-                hocvien.ShowDialog();
-                this.Close();
+                try
+                {
+                    DTO_HocVien student = (DTO_HocVien)dtg_student.SelectedItem;
+                    string notifi = BUS_HocVien.insertStudent(student);
+                    MessageBox.Show(notifi);
+                    dtg_student.ItemsSource = null;
+                    dtg_student.ItemsSource = BUS_HocVien.AllStudents;
+                    dtg_student.Columns[0].Width = 100;
+                    dtg_student.Columns[1].Width = 300;
+                    dtg_student.Columns[2].Width = 200;
+                    dtg_student.Columns[3].Width = dtg_student.Width - 625;
+                    dtg_student.FontSize = 20;
+                    dtg_student.RowHeight = 35;
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
             }
         }
 
@@ -68,13 +79,63 @@ namespace GUI_TTTH
             }
             else
             {
-                DTO_HocVien student = (DTO_HocVien)dtg_student.SelectedItem;
-                string notifi = BUS_HocVien.deleteStudent(student);
-                MessageBox.Show(notifi);
-                NV_HocVien hocvien = new NV_HocVien();
-                this.Hide();
-                hocvien.ShowDialog();
-                this.Close();
+                try
+                {
+                    DTO_HocVien student = (DTO_HocVien)dtg_student.SelectedItem;
+                    string notifi = BUS_HocVien.deleteStudent(student);
+                    MessageBox.Show(notifi);
+                    List<DTO_HocVien> students = BUS_HocVien.AllStudents;
+                    for (int i = 0; i < students.Count; i++)
+                    {
+                        if (student.ID == students[i].ID)
+                        {
+                            students.RemoveAt(i);
+                            break;
+                        }
+                    }
+                    dtg_student.ItemsSource = null;
+                    dtg_student.ItemsSource = students;
+                    dtg_student.Columns[0].Width = 100;
+                    dtg_student.Columns[1].Width = 300;
+                    dtg_student.Columns[2].Width = 200;
+                    dtg_student.Columns[3].Width = dtg_student.Width - 625;
+                    dtg_student.FontSize = 20;
+                    dtg_student.RowHeight = 35;
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+            }
+        }
+
+        private void bt_edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (dtg_student.SelectedItems.Count != 1)
+            {
+                MessageBox.Show("Vui lòng chọn 1 dòng!");
+            }
+            else
+            {
+                try
+                {
+                    DTO_HocVien student = (DTO_HocVien)dtg_student.SelectedItem;
+                    string notifi = BUS_HocVien.updateStudent(student);
+                    MessageBox.Show(notifi);
+                    List<DTO_HocVien> students = BUS_HocVien.AllStudents;
+                    dtg_student.ItemsSource = null;
+                    dtg_student.ItemsSource = students;
+                    dtg_student.Columns[0].Width = 100;
+                    dtg_student.Columns[1].Width = 300;
+                    dtg_student.Columns[2].Width = 200;
+                    dtg_student.Columns[3].Width = dtg_student.Width - 625;
+                    dtg_student.FontSize = 20;
+                    dtg_student.RowHeight = 35;
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
             }
         }
     }

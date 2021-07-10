@@ -123,6 +123,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="NV_GiangVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NV_HocVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +141,9 @@
     </Compile>
     <Compile Include="Menu_NhanVien.xaml.cs">
       <DependentUpon>Menu_NhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NV_GiangVien.xaml.cs">
+      <DependentUpon>NV_GiangVien.xaml</DependentUpon>
     </Compile>
     <Compile Include="NV_HocVien.xaml.cs">
       <DependentUpon>NV_HocVien.xaml</DependentUpon>
