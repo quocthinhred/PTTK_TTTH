@@ -34,7 +34,7 @@ namespace BUS_TTTH
             }
             for (int i = 0; i < Registers2.Count; i++)
             {
-                DTO_HocVien student = BUS_HocVien.getStudent(Tables[i].ID_Student);
+                DTO_HocVien student = BUS_HocVien.getStudent(Registers2[i].ID_Student);
                 DTO_Lop Class = BUS_Lop.getClass(Registers2[i].ID_Class, Registers2[i].ID_Course);
                 DTO_BangDiemHV table = new DTO_BangDiemHV(student.ID, student.Name, Class.ID_Class, Class.Name, Registers2[i].ID_Course, "NONE", "1", "NONE");
                 StudentTables.Add(table);
@@ -42,7 +42,7 @@ namespace BUS_TTTH
             return StudentTables;
         }
 
-        public static DTO_BangDiemHV getOne(string id_student, string id_class)
+        public static DTO_BangDiemHV getOne(string id_student, string id_class, string examCount)
         {
             DTO_BangDiemHV student = new DTO_BangDiemHV();
             List<DTO_BangDiemHV> StudentTables = getAll();
@@ -51,9 +51,19 @@ namespace BUS_TTTH
             {
                 if (id_student == StudentTables[i].ID_Student && id_class == StudentTables[i].ID_Class)
                 {
-                    if (String.Compare(StudentTables[i].ExamCount,student.ExamCount) >= 0)
+                    if (examCount == "0")
                     {
-                        student = StudentTables[i];
+                        if (String.Compare(StudentTables[i].ExamCount,student.ExamCount) >= 0)
+                        {
+                            student = StudentTables[i];
+                        }
+                    }
+                    else
+                    {
+                        if (String.Compare(StudentTables[i].ExamCount, student.ExamCount) == 0)
+                        {
+                            student = StudentTables[i];
+                        }
                     }
                 }
             }

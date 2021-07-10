@@ -11,39 +11,38 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using BUS_TTTH;
 using DTO_TTTH;
+using BUS_TTTH;
 
 namespace GUI_TTTH
 {
     /// <summary>
-    /// Interaction logic for LichDay.xaml
+    /// Interaction logic for LichHoc.xaml
     /// </summary>
-    public partial class LichDay : Window
+    public partial class LichHoc : Window
     {
-        public LichDay()
+        public LichHoc()
         {
             InitializeComponent();
         }
 
-        public LichDay(string id)
+        public LichHoc(string id)
         {
             InitializeComponent();
             List<DTO_Lop> schedules = new List<DTO_Lop>();
-            schedules = BUS_Lop.getScheduleTeacher(id);
-            if (schedules.Count > 0)
-            {
-                dtg_schedule.ItemsSource = schedules;
-            }
+            schedules = BUS_Lop.getScheduleStudent(id);
+
+            dtg_schedule.ItemsSource = schedules;
+
             DTO_Khoa course = new DTO_Khoa();
             course = BUS_Khoa.getNewCourse();
             tb_course.Text = tb_course.Text + course.ID;
             tb_time.Text = tb_time.Text + course.StartDate + " - " + course.EndDate;
         }
 
-
         private void dtg_schedule_Loaded(object sender, RoutedEventArgs e)
         {
+
             dtg_schedule.Columns[0].Width = 100;
             dtg_schedule.FontSize = 20;
             dtg_schedule.RowHeight = 35;

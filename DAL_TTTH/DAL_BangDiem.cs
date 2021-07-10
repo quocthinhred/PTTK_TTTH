@@ -25,6 +25,7 @@ namespace DAL_TTTH
                 string examCount = row["LanThi"].ToString();
                 string point = row["DiemThi"].ToString();
                 string examDate = row["NgayThi"].ToString();
+                examDate = examDate.Substring(0, examDate.IndexOf(" "));
                 DTO_BangDiem table = new DTO_BangDiem(id_Student, id_Subject, id_Course, examCount, point, examDate);
                 Tables.Add(table);
             }

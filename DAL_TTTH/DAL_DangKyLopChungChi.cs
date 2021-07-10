@@ -24,6 +24,7 @@ namespace DAL_TTTH
                 string fee = row["HocPhi"].ToString();
                 string point = row["DiemThi"].ToString();
                 string examDate = row["NgayThi"].ToString();
+                examDate = examDate.Substring(0, examDate.IndexOf(" "));
                 DTO_DangKyLopChungChi register = new DTO_DangKyLopChungChi(id_Student, id_Class, id_Course, fee, point, examDate);
                 Registers.Add(register);
             }

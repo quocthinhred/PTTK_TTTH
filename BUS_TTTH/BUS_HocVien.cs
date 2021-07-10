@@ -22,7 +22,16 @@ namespace BUS_TTTH
                 if (Tables[i].ID_Subject == Class.ID_Class && Tables[i].ID_Course == Class.ID_Course)
                 {
                     DTO_HocVien student = getStudent(Tables[i].ID_Student);
-                    Students.Add(student);
+                    int temp = 0;
+                    for (int j = 0; j < Students.Count; j++)
+                    {
+                        if (student.ID != Students[j].ID)
+                        {
+                            temp++;
+                        }
+                    }
+                    if (temp == Students.Count)
+                        Students.Add(student);
                 }
             }
             for (int i = 0; i < Registers1.Count; i++)

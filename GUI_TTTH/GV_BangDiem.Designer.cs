@@ -47,6 +47,7 @@ namespace GUI_TTTH
             this.tb_examdate = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.bt_ok = new System.Windows.Forms.Button();
+            this.bt_previous = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -224,11 +225,26 @@ namespace GUI_TTTH
             this.bt_ok.UseVisualStyleBackColor = false;
             this.bt_ok.Click += new System.EventHandler(this.bt_ok_Click);
             // 
+            // bt_previous
+            // 
+            this.bt_previous.BackColor = System.Drawing.Color.Black;
+            this.bt_previous.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_previous.ForeColor = System.Drawing.Color.White;
+            this.bt_previous.Location = new System.Drawing.Point(561, 634);
+            this.bt_previous.Name = "bt_previous";
+            this.bt_previous.Size = new System.Drawing.Size(107, 35);
+            this.bt_previous.TabIndex = 18;
+            this.bt_previous.Text = "Lần Trước";
+            this.bt_previous.UseVisualStyleBackColor = false;
+            this.bt_previous.Visible = false;
+            this.bt_previous.Click += new System.EventHandler(this.bt_previous_Click);
+            // 
             // GV_BangDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 892);
+            this.ClientSize = new System.Drawing.Size(823, 892);
+            this.Controls.Add(this.bt_previous);
             this.Controls.Add(this.bt_ok);
             this.Controls.Add(this.tb_examdate);
             this.Controls.Add(this.label9);
@@ -274,5 +290,6 @@ namespace GUI_TTTH
         private System.Windows.Forms.TextBox tb_examdate;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button bt_ok;
+        private System.Windows.Forms.Button bt_previous;
     }
 }

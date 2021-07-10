@@ -57,3 +57,7 @@ C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.csproj.Cop
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.exe
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.pdb
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.GV_BangDiem.resources
+C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\LichHoc.g.cs
+C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\Menu_HocVien.g.cs
+C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\LichHoc.baml
+C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\Menu_HocVien.baml

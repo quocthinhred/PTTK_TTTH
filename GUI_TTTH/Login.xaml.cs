@@ -49,7 +49,10 @@ namespace GUI_TTTH
                 }
                 else
                 {
-
+                    Menu_HocVien hocVien = new Menu_HocVien(tb_username.Text);
+                    this.Hide();
+                    hocVien.ShowDialog();
+                    this.ShowDialog();
                 }
             }
         }
