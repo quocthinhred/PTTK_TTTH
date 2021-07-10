@@ -23,7 +23,8 @@ namespace DAL_TTTH
                 string startDate = row["NgayBD"].ToString();
                 startDate.Substring(0, startDate.IndexOf(" "));
                 string endDate = row["NgayKT"].ToString();
-                endDate.Substring(0, endDate.IndexOf(" "));
+                startDate = startDate.Substring(0, startDate.IndexOf(" "));
+                endDate = endDate.Substring(0, endDate.IndexOf(" "));
                 DTO_Khoa course = new DTO_Khoa(id, startDate, endDate);
                 Courses.Add(course);
             }

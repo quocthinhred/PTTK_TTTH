@@ -62,6 +62,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="HV_BangDiem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LichDay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -90,6 +94,9 @@
     </Compile>
     <Compile Include="GV_LopHoc.xaml.cs">
       <DependentUpon>GV_LopHoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HV_BangDiem.xaml.cs">
+      <DependentUpon>HV_BangDiem.xaml</DependentUpon>
     </Compile>
     <Compile Include="LichDay.xaml.cs">
       <DependentUpon>LichDay.xaml</DependentUpon>

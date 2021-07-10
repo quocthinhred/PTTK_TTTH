@@ -31,7 +31,7 @@ namespace GUI_TTTH
             InitializeComponent();
             List<DTO_Lop> schedules = new List<DTO_Lop>();
             schedules = BUS_Lop.getScheduleStudent(id);
-
+            
             dtg_schedule.ItemsSource = schedules;
 
             DTO_Khoa course = new DTO_Khoa();

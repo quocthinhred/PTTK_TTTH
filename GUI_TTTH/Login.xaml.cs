@@ -47,7 +47,7 @@ namespace GUI_TTTH
                     giangVien.ShowDialog();
                     this.ShowDialog();
                 }
-                else
+                else 
                 {
                     Menu_HocVien hocVien = new Menu_HocVien(tb_username.Text);
                     this.Hide();
