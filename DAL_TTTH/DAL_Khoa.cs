@@ -22,6 +22,8 @@ namespace DAL_TTTH
                 string id = row["MaKhoa"].ToString();
                 string startDate = row["NgayBD"].ToString();
                 string endDate = row["NgayKT"].ToString();
+                startDate = startDate.Substring(0, startDate.IndexOf(" "));
+                endDate = endDate.Substring(0, endDate.IndexOf(" "));
                 DTO_Khoa course = new DTO_Khoa(id, startDate, endDate);
                 Courses.Add(course);
             }

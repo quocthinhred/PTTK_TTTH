@@ -57,7 +57,7 @@ namespace GUI_TTTH
                 status = 1;
                 DTO_Lop Class = (DTO_Lop)dtg_class.SelectedItem;
                 id_class = Class.ID_Class;
-                List<DTO_BangDiemHV> Students = BUS_HocVien.GV_LopHoc(Class);
+                List<DTO_BangDiemHV> Students = BUS_BangDiemHV.GV_LopHoc(Class);
                 dtg_class.ItemsSource = Students;
                 dtg_class.Columns[0].Width = 150;
                 dtg_class.Columns[1].Width = 300;
@@ -100,5 +100,7 @@ namespace GUI_TTTH
                 this.Close();
             }
         }
+
+        
     }
 }

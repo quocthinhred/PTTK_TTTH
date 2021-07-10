@@ -37,7 +37,7 @@ namespace GUI_TTTH
             DTO_Khoa course = new DTO_Khoa();
             course = BUS_Khoa.getNewCourse();
             tb_course.Text = tb_course.Text + course.ID;
-            tb_time.Text = tb_time.Text + course.StartDate.Substring(0, course.StartDate.IndexOf(" ")) + " - " + course.EndDate.Substring(0, course.EndDate.IndexOf(" "));
+            tb_time.Text = tb_time.Text + course.StartDate + " - " + course.EndDate;
         }
 
         private void dtg_schedule_Loaded(object sender, RoutedEventArgs e)

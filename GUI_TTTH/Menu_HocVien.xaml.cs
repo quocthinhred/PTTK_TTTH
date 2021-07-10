@@ -40,11 +40,11 @@ namespace GUI_TTTH
             this.ShowDialog();
         }
 
-        private void bt_myclass_Click(object sender, RoutedEventArgs e)
+        private void bt_myGrades_Click(object sender, RoutedEventArgs e)
         {
-            LichDay lichDay = new LichDay(id2);
+            HV_BangDiem myClass = new HV_BangDiem(id2);
             this.Hide();
-            lichDay.ShowDialog();
+            myClass.ShowDialog();
             this.ShowDialog();
         }
 
