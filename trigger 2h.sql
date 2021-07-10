@@ -1,6 +1,6 @@
-﻿create database TTTH1
+﻿create database TTTH
 go
-use TTTH1
+use TTTH
 go
 create table Account
 (
@@ -1478,16 +1478,129 @@ begin
 	end
 end;
 
-drop trigger trg_update_BangDiem
-
-create or alter proc updateDTB 
-	@studentID varchar(10), @NHP_ID varchar(10), @courseID varchar(10)
-insert into BangDiem values ('HV01','M01', 'K1', 1, 8, '06/15/2020');
 
 
-update BangDiem set DiemThi = 3 where MaHV = 'HV06' and MaKhoa = 'K1' and MaMon = 'M01' and LanThi = 4
-update BangDiem set DiemThi = 3 where MaHV = 'HV06' and MaKhoa = 'K1' and MaMon = 'M02' and LanThi = 4
-update BangDiem set DiemThi = 3 where MaHV = 'HV06' and MaKhoa = 'K1' and MaMon = 'M03' and LanThi = 4
 
-select * from BangDiem where MaHV = 'HV06'
-select * from DangKiNhomHocPhan where MaHV = 'HV06' and MaNHP = 'NHP01' and MaKhoa = 'K1'
+
+--proc  insert Bảng Điểm của tất cả các môn của 1 NHP
+go
+create or alter proc insertBangDiem
+	@maHV varchar(10), @maKhoa varchar(10),  @NHP_ID varchar(10)
+	
+as
+begin
+	declare @date date
+	select @date = NgayKT from Khoa where MaKhoa = @maKhoa
+	set @date = dateadd(day,-15, @date) 
+	declare c cursor for select MaMon from Mon where MaNHP = @NHP_ID;
+	open c
+	declare @idSubj varchar(10)
+	fetch next from c into @idSubj
+	while(@@fetch_status=0)
+	begin
+		insert into BangDiem values (@maHV, @idSubj ,@maKhoa, 1, null, @date)
+		fetch next from c into @idSubj
+	end
+	close c
+	deallocate c
+end;
+go
+--trigger HV Đăng kí 1 nhóm học phần thì thêm tất cả Bảng điểm của môn có Học phần đó
+create or alter trigger trg_insert_DKNHP
+on DangKiNhomHocPhan
+after insert
+as
+begin
+	declare @studentID varchar(10)
+	declare @courseID varchar(10)
+	declare @NHP_ID varchar(10)
+	select @studentID = MaHV,@courseID = MaKhoa,@NHP_ID =  MaNHP from inserted
+	exec insertBangDiem @studentID,@courseID,@NHP_ID
+end;
+
+
+--proc  insert LopKTV Mo của tất cả các môn của 1 NHP Khi Thêm mới 1 NHP Mo
+go
+create or alter proc insertLopKTVMo
+	@maKhoa varchar(10),  @NHP_ID varchar(10)	
+as
+begin
+	declare c cursor for select MaMon from Mon where MaNHP = @NHP_ID;
+	open c
+	declare @idSubj varchar(10)
+	fetch next from c into @idSubj
+	while(@@fetch_status=0)
+	begin
+		insert into LopKTVMo values (@idSubj,@maKhoa, null, null)
+		fetch next from c into @idSubj
+	end
+	close c
+	deallocate c
+end;
+
+go
+--trigger Thêm 1 NHP Mo thi Auto insert cac Lop KTV Mo cua NHP do
+create or alter trigger trg_insert_LKTVMo
+on NhomHocPhanMo
+after insert
+as
+begin
+	declare @courseID varchar(10)
+	declare @NHP_ID varchar(10)
+	select @courseID = MaKhoa,@NHP_ID =  MaNHP from inserted
+	exec insertLopKTVMo @courseID,@NHP_ID
+end;
+
+
+
+
+
+
+go
+--trigger xóa HV -> xóa account
+create or alter trigger trg_delete_HocVien
+on HocVien
+after delete
+as
+begin
+	declare @id varchar(10)
+	select @id = MaHV from deleted
+	delete from Account where username = @id
+end;
+--drop trigger trg_delete_HocVien
+go
+--trigger thêm HV -> thêm account
+create or alter trigger trg_insert_HocVien
+on HocVien
+after insert 
+as
+begin
+	declare @id varchar(10)
+	select @id = MaHV from inserted
+	insert into Account values (@id,'a','3')
+end;
+
+go
+--trigger xóa GV -> xóa account
+create or alter trigger trg_delete_GiangVien
+on GiangVien
+after delete
+as
+begin
+	declare @id varchar(10)
+	select @id = MaGV from deleted
+	delete from Account where username = @id
+end;
+
+
+go
+--trigger thêm GV -> thêm account
+create or alter trigger trg_insert_GiangVien
+on GiangVien
+after insert 
+as
+begin
+	declare @id varchar(10)
+	select @id = MaGV from inserted
+	insert into Account values (@id,'a','2')
+end;

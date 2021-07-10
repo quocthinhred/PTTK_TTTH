@@ -1311,6 +1311,302 @@ insert into HocVien_TotNghiep values ('HV10', 'K3', 10, 100000, '12/30/2020', 'G
 
 
 
+go
 
+
+--insert,delete hoc vien, giang vien --> account
+-- trg diem trung binh
+
+-- proc: lấy ra 3 môn bắt buộc của học phần mà student đó đang update
+go
+create or alter proc checkPassedAllSub
+	@studentID varchar(10),@NHP_ID varchar(10), @check int output
+as
+begin
+	
+	set @check = 1
+	declare c cursor for select distinct bd.MaHV,bd.MaMon,bd.MaKhoa,bd.LanThi from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKiNhomHocPhan dk 
+												 where m.MaMon = lm.MaMon and bd.MaMon = lm.MaMon and hv.MaHV= bd.MaHV and hv.MaHV = dk.MaHV and m.MaNHP=dk.MaNHP and hv.MaHV = @studentID and m.BatBuoc = 1 and dk.MaNHP = @NHP_ID and bd.LanThi = 1
+
+	open c
+	declare @idStud varchar(10)
+	declare @idSubj varchar(10)
+	declare @idCour varchar(10)
+	declare @examCount int
+	fetch next from c into @idStud,@idSubj,@idCour,@examCount
+	while(@@fetch_status=0)
+	begin
+		declare @temp int
+		select @temp = DiemThi from BangDiem where MaHV = @idStud and MaMon = @idSubj and MaKhoa = @idCour and LanThi = @examCount
+		if (@temp = null)
+			set @check = 0
+			fetch next from c into @idStud,@idSubj,@idCour,@examCount
+	end
+	close c
+	deallocate c
+end;
+
+
+go
+--proc kiểm tra xem 1 môn truyền vào có phải là môn bắt buộc không
+create or alter proc checkSubjectIsRequired 
+	@subjectID varchar(10), @check int output
+as
+begin
+	declare @temp bit;
+	select @temp = BatBuoc from Mon where MaMon = @subjectID
+	if (@temp = 1) set @check = 1
+	else set @check = 0
+end
+
+go
+
+--> khi update 1 bảng điểm của môn bắt buộc -> check thi hết 3 môn bắt buộc chưa? -> nếu thi rồi thì update DTB ở DK NHP 
+--> nếu DTB < 5 thì insert 3 row BangDiem cho 3 môn bắt buộc với số lần thi lại tăng lên và ngày thi = ngày thi gần nhất + 3 
+
+
+go
+create or alter proc updateDTB 
+	@studentID varchar(10), @NHP_ID varchar(10), @courseID varchar(10)
+as
+begin 
+	declare c cursor for select distinct  bd.DiemThi,bd.MaMon
+						 from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKiNhomHocPhan dk 
+						 where m.MaMon = lm.MaMon and bd.MaMon = lm.MaMon and hv.MaHV= bd.MaHV and hv.MaHV = dk.MaHV and m.MaNHP=dk.MaNHP 
+									and hv.MaHV = @studentID and m.BatBuoc = 1 and dk.MaNHP = @NHP_ID and bd.MaKhoa = @courseID
+									and bd.LanThi >= all(select bd.LanThi from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKiNhomHocPhan dk 
+														 where m.MaMon = lm.MaMon and bd.MaMon = lm.MaMon and hv.MaHV= bd.MaHV and hv.MaHV = dk.MaHV and bd.MaKhoa = @courseID
+															   and m.MaNHP=dk.MaNHP and hv.MaHV = @studentID and m.BatBuoc = 1 and dk.MaNHP = @NHP_ID)
+	declare @total float = 0
+	declare @count int = 0;
+	declare @DiemThi float
+	declare @subID varchar(10)
+	open c
+	fetch next from c into @DiemThi,@subID
+	while(@@fetch_status=0)
+	begin
+		print(cast(@DiemThi as varchar))
+		set @total += @DiemThi
+		set @count += 1
+		fetch next from c into @DiemThi,@subID
+	end
+	print(cast(@total/@count as varchar))
+	print(cast(@total as varchar))
+	print(cast(@count as varchar))
+	update DangKiNhomHocPhan set DTB = @total/@count where MaHV = @studentID and MaNHP = @NHP_ID and MaKhoa = @courseID
+	close c
+	deallocate c
+
+end
+
+
+--BangDiem  lần thi 1 -> rớt -> insert lần thi 2 nhưng chưa thi : điểm là null 
+--> nếu đã thi lại 3 môn bb ở lần thi 2 ( check 3 môn bb -> != null) -> số lần thi lại lên 1
+
+--DangKiNHP số lần thi lại 0
+
+-- after -> update rồi 
+-- kiểm tra có phải môn bắt buộc? 
+-- kiểm tra (lần thi - 1 != số lần thi lại) thì reset DTB và số lần thi lại = lần thi -1 
+-->  kiểm tra thi hết 3 môn bắt buộc chưa ? -> 
+-- nếu có thì thực hiện update DTB  
+-- nếu DTB < 5 và if ( lần thi  <= 4 ) thì tăng số thi lại lên 1 và insert 3 row
+
+
+go
+create or alter proc insertNewBangDiem
+	@maHV varchar(10), @maKhoa varchar(10), @lanthi varchar(10), @date date, @NHP_ID varchar(10)
+	
+as
+begin
+	
+	declare c cursor for select distinct bd.MaHV,bd.MaMon,bd.MaKhoa,bd.LanThi from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKiNhomHocPhan dk 
+												 where m.MaMon = lm.MaMon and bd.MaMon = lm.MaMon and hv.MaHV= bd.MaHV and hv.MaHV = dk.MaHV and m.MaNHP=dk.MaNHP and hv.MaHV = @maHV and m.BatBuoc = 1 and dk.MaNHP = @NHP_ID and bd.LanThi = 1
+
+	open c
+	declare @idStud varchar(10)
+	declare @idSubj varchar(10)
+	declare @idCour varchar(10)
+	declare @examCount int
+	fetch next from c into @idStud,@idSubj,@idCour,@examCount
+	while(@@fetch_status=0)
+	begin
+		insert into BangDiem values (@maHV, @idSubj ,@maKhoa, @lanthi + 1, null, dateadd(day,3,@date))
+		fetch next from c into @idStud,@idSubj,@idCour,@examCount
+	end
+	close c
+	deallocate c
+end;
+
+
+
+
+go
+create or alter trigger trg_update_BangDiem
+on BangDiem
+after update 
+as
+begin
+	declare @check int
+	declare @mon varchar(10)
+	declare @maHV varchar(10)
+	declare @maKhoa varchar(10)
+	select @mon =MaMon,@maHV = MaHV, @maKhoa = MaKhoa from inserted
+	exec checkSubjectIsRequired @mon, @check output
+	if (@check = 1)
+	begin
+		declare @lanthi int
+		declare @solanthilai int
+		declare @maNHP varchar(10)
+		declare @DTB float
+		declare @date date
+		select @lanthi=LanThi from inserted
+		select @maNHP= m.MaNHP from Mon m where m.MaMon = @mon
+		select @solanthilai=SoLanThiLai from DangKiNhomHocPhan where MaHV = @maHV and MaNHP = @maNHP and MaKhoa = @maKhoa
+		select @date =NgayThi from inserted
+		if (@lanthi - @solanthilai != 1) 
+		begin
+			update DangKiNhomHocPhan set DTB = null, SoLanThiLai = @lanthi -1 where MaHV = @maHV and MaNHP = @maNHP and MaKhoa = @maKhoa
+		end
+		declare @check2 int
+		exec checkPassedAllSub @maHV, @maNHP, @check2 output
+		if (@check2 = 1) 
+		begin
+			exec updateDTB @maHV, @maNHP, @maKhoa 
+		end
+		select @DTB = DTB from DangKiNhomHocPhan where MaHV = @maHV and MaNHP = @maNHP and MaKhoa = @maKhoa
+		if (@DTB < 5 and @lanthi < 4)
+		begin
+			exec insertNewBangDiem @maHV, @maKhoa, @lanthi, @date, @maNHP
+		end
+	end
+end;
+
+
+
+
+
+--proc  insert Bảng Điểm của tất cả các môn của 1 NHP
+go
+create or alter proc insertBangDiem
+	@maHV varchar(10), @maKhoa varchar(10),  @NHP_ID varchar(10)
+	
+as
+begin
+	declare @date date
+	select @date = NgayKT from Khoa where MaKhoa = @maKhoa
+	set @date = dateadd(day,-15, @date) 
+	declare c cursor for select MaMon from Mon where MaNHP = @NHP_ID;
+	open c
+	declare @idSubj varchar(10)
+	fetch next from c into @idSubj
+	while(@@fetch_status=0)
+	begin
+		insert into BangDiem values (@maHV, @idSubj ,@maKhoa, 1, null, @date)
+		fetch next from c into @idSubj
+	end
+	close c
+	deallocate c
+end;
+go
+--trigger HV Đăng kí 1 nhóm học phần thì thêm tất cả Bảng điểm của môn có Học phần đó
+create or alter trigger trg_insert_DKNHP
+on DangKiNhomHocPhan
+after insert
+as
+begin
+	declare @studentID varchar(10)
+	declare @courseID varchar(10)
+	declare @NHP_ID varchar(10)
+	select @studentID = MaHV,@courseID = MaKhoa,@NHP_ID =  MaNHP from inserted
+	exec insertBangDiem @studentID,@courseID,@NHP_ID
+end;
+
+
+--proc  insert LopKTV Mo của tất cả các môn của 1 NHP Khi Thêm mới 1 NHP Mo
+go
+create or alter proc insertLopKTVMo
+	@maKhoa varchar(10),  @NHP_ID varchar(10)	
+as
+begin
+	declare c cursor for select MaMon from Mon where MaNHP = @NHP_ID;
+	open c
+	declare @idSubj varchar(10)
+	fetch next from c into @idSubj
+	while(@@fetch_status=0)
+	begin
+		insert into LopKTVMo values (@idSubj,@maKhoa, null, null)
+		fetch next from c into @idSubj
+	end
+	close c
+	deallocate c
+end;
+
+go
+--trigger Thêm 1 NHP Mo thi Auto insert cac Lop KTV Mo cua NHP do
+create or alter trigger trg_insert_LKTVMo
+on NhomHocPhanMo
+after insert
+as
+begin
+	declare @courseID varchar(10)
+	declare @NHP_ID varchar(10)
+	select @courseID = MaKhoa,@NHP_ID =  MaNHP from inserted
+	exec insertLopKTVMo @courseID,@NHP_ID
+end;
+
+
+
+
+
+
+go
+--trigger xóa HV -> xóa account
+create or alter trigger trg_delete_HocVien
+on HocVien
+after delete
+as
+begin
+	declare @id varchar(10)
+	select @id = MaHV from deleted
+	delete from Account where username = @id
+end;
+--drop trigger trg_delete_HocVien
+go
+--trigger thêm HV -> thêm account
+create or alter trigger trg_insert_HocVien
+on HocVien
+after insert 
+as
+begin
+	declare @id varchar(10)
+	select @id = MaHV from inserted
+	insert into Account values (@id,'a','3')
+end;
+
+go
+--trigger xóa GV -> xóa account
+create or alter trigger trg_delete_GiangVien
+on GiangVien
+after delete
+as
+begin
+	declare @id varchar(10)
+	select @id = MaGV from deleted
+	delete from Account where username = @id
+end;
+
+
+go
+--trigger thêm GV -> thêm account
+create or alter trigger trg_insert_GiangVien
+on GiangVien
+after insert 
+as
+begin
+	declare @id varchar(10)
+	select @id = MaGV from inserted
+	insert into Account values (@id,'a','2')
+end;
 
 
