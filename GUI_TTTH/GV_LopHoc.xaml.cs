@@ -57,17 +57,21 @@ namespace GUI_TTTH
                 status = 1;
                 DTO_Lop Class = (DTO_Lop)dtg_class.SelectedItem;
                 id_class = Class.ID_Class;
-                List<DTO_HocVien> Students = BUS_HocVien.GV_LopHoc(Class);
+                List<DTO_BangDiemHV> Students = BUS_HocVien.GV_LopHoc(Class);
                 dtg_class.ItemsSource = Students;
-                dtg_class.Columns[0].Width = 100;
-                dtg_class.Columns[1].Width = 200;
-                dtg_class.Columns[2].Width = 150;
-                dtg_class.Columns[3].Width = dtg_class.Width - 465;
+                dtg_class.Columns[0].Width = 150;
+                dtg_class.Columns[1].Width = 300;
+                dtg_class.Columns[2].Visibility = Visibility.Hidden;
+                dtg_class.Columns[3].Visibility = Visibility.Hidden;
+                dtg_class.Columns[4].Visibility = Visibility.Hidden;
+                dtg_class.Columns[5].Width = 200;
+                dtg_class.Columns[6].Width = dtg_class.Width - 660;
+                dtg_class.Columns[7].Visibility = Visibility.Hidden;
             }
             else
             {
-                DTO_HocVien student = (DTO_HocVien)dtg_class.SelectedItem;
-                id_student = student.ID;
+                DTO_BangDiemHV student = (DTO_BangDiemHV)dtg_class.SelectedItem;
+                id_student = student.ID_Student;
                 GV_BangDiem table = new GV_BangDiem(id_student, id_class);
                 this.Hide();
                 table.ShowDialog();

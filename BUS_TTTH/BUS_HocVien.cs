@@ -5,42 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO_TTTH;
 using DAL_TTTH;
-
 namespace BUS_TTTH
 {
     public class BUS_HocVien
     {
         public static List<DTO_HocVien> AllStudents = DAL_HocVien.getStudents();
-        public static List<DTO_HocVien> GV_LopHoc(DTO_Lop Class)
+        public static List<DTO_BangDiemHV> GV_LopHoc(DTO_Lop Class)
         {
-            List<DTO_HocVien> Students = new List<DTO_HocVien>();
-            List<DTO_BangDiem> Tables = DAL_BangDiem.getPointTable();
-            List<DTO_DangKyLopChungChi> Registers1 = DAL_DangKyLopChungChi.getRegisterCerti();
-            List<DTO_DangKyLopChuyenDe> Registers2 = DAL_DangKyLopChuyenDe.getRegisterTheme();
-            for (int i = 0; i < Tables.Count; i++)
+            List<DTO_BangDiemHV> Students = new List<DTO_BangDiemHV>();
+
+            List<DTO_BangDiemHV> listBDHV = BUS_BangDiemHV.getAll();
+            for (int i = 0; i < listBDHV.Count; i++)
             {
-                if (Tables[i].ID_Subject == Class.ID_Class && Tables[i].ID_Course == Class.ID_Course)
+                if (listBDHV[i].ID_Class == Class.ID_Class && listBDHV[i].ID_Course == Class.ID_Course)
                 {
-                    DTO_HocVien student = getStudent(Tables[i].ID_Student);
+                    DTO_BangDiemHV student = BUS_BangDiemHV.getOne(listBDHV[i].ID_Student, listBDHV[i].ID_Class);
                     Students.Add(student);
                 }
             }
-            for (int i = 0; i < Registers1.Count; i++)
+            for (int i = 0; i < Students.Count - 1; i++)
             {
-                if (Registers1[i].ID_Class == Class.ID_Class && Registers1[i].ID_Course == Class.ID_Course)
+                if (Students[i].ID_Student == Students[i+1].ID_Student)
                 {
-                    DTO_HocVien student = getStudent(Registers1[i].ID_Student);
-                    Students.Add(student);
+                    Students.RemoveAt(i);
                 }
             }
-            for (int i = 0; i < Registers2.Count; i++)
-            {
-                if (Registers2[i].ID_Class == Class.ID_Class && Registers2[i].ID_Course == Class.ID_Course)
-                {
-                    DTO_HocVien student = getStudent(Registers2[i].ID_Student);
-                    Students.Add(student);
-                }
-            }
+            
             return Students;
         }
 
