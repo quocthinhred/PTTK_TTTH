@@ -12,6 +12,7 @@ namespace BUS_TTTH
     {
         public static DTO_Account checkLogin(string username, string password)
         {
+            username = username.ToUpper();
             List<DTO_Account> Accounts = new List<DTO_Account>();
             Accounts = DAL_Account.getAccounts();
             if (Accounts.Count > 0)

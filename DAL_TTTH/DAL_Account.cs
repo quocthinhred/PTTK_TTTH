@@ -20,6 +20,7 @@ namespace DAL_TTTH
             foreach (DataRow row in dtAccount.Rows)
             {
                 string username = row["username"].ToString();
+                username = username.ToUpper();
                 string password = row["password"].ToString();
                 string type = row["type"].ToString();
                 DTO_Account account = new DTO_Account(username, password, type);

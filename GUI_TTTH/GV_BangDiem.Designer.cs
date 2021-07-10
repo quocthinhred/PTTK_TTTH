@@ -163,6 +163,7 @@ namespace GUI_TTTH
             this.tb_point.Name = "tb_point";
             this.tb_point.Size = new System.Drawing.Size(544, 35);
             this.tb_point.TabIndex = 6;
+            this.tb_point.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_point_KeyPress);
             // 
             // label7
             // 

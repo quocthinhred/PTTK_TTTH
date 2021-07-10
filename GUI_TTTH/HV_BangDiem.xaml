@@ -9,10 +9,7 @@
     <Grid>
         <Label Content="DANH SÁCH ĐIỂM CỦA BẠN" HorizontalAlignment="Left" Margin="339,60,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
         <DataGrid x:Name="dtg_class" HorizontalAlignment="Left" Height="478" Margin="188,154,0,0" VerticalAlignment="Top" Width="938" VerticalContentAlignment="Center" Loaded="dtg_class_Loaded" IsReadOnly="True">
-            
-
         </DataGrid>
         <Button Cursor="Hand" x:Name="bt_back" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="43,35,0,0" VerticalAlignment="Top" Width="140" Height="40" BorderBrush="Black" Foreground="White" Background="Black" FontSize="18" FontWeight="Bold" Click="bt_back_Click"/>
-
     </Grid>
 </Window>

@@ -31,5 +31,12 @@ namespace DAL_TTTH
             }
             return Tables;
         }
+
+        public static void updatePoint(DTO_BangDiemHV table)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("update BANGDIEM set DiemThi = " + table.Point + " where MaHV = '" + table.ID_Student + "' and MaMon = '" + table.ID_Class + "' and MaKhoa = '" + table.ID_Course + "' and LanThi = " + table.ExamCount, DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
     }
 }

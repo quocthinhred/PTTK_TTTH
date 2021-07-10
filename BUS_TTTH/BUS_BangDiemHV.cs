@@ -108,5 +108,26 @@ namespace BUS_TTTH
             }
             return Students;
         }
+
+        public static string updatePoint(DTO_BangDiemHV table)
+        {
+            try
+            {
+                if (table.ID_Class.Substring(0,1) == "M")
+                {
+                    DAL_BangDiem.updatePoint(table);
+                    return "Cập Nhật Thành Công!";
+                }
+                else
+                {
+                    DAL_DangKyLopChungChi.updatePoint(table);
+                    return "Cập Nhật Thành Công!";
+                }
+            }
+            catch (Exception exc)
+            {
+                return exc.Message;
+            }
+        }
     }
 }

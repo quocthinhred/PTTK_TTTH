@@ -86,7 +86,6 @@ namespace GUI_TTTH
                 List<DTO_Lop> Classes = new List<DTO_Lop>();
                 Classes = BUS_Lop.getClassesTeacher(id2);
                 dtg_class.ItemsSource = Classes;
-                
                 dtg_class.Columns[0].Width = 100;
                 dtg_class.Columns[1].Width = 200;
                 dtg_class.Columns[2].Width = 150;

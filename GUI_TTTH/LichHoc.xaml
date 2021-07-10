@@ -11,6 +11,7 @@
         <DataGrid x:Name="dtg_schedule" HorizontalAlignment="Left" Height="387" Margin="206,217,0,0" VerticalAlignment="Top" Width="873" Loaded="dtg_schedule_Loaded" IsReadOnly="True"/>
         <TextBlock x:Name="tb_time" HorizontalAlignment="Left" Margin="496,171,0,0" TextWrapping="Wrap" Text="Thời gian: " VerticalAlignment="Top" FontSize="18"/>
         <TextBlock x:Name="tb_course" HorizontalAlignment="Left" Margin="579,139,0,0" TextWrapping="Wrap" Text="Khoá: " VerticalAlignment="Top" FontSize="18"/>
+        <Button Cursor="Hand" x:Name="bt_back" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="43,35,0,0" VerticalAlignment="Top" Width="140" Height="40" BorderBrush="Black" Foreground="White" Background="Black" FontSize="18" FontWeight="Bold" Click="bt_back_Click"/>
 
     </Grid>
 </Window>

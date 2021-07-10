@@ -35,3 +35,7 @@ C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.csproj.Cor
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.csproj.CopyComplete
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.exe
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.pdb
+C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\Menu_NhanVien.g.cs
+C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\NV_HocVien.g.cs
+C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\Menu_NhanVien.baml
+C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\NV_HocVien.baml

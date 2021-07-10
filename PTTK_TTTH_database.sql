@@ -13,6 +13,7 @@ go
 alter table Account add check (type = 1 or type = 2 or type = 3)
 go
 insert into Account values ('admin', 'admin', 1);
+insert into Account values ('ADMIN', 'admin', 1);
 
 insert into Account values ('GV01', 'a', 2);
 insert into Account values ('GV02', 'a', 2);
@@ -302,7 +303,8 @@ insert into LopKTVMo(MaKhoa,MaGV,MaMon,LichHoc) values ('K4', 'GV05', 'M10', 'E1
 
 
 go
-create table DangKiNhomHocPhan
+--drop table DangKiNhomHocPhan
+create table DangKyNhomHocPhan
 (
 	MaHV varchar(10),
 	MaNHP varchar(10),
@@ -314,57 +316,57 @@ create table DangKiNhomHocPhan
 	primary key (MaHV,MaNHP,MaKhoa)
 )
 go
-alter table DangKiNhomHocPhan add check (SoLanThiLai >= 0 and SoLanThiLai <= 3);
-alter table DangKiNhomHocPhan add check (KetQua = 0 or KetQua = 1 or KetQua = null);
-alter table DangKiNhomHocPhan add check ((DTB >= 0 and DTB <= 10) or DTB = null);
+alter table DangKyNhomHocPhan add check (SoLanThiLai >= 0 and SoLanThiLai <= 3);
+alter table DangKyNhomHocPhan add check (KetQua = 0 or KetQua = 1 or KetQua = null);
+alter table DangKyNhomHocPhan add check ((DTB >= 0 and DTB <= 10) or DTB = null);
 go
-alter table DangKiNhomHocPhan add constraint FK_DKNHP_HocVien foreign key (MaHV) references HocVien(MaHV);
-alter table DangKiNhomHocPhan add constraint FK_DKNHP_NHPM foreign key (MaNHP,MaKhoa) references NhomHocPhanMo(MaNHP,MaKhoa);
+alter table DangKyNhomHocPhan add constraint FK_DKNHP_HocVien foreign key (MaHV) references HocVien(MaHV);
+alter table DangKyNhomHocPhan add constraint FK_DKNHP_NHPM foreign key (MaNHP,MaKhoa) references NhomHocPhanMo(MaNHP,MaKhoa);
 
 go
-insert into DangKiNhomHocPhan values ('HV01','NHP01','K1',8,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV02','NHP01','K1',9,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV03','NHP01','K1',9.5,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV04','NHP01','K1',7,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV05','NHP01','K1',7.5,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV06','NHP01','K1',6,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV07','NHP01','K1',7,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV08','NHP01','K1',9,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV09','NHP01','K1',5,1000000,1,1);
-insert into DangKiNhomHocPhan values ('HV10','NHP01','K1',8,1000000,1,1);
+insert into DangKyNhomHocPhan values ('HV01','NHP01','K1',8,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV02','NHP01','K1',9,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV03','NHP01','K1',9.5,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV04','NHP01','K1',7,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV05','NHP01','K1',7.5,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV06','NHP01','K1',6,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV07','NHP01','K1',7,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV08','NHP01','K1',9,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV09','NHP01','K1',5,1000000,1,1);
+insert into DangKyNhomHocPhan values ('HV10','NHP01','K1',8,1000000,1,1);
 
-insert into DangKiNhomHocPhan values ('HV01','NHP02','K2',8,1500000,0,1);
-insert into DangKiNhomHocPhan values ('HV02','NHP02','K2',9,1500000,0,1);
-insert into DangKiNhomHocPhan values ('HV03','NHP02','K2',9.5,1500000,0,1);
-insert into DangKiNhomHocPhan values ('HV04','NHP02','K2',7,1500000,0,1);
-insert into DangKiNhomHocPhan values ('HV05','NHP02','K2',7.5,1500000,0,1);
-insert into DangKiNhomHocPhan values ('HV06','NHP02','K2',6,1500000,0,1);
-insert into DangKiNhomHocPhan values ('HV07','NHP02','K2',7,1500000,0,1);
-insert into DangKiNhomHocPhan values ('HV08','NHP02','K2',9,1500000,0,1);
-insert into DangKiNhomHocPhan values ('HV09','NHP02','K2',6,1500000,1,1);
-insert into DangKiNhomHocPhan values ('HV10','NHP02','K2',7,1500000,1,1);
+insert into DangKyNhomHocPhan values ('HV01','NHP02','K2',8,1500000,0,1);
+insert into DangKyNhomHocPhan values ('HV02','NHP02','K2',9,1500000,0,1);
+insert into DangKyNhomHocPhan values ('HV03','NHP02','K2',9.5,1500000,0,1);
+insert into DangKyNhomHocPhan values ('HV04','NHP02','K2',7,1500000,0,1);
+insert into DangKyNhomHocPhan values ('HV05','NHP02','K2',7.5,1500000,0,1);
+insert into DangKyNhomHocPhan values ('HV06','NHP02','K2',6,1500000,0,1);
+insert into DangKyNhomHocPhan values ('HV07','NHP02','K2',7,1500000,0,1);
+insert into DangKyNhomHocPhan values ('HV08','NHP02','K2',9,1500000,0,1);
+insert into DangKyNhomHocPhan values ('HV09','NHP02','K2',6,1500000,1,1);
+insert into DangKyNhomHocPhan values ('HV10','NHP02','K2',7,1500000,1,1);
 
-insert into DangKiNhomHocPhan values ('HV11','NHP01','K3',8,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV12','NHP01','K3',9,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV13','NHP01','K3',9.5,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV14','NHP01','K3',7,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV15','NHP01','K3',7.5,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV16','NHP01','K3',6,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV17','NHP01','K3',7,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV18','NHP01','K3',9,1000000,0,1);
-insert into DangKiNhomHocPhan values ('HV19','NHP01','K3',5,1000000,1,1);
-insert into DangKiNhomHocPhan values ('HV20','NHP01','K3',8,1000000,1,1);
+insert into DangKyNhomHocPhan values ('HV11','NHP01','K3',8,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV12','NHP01','K3',9,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV13','NHP01','K3',9.5,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV14','NHP01','K3',7,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV15','NHP01','K3',7.5,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV16','NHP01','K3',6,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV17','NHP01','K3',7,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV18','NHP01','K3',9,1000000,0,1);
+insert into DangKyNhomHocPhan values ('HV19','NHP01','K3',5,1000000,1,1);
+insert into DangKyNhomHocPhan values ('HV20','NHP01','K3',8,1000000,1,1);
 
-insert into DangKiNhomHocPhan values ('HV11','NHP02','K4',null,1500000,0,null);
-insert into DangKiNhomHocPhan values ('HV12','NHP02','K4',null,1500000,0,null);
-insert into DangKiNhomHocPhan values ('HV13','NHP02','K4',null,1500000,0,null);
-insert into DangKiNhomHocPhan values ('HV14','NHP02','K4',null,1500000,0,null);
-insert into DangKiNhomHocPhan values ('HV15','NHP02','K4',null,1500000,0,null);
-insert into DangKiNhomHocPhan values ('HV16','NHP02','K4',null,1500000,0,null);
-insert into DangKiNhomHocPhan values ('HV17','NHP02','K4',null,1500000,0,null);
-insert into DangKiNhomHocPhan values ('HV18','NHP02','K4',null,1500000,0,null);
-insert into DangKiNhomHocPhan values ('HV19','NHP02','K4',null,1500000,0,null);
-insert into DangKiNhomHocPhan values ('HV20','NHP02','K4',null,1500000,0,null);
+insert into DangKyNhomHocPhan values ('HV11','NHP02','K4',null,1500000,0,null);
+insert into DangKyNhomHocPhan values ('HV12','NHP02','K4',null,1500000,0,null);
+insert into DangKyNhomHocPhan values ('HV13','NHP02','K4',null,1500000,0,null);
+insert into DangKyNhomHocPhan values ('HV14','NHP02','K4',null,1500000,0,null);
+insert into DangKyNhomHocPhan values ('HV15','NHP02','K4',null,1500000,0,null);
+insert into DangKyNhomHocPhan values ('HV16','NHP02','K4',null,1500000,0,null);
+insert into DangKyNhomHocPhan values ('HV17','NHP02','K4',null,1500000,0,null);
+insert into DangKyNhomHocPhan values ('HV18','NHP02','K4',null,1500000,0,null);
+insert into DangKyNhomHocPhan values ('HV19','NHP02','K4',null,1500000,0,null);
+insert into DangKyNhomHocPhan values ('HV20','NHP02','K4',null,1500000,0,null);
 go
 create table BangDiem
 (

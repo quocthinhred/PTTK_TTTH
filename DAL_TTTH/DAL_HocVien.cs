@@ -29,5 +29,19 @@ namespace DAL_TTTH
             return Students;
         }
 
+        public static void insertStudent(DTO_HocVien student)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("INSERT INTO HOCVIEN VALUES ('" + student.ID + "', '" + student.Name + "', '" + student.Birth + "', '" + student.Phone + "')", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
+
+        public static void deleteStudent(DTO_HocVien student)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("DELETE FROM HOCVIEN WHERE MaHV = '" + student.ID + "'", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
+
     }
 }

@@ -38,7 +38,10 @@ namespace GUI_TTTH
             {
                 if (account.Type == "1")
                 {
-
+                    Menu_NhanVien nhanvien = new Menu_NhanVien();
+                    this.Hide();
+                    nhanvien.ShowDialog();
+                    this.ShowDialog();
                 }
                 else if (account.Type == "2")
                 {

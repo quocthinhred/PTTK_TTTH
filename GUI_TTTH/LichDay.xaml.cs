@@ -53,5 +53,10 @@ namespace GUI_TTTH
             dtg_schedule.Columns[4].Visibility = Visibility.Hidden;
 
         }
+
+        private void bt_back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

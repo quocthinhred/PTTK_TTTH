@@ -16,6 +16,7 @@ namespace GUI_TTTH
     {
         string id_student2;
         string id_class2;
+        DTO_BangDiemHV table = new DTO_BangDiemHV();
         public GV_BangDiem()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace GUI_TTTH
             id_student2 = id_student;
             id_class2 = id_class;
             InitializeComponent();
-            DTO_BangDiemHV table = BUS_BangDiemHV.getOne(id_student, id_class, "0");
+            table = BUS_BangDiemHV.getOne(id_student, id_class, "0");
             tb_idstudent.Text = table.ID_Student;
             tb_idstudent.Enabled = false;
             tb_idstudent.BackColor = System.Drawing.Color.White;
@@ -64,7 +65,32 @@ namespace GUI_TTTH
 
         private void bt_ok_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (tb_point.Text == "")
+            {
+                this.Close();
+            }
+            int point = Int32.Parse(tb_point.Text);
+            if (point > 10)
+            {
+                MessageBox.Show("Vui lòng nhập điểm chính xác!");
+            }
+            else
+            {
+                table.Point = tb_point.Text;
+                if (tb_point.Enabled == true)
+                {
+                    string notifi = BUS_BangDiemHV.updatePoint(table);
+                    MessageBox.Show(notifi);
+                    GV_BangDiem gv_bangdiem = new GV_BangDiem(table.ID_Student, table.ID_Class);
+                    this.Hide();
+                    gv_bangdiem.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
         }
 
         private void bt_previous_Click(object sender, EventArgs e)
@@ -94,6 +120,14 @@ namespace GUI_TTTH
             tb_examcount.Text = table.ExamCount;
             tb_point.Text = table.Point;
             tb_examdate.Text = table.ExamDate;
+        }
+
+        private void tb_point_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
