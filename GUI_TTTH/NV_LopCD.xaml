@@ -1,0 +1,19 @@
+﻿<Window x:Class="GUI_TTTH.NV_LopCD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_TTTH"
+        mc:Ignorable="d"
+        Title="NV_LopCD" Height="700" Width="1300">
+    <Grid>
+        <Label Content="DANH SÁCH LỚP CHUYÊN ĐỀ MỞ" HorizontalAlignment="Left" Margin="374,61,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
+        <DataGrid x:Name="dtg_listNHPMo" HorizontalAlignment="Left" Height="478" Margin="295,161,0,0" VerticalAlignment="Top" Width="938" VerticalContentAlignment="Center" Loaded="dtg_student_Loaded">
+        </DataGrid>
+        <Button Cursor="Hand" x:Name="bt_back" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="74,35,0,0" VerticalAlignment="Top" Width="140" Height="40" BorderBrush="Black" Foreground="White" Background="Black" FontSize="18" FontWeight="Bold" Click="bt_back_Click"/>
+        <Button Cursor="Hand" x:Name="bt_on" Content="MỞ ĐĂNG KÍ" HorizontalAlignment="Left" Margin="43,494,0,0" VerticalAlignment="Top" Width="200" Height="40" BorderBrush="Black" Foreground="White" Background="Black" FontSize="18" FontWeight="Bold" Click="bt_edit_Click"/>
+        <Button Cursor="Hand" x:Name="bt_add" Content="THÊM" HorizontalAlignment="Left" Margin="43,382,0,0" VerticalAlignment="Top" Width="200" Height="40" BorderBrush="Black" Foreground="White" Background="Black" FontSize="18" FontWeight="Bold" Click="bt_add_Click"/>
+        <Button Cursor="Hand" x:Name="bt_off" Content="TẮT ĐĂNG KÍ" HorizontalAlignment="Left" Margin="43,599,0,0" VerticalAlignment="Top" Width="200" Height="40" BorderBrush="Black" Foreground="White" Background="Black" FontSize="18" FontWeight="Bold" Click="bt_delete_Click"/>
+
+    </Grid>
+</Window>

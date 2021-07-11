@@ -13,7 +13,6 @@ go
 alter table Account add check (type = 1 or type = 2 or type = 3)
 go
 insert into Account values ('admin', 'admin', 1);
-insert into Account values ('ADMIN', 'admin', 1);
 
 insert into Account values ('GV01', 'a', 2);
 insert into Account values ('GV02', 'a', 2);
@@ -255,16 +254,17 @@ create table NhomHocPhanMo
 (
 	MaNHP varchar(10),
 	MaKhoa varchar(10),
+	isFull int,
 	primary key (MaNHP,MaKhoa)
 )
 go
 alter table NhomHocPhanMo add constraint FK_NhomHocPhanMo_NHP foreign key (MaNHP) references NhomHocPhan(MaNHP);
 alter table NhomHocPhanMo add constraint FK_NhomHocPhanMo_Khoa foreign key (MaKhoa) references Khoa(MaKhoa);
 go
-insert into NhomHocPhanMo values ('NHP01','K1');
-insert into NhomHocPhanMo values ('NHP02','K2');
-insert into NhomHocPhanMo values ('NHP01','K3');
-insert into NhomHocPhanMo values ('NHP02','K4');
+insert into NhomHocPhanMo values ('NHP01','K1',1);
+insert into NhomHocPhanMo values ('NHP02','K2',1);
+insert into NhomHocPhanMo values ('NHP01','K3',1);
+insert into NhomHocPhanMo values ('NHP02','K4',1);
 go
 
 create table LopKTVMo
@@ -714,6 +714,7 @@ create table LopChungChiMo
 	MaKhoa varchar(10),
 	LichHoc varchar(100),
 	MaGV varchar(10),
+	isFull int,
 	primary key (MaLCC, MaKhoa)
 )
 go
@@ -721,36 +722,36 @@ alter table LopChungChiMo add constraint FK_LCCM_LCC foreign key (MaLCC) referen
 alter table LopChungChiMo add constraint FK_LCCM_Khoa foreign key (MaKhoa) references Khoa(MaKhoa);
 alter table LopChungChiMo add constraint FK_LCCM_GV foreign key (MaGV) references GiangVien(MaGV);
 go
-insert into LopChungChiMo values ('LCC01', 'K1', 'A101, 7:30, Thu 2, 4, 6', 'GV06');
-insert into LopChungChiMo values ('LCC02', 'K1', 'A102, 7:30, Thu 3, 5, 7', 'GV07');
-insert into LopChungChiMo values ('LCC03', 'K1', 'A103, 9:30, Thu 2, 4, 6', 'GV08');
-insert into LopChungChiMo values ('LCC01', 'K2', 'A101, 7:30, Thu 2, 4, 6', 'GV06');
-insert into LopChungChiMo values ('LCC02', 'K2', 'A102, 7:30, Thu 3, 5, 7', 'GV07');
-insert into LopChungChiMo values ('LCC03', 'K2', 'A103, 9:30, Thu 2, 4, 6', 'GV08');
-insert into LopChungChiMo values ('LCC01', 'K3', 'A101, 7:30, Thu 2, 4, 6', 'GV06');
-insert into LopChungChiMo values ('LCC02', 'K3', 'A102, 7:30, Thu 3, 5, 7', 'GV07');
-insert into LopChungChiMo values ('LCC03', 'K3', 'A103, 9:30, Thu 2, 4, 6', 'GV08');
-insert into LopChungChiMo values ('LCC01', 'K4', 'A101, 7:30, Thu 2, 4, 6', 'GV06');
-insert into LopChungChiMo values ('LCC02', 'K4', 'A102, 7:30, Thu 3, 5, 7', 'GV07');
-insert into LopChungChiMo values ('LCC03', 'K4', 'A103, 9:30, Thu 2, 4, 6', 'GV08');
+insert into LopChungChiMo values ('LCC01', 'K1', 'A101, 7:30, Thu 2, 4, 6', 'GV06',1);
+insert into LopChungChiMo values ('LCC02', 'K1', 'A102, 7:30, Thu 3, 5, 7', 'GV07',1);
+insert into LopChungChiMo values ('LCC03', 'K1', 'A103, 9:30, Thu 2, 4, 6', 'GV08',1);
+insert into LopChungChiMo values ('LCC01', 'K2', 'A101, 7:30, Thu 2, 4, 6', 'GV06',1);
+insert into LopChungChiMo values ('LCC02', 'K2', 'A102, 7:30, Thu 3, 5, 7', 'GV07',1);
+insert into LopChungChiMo values ('LCC03', 'K2', 'A103, 9:30, Thu 2, 4, 6', 'GV08',1);
+insert into LopChungChiMo values ('LCC01', 'K3', 'A101, 7:30, Thu 2, 4, 6', 'GV06',1);
+insert into LopChungChiMo values ('LCC02', 'K3', 'A102, 7:30, Thu 3, 5, 7', 'GV07',1);
+insert into LopChungChiMo values ('LCC03', 'K3', 'A103, 9:30, Thu 2, 4, 6', 'GV08',1);
+insert into LopChungChiMo values ('LCC01', 'K4', 'A101, 7:30, Thu 2, 4, 6', 'GV06',1);
+insert into LopChungChiMo values ('LCC02', 'K4', 'A102, 7:30, Thu 3, 5, 7', 'GV07',1);
+insert into LopChungChiMo values ('LCC03', 'K4', 'A103, 9:30, Thu 2, 4, 6', 'GV08',1);
 
-insert into LopChungChiMo values ('LCC04', 'K1', 'B102, 7:30, Thu 3, 5, 7', 'GV09');
-insert into LopChungChiMo values ('LCC05', 'K1', 'B103, 7:30, Thu 2, 4, 6', 'GV10');
-insert into LopChungChiMo values ('LCC04', 'K2', 'B102, 7:30, Thu 3, 5, 7', 'GV09');
-insert into LopChungChiMo values ('LCC05', 'K2', 'B103, 7:30, Thu 2, 4, 6', 'GV10');
-insert into LopChungChiMo values ('LCC04', 'K3', 'B102, 7:30, Thu 3, 5, 7', 'GV09');
-insert into LopChungChiMo values ('LCC05', 'K3', 'B103, 7:30, Thu 2, 4, 6', 'GV10');
-insert into LopChungChiMo values ('LCC04', 'K4', 'B102, 7:30, Thu 3, 5, 7', 'GV09');
-insert into LopChungChiMo values ('LCC05', 'K4', 'B103, 7:30, Thu 2, 4, 6', 'GV10');
+insert into LopChungChiMo values ('LCC04', 'K1', 'B102, 7:30, Thu 3, 5, 7', 'GV09',1);
+insert into LopChungChiMo values ('LCC05', 'K1', 'B103, 7:30, Thu 2, 4, 6', 'GV10',1);
+insert into LopChungChiMo values ('LCC04', 'K2', 'B102, 7:30, Thu 3, 5, 7', 'GV09',1);
+insert into LopChungChiMo values ('LCC05', 'K2', 'B103, 7:30, Thu 2, 4, 6', 'GV10',1);
+insert into LopChungChiMo values ('LCC04', 'K3', 'B102, 7:30, Thu 3, 5, 7', 'GV09',1);
+insert into LopChungChiMo values ('LCC05', 'K3', 'B103, 7:30, Thu 2, 4, 6', 'GV10',1);
+insert into LopChungChiMo values ('LCC04', 'K4', 'B102, 7:30, Thu 3, 5, 7', 'GV09',1);
+insert into LopChungChiMo values ('LCC05', 'K4', 'B103, 7:30, Thu 2, 4, 6', 'GV10',1);
 
-insert into LopChungChiMo values ('LCC06', 'K1', 'B202, 7:30, Thu 3, 5, 7', 'GV01');
-insert into LopChungChiMo values ('LCC07', 'K1', 'B203, 7:30, Thu 2, 4, 6', 'GV02');
-insert into LopChungChiMo values ('LCC06', 'K2', 'B202, 7:30, Thu 3, 5, 7', 'GV01');
-insert into LopChungChiMo values ('LCC07', 'K2', 'B203, 7:30, Thu 2, 4, 6', 'GV02');
-insert into LopChungChiMo values ('LCC06', 'K3', 'B202, 7:30, Thu 3, 5, 7', 'GV01');
-insert into LopChungChiMo values ('LCC07', 'K3', 'B203, 7:30, Thu 2, 4, 6', 'GV02');
-insert into LopChungChiMo values ('LCC06', 'K4', 'B202, 7:30, Thu 3, 5, 7', 'GV01');
-insert into LopChungChiMo values ('LCC07', 'K4', 'B203, 7:30, Thu 2, 4, 6', 'GV02');
+insert into LopChungChiMo values ('LCC06', 'K1', 'B202, 7:30, Thu 3, 5, 7', 'GV01',1);
+insert into LopChungChiMo values ('LCC07', 'K1', 'B203, 7:30, Thu 2, 4, 6', 'GV02',1);
+insert into LopChungChiMo values ('LCC06', 'K2', 'B202, 7:30, Thu 3, 5, 7', 'GV01',1);
+insert into LopChungChiMo values ('LCC07', 'K2', 'B203, 7:30, Thu 2, 4, 6', 'GV02',1);
+insert into LopChungChiMo values ('LCC06', 'K3', 'B202, 7:30, Thu 3, 5, 7', 'GV01',1);
+insert into LopChungChiMo values ('LCC07', 'K3', 'B203, 7:30, Thu 2, 4, 6', 'GV02',1);
+insert into LopChungChiMo values ('LCC06', 'K4', 'B202, 7:30, Thu 3, 5, 7', 'GV01',1);
+insert into LopChungChiMo values ('LCC07', 'K4', 'B203, 7:30, Thu 2, 4, 6', 'GV02',1);
 go
 
 create table DangKyLopChungChi
@@ -1054,6 +1055,7 @@ create table LopChuyenDeMo
 	MaKhoa varchar(10),
 	LichHoc varchar(100),
 	MaGV varchar(10),
+	isFull int,
 	primary key (MaLCD, MaKhoa)
 )
 go
@@ -1061,25 +1063,25 @@ alter table LopChuyenDeMo add constraint FK_LCDM_LCD foreign key (MaLCD) referen
 alter table LopChuyenDeMo add constraint FK_LCDM_Khoa foreign key (MaKhoa) references Khoa(MaKhoa);
 alter table LopChuyenDeMo add constraint FK_LCDM_GV foreign key (MaGV) references GiangVien(MaGV);
 go
-insert into LopChuyenDeMo values ('CD01', 'K1', 'C101, 12:30, Thu 2, 4, 6', 'GV11');
-insert into LopChuyenDeMo values ('CD02', 'K1', 'C102, 12:30, Thu 2, 4, 6', 'GV12');
-insert into LopChuyenDeMo values ('CD03', 'K1', 'C103, 12:30, Thu 2, 4, 6', 'GV13');
-insert into LopChuyenDeMo values ('CD04', 'K1', 'C104, 12:30, Thu 2, 4, 6', 'GV14');
+insert into LopChuyenDeMo values ('CD01', 'K1', 'C101, 12:30, Thu 2, 4, 6', 'GV11',1);
+insert into LopChuyenDeMo values ('CD02', 'K1', 'C102, 12:30, Thu 2, 4, 6', 'GV12',1);
+insert into LopChuyenDeMo values ('CD03', 'K1', 'C103, 12:30, Thu 2, 4, 6', 'GV13',1);
+insert into LopChuyenDeMo values ('CD04', 'K1', 'C104, 12:30, Thu 2, 4, 6', 'GV14',1);
 
-insert into LopChuyenDeMo values ('CD01', 'K2', 'C101, 12:30, Thu 2, 4, 6', 'GV11');
-insert into LopChuyenDeMo values ('CD02', 'K2', 'C102, 12:30, Thu 2, 4, 6', 'GV12');
-insert into LopChuyenDeMo values ('CD03', 'K2', 'C103, 12:30, Thu 2, 4, 6', 'GV13');
-insert into LopChuyenDeMo values ('CD04', 'K2', 'C104, 12:30, Thu 2, 4, 6', 'GV14');
+insert into LopChuyenDeMo values ('CD01', 'K2', 'C101, 12:30, Thu 2, 4, 6', 'GV11',1);
+insert into LopChuyenDeMo values ('CD02', 'K2', 'C102, 12:30, Thu 2, 4, 6', 'GV12',1);
+insert into LopChuyenDeMo values ('CD03', 'K2', 'C103, 12:30, Thu 2, 4, 6', 'GV13',1);
+insert into LopChuyenDeMo values ('CD04', 'K2', 'C104, 12:30, Thu 2, 4, 6', 'GV14',1);
 
-insert into LopChuyenDeMo values ('CD01', 'K3', 'C101, 12:30, Thu 2, 4, 6', 'GV11');
-insert into LopChuyenDeMo values ('CD02', 'K3', 'C102, 12:30, Thu 2, 4, 6', 'GV12');
-insert into LopChuyenDeMo values ('CD03', 'K3', 'C103, 12:30, Thu 2, 4, 6', 'GV13');
-insert into LopChuyenDeMo values ('CD04', 'K3', 'C104, 12:30, Thu 2, 4, 6', 'GV14');
+insert into LopChuyenDeMo values ('CD01', 'K3', 'C101, 12:30, Thu 2, 4, 6', 'GV11',1);
+insert into LopChuyenDeMo values ('CD02', 'K3', 'C102, 12:30, Thu 2, 4, 6', 'GV12',1);
+insert into LopChuyenDeMo values ('CD03', 'K3', 'C103, 12:30, Thu 2, 4, 6', 'GV13',1);
+insert into LopChuyenDeMo values ('CD04', 'K3', 'C104, 12:30, Thu 2, 4, 6', 'GV14',1);
 
-insert into LopChuyenDeMo values ('CD01', 'K4', 'C101, 12:30, Thu 2, 4, 6', 'GV11');
-insert into LopChuyenDeMo values ('CD02', 'K4', 'C102, 12:30, Thu 2, 4, 6', 'GV12');
-insert into LopChuyenDeMo values ('CD03', 'K4', 'C103, 12:30, Thu 2, 4, 6', 'GV13');
-insert into LopChuyenDeMo values ('CD04', 'K4', 'C104, 12:30, Thu 2, 4, 6', 'GV14');
+insert into LopChuyenDeMo values ('CD01', 'K4', 'C101, 12:30, Thu 2, 4, 6', 'GV11',1);
+insert into LopChuyenDeMo values ('CD02', 'K4', 'C102, 12:30, Thu 2, 4, 6', 'GV12',1);
+insert into LopChuyenDeMo values ('CD03', 'K4', 'C103, 12:30, Thu 2, 4, 6', 'GV13',1);
+insert into LopChuyenDeMo values ('CD04', 'K4', 'C104, 12:30, Thu 2, 4, 6', 'GV14',1);
 
 go
 
@@ -1489,8 +1491,7 @@ end;
 --proc  insert Bảng Điểm của tất cả các môn của 1 NHP
 go
 create or alter proc insertBangDiem
-	@maHV varchar(10), @maKhoa varchar(10),  @NHP_ID varchar(10)
-	
+	@maHV varchar(10), @maKhoa varchar(10),  @NHP_ID varchar(10)	
 as
 begin
 	declare @date date
@@ -1553,6 +1554,7 @@ begin
 	declare @NHP_ID varchar(10)
 	select @courseID = MaKhoa,@NHP_ID =  MaNHP from inserted
 	exec insertLopKTVMo @courseID,@NHP_ID
+	update NhomHocPhanMo set isFull = 1 where MaNHP = @NHP_ID and MaKhoa = @courseID
 end;
 
 
@@ -1609,4 +1611,28 @@ begin
 	insert into Account values (@id,'a','2')
 end;
 
+go
+--trigger set isFull = 1 khi LopCCMo
+create or alter trigger trg_insert_LopCCMo
+on LopChungChiMo
+after insert 
+as
+begin
+	declare @courseID varchar(10)
+	declare @LCC_ID varchar(10)
+	select @courseID = MaKhoa,@LCC_ID =  MaLCC from inserted
+	update LopChungChiMo set isFull = 1 where MaLCC = @LCC_ID and MaKhoa = @courseID
+end;
 
+--trigger set isFull = 1 khi LopCDMo
+go
+create or alter trigger trg_insert_LopCDMo
+on LopChuyenDeMo
+after insert 
+as
+begin
+	declare @courseID varchar(10)
+	declare @LCD_ID varchar(10)
+	select @courseID = MaKhoa,@LCD_ID =  MaLCD from inserted
+	update LopChuyenDeMo set isFull = 1 where MaLCD = @LCD_ID and MaKhoa = @courseID
+end;

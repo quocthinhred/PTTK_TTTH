@@ -11,7 +11,7 @@ namespace BUS_TTTH
     public class BUS_GiangVien
     {
         public static List<DTO_GiangVien> AllTeachers = DAL_GiangVien.getTeachers();
-        public static DTO_GiangVien getStudent(string id)
+        public static DTO_GiangVien getTeacher(string id)
         {
             DTO_GiangVien teacher = new DTO_GiangVien();
             for (int i = 0; i < AllTeachers.Count; i++)

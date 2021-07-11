@@ -131,6 +131,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="NV_LopCC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NV_LopCD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NV_LopHoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NV_LopKTV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Menu_GiangVien.xaml.cs">
@@ -147,6 +163,18 @@
     </Compile>
     <Compile Include="NV_HocVien.xaml.cs">
       <DependentUpon>NV_HocVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NV_LopCC.xaml.cs">
+      <DependentUpon>NV_LopCC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NV_LopCD.xaml.cs">
+      <DependentUpon>NV_LopCD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NV_LopHoc.xaml.cs">
+      <DependentUpon>NV_LopHoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NV_LopKTV.xaml.cs">
+      <DependentUpon>NV_LopKTV.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
