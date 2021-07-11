@@ -23,7 +23,8 @@ namespace DAL_TTTH
                 string id_Course = row["MaKhoa"].ToString();
                 string id_Teacher = row["MaGV"].ToString();
                 string schedule = row["LichHoc"].ToString();
-                DTO_LopCDMo lop = new DTO_LopCDMo(id, name, id_Course, id_Teacher, schedule);
+                string isFull = row["isFull"].ToString();
+                DTO_LopCDMo lop = new DTO_LopCDMo(id, name, id_Course, id_Teacher, schedule, isFull);
                 DSLopCDMo.Add(lop);
             }
             return DSLopCDMo;

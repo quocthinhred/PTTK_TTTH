@@ -9,3 +9,14 @@ C:\Users\Kuokkutin\source\repos\PTTK_TTTH\BUS_TTTH\obj\Debug\BUS_TTTH.csproj.Cor
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\BUS_TTTH\obj\Debug\BUS_TTTH.csproj.CopyComplete
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\BUS_TTTH\obj\Debug\BUS_TTTH.dll
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\BUS_TTTH\obj\Debug\BUS_TTTH.pdb
+C:\Users\PC\Desktop\PTTK_TTTH\BUS_TTTH\bin\Debug\BUS_TTTH.dll
+C:\Users\PC\Desktop\PTTK_TTTH\BUS_TTTH\bin\Debug\BUS_TTTH.pdb
+C:\Users\PC\Desktop\PTTK_TTTH\BUS_TTTH\bin\Debug\DAL_TTTH.dll
+C:\Users\PC\Desktop\PTTK_TTTH\BUS_TTTH\bin\Debug\DTO_TTTH.dll
+C:\Users\PC\Desktop\PTTK_TTTH\BUS_TTTH\bin\Debug\DAL_TTTH.pdb
+C:\Users\PC\Desktop\PTTK_TTTH\BUS_TTTH\bin\Debug\DTO_TTTH.pdb
+C:\Users\PC\Desktop\PTTK_TTTH\BUS_TTTH\obj\Debug\BUS_TTTH.csproj.AssemblyReference.cache
+C:\Users\PC\Desktop\PTTK_TTTH\BUS_TTTH\obj\Debug\BUS_TTTH.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\PTTK_TTTH\BUS_TTTH\obj\Debug\BUS_TTTH.csproj.CopyComplete
+C:\Users\PC\Desktop\PTTK_TTTH\BUS_TTTH\obj\Debug\BUS_TTTH.dll
+C:\Users\PC\Desktop\PTTK_TTTH\BUS_TTTH\obj\Debug\BUS_TTTH.pdb

@@ -1,0 +1,16 @@
+﻿<Window x:Class="GUI_TTTH.NV_LopHoc"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_TTTH"
+        mc:Ignorable="d"
+        Title="NV_LopHoc" Height="700" Width="1300" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="LỚP HỌC" HorizontalAlignment="Left" Margin="544,124,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
+        <Button Cursor="Hand" x:Name="bt_LopKTV" Content="LỚP KĨ THUẬT VIÊN" HorizontalAlignment="Left" Margin="162,331,0,0" VerticalAlignment="Top" Width="250" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_LopKTV_Click"/>
+        <Button Cursor="Hand" x:Name="bt_LopCC" Content="LỚP CHỨNG CHỈ" HorizontalAlignment="Left" Margin="529,331,0,0" VerticalAlignment="Top" Width="250" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_LopCC_Click"/>
+        <Button Cursor="Hand" x:Name="bt_LopCD" Content="LỚP CHUYÊN ĐỀ" HorizontalAlignment="Left" Margin="905,331,0,0" VerticalAlignment="Top" Width="250" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_LopCD_Click"/>
+
+    </Grid>
+</Window>

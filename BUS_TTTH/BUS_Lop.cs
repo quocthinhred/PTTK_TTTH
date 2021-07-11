@@ -123,5 +123,12 @@ namespace BUS_TTTH
             return schedules;
         }
 
+        public static List<DTO_Lop> getLopKTV(DTO_NHPMo NHP)
+        {
+            List<DTO_Lop> L_KTV = new List<DTO_Lop>();
+            L_KTV = DAL_LopKTVMo.getClassNHP(NHP);
+            return L_KTV;
+        }
+
     }
 }

@@ -69,27 +69,34 @@ namespace GUI_TTTH
             {
                 this.Close();
             }
-            int point = Int32.Parse(tb_point.Text);
-            if (point > 10)
+            if (tb_point.Text != "")
             {
-                MessageBox.Show("Vui lòng nhập điểm chính xác!");
-            }
-            else
-            {
-                table.Point = tb_point.Text;
-                if (tb_point.Enabled == true)
+                int point = Int32.Parse(tb_point.Text);
+                if (point > 10)
                 {
-                    string notifi = BUS_BangDiemHV.updatePoint(table);
-                    MessageBox.Show(notifi);
-                    GV_BangDiem gv_bangdiem = new GV_BangDiem(table.ID_Student, table.ID_Class);
-                    this.Hide();
-                    gv_bangdiem.ShowDialog();
-                    this.Close();
+                    MessageBox.Show("Vui lòng nhập điểm chính xác!");
                 }
                 else
                 {
-                    this.Close();
+                    table.Point = tb_point.Text;
+                    if (tb_point.Enabled == true)
+                    {
+                        string notifi = BUS_BangDiemHV.updatePoint(table);
+                        MessageBox.Show(notifi);
+                        GV_BangDiem gv_bangdiem = new GV_BangDiem(table.ID_Student, table.ID_Class);
+                        this.Hide();
+                        gv_bangdiem.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
                 }
+            }
+            else
+            {
+                this.Close();
             }
         }
 

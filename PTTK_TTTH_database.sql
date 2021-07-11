@@ -13,7 +13,6 @@ go
 alter table Account add check (type = 1 or type = 2 or type = 3)
 go
 insert into Account values ('admin', 'admin', 1);
-insert into Account values ('ADMIN', 'admin', 1);
 
 insert into Account values ('GV01', 'a', 2);
 insert into Account values ('GV02', 'a', 2);
@@ -255,16 +254,17 @@ create table NhomHocPhanMo
 (
 	MaNHP varchar(10),
 	MaKhoa varchar(10),
+	isFull int,
 	primary key (MaNHP,MaKhoa)
 )
 go
 alter table NhomHocPhanMo add constraint FK_NhomHocPhanMo_NHP foreign key (MaNHP) references NhomHocPhan(MaNHP);
 alter table NhomHocPhanMo add constraint FK_NhomHocPhanMo_Khoa foreign key (MaKhoa) references Khoa(MaKhoa);
 go
-insert into NhomHocPhanMo values ('NHP01','K1');
-insert into NhomHocPhanMo values ('NHP02','K2');
-insert into NhomHocPhanMo values ('NHP01','K3');
-insert into NhomHocPhanMo values ('NHP02','K4');
+insert into NhomHocPhanMo values ('NHP01','K1',1);
+insert into NhomHocPhanMo values ('NHP02','K2',1);
+insert into NhomHocPhanMo values ('NHP01','K3',1);
+insert into NhomHocPhanMo values ('NHP02','K4',1);
 go
 
 create table LopKTVMo
@@ -714,6 +714,7 @@ create table LopChungChiMo
 	MaKhoa varchar(10),
 	LichHoc varchar(100),
 	MaGV varchar(10),
+	isFull int,
 	primary key (MaLCC, MaKhoa)
 )
 go
@@ -721,36 +722,36 @@ alter table LopChungChiMo add constraint FK_LCCM_LCC foreign key (MaLCC) referen
 alter table LopChungChiMo add constraint FK_LCCM_Khoa foreign key (MaKhoa) references Khoa(MaKhoa);
 alter table LopChungChiMo add constraint FK_LCCM_GV foreign key (MaGV) references GiangVien(MaGV);
 go
-insert into LopChungChiMo values ('LCC01', 'K1', 'A101, 7:30, Thu 2, 4, 6', 'GV06');
-insert into LopChungChiMo values ('LCC02', 'K1', 'A102, 7:30, Thu 3, 5, 7', 'GV07');
-insert into LopChungChiMo values ('LCC03', 'K1', 'A103, 9:30, Thu 2, 4, 6', 'GV08');
-insert into LopChungChiMo values ('LCC01', 'K2', 'A101, 7:30, Thu 2, 4, 6', 'GV06');
-insert into LopChungChiMo values ('LCC02', 'K2', 'A102, 7:30, Thu 3, 5, 7', 'GV07');
-insert into LopChungChiMo values ('LCC03', 'K2', 'A103, 9:30, Thu 2, 4, 6', 'GV08');
-insert into LopChungChiMo values ('LCC01', 'K3', 'A101, 7:30, Thu 2, 4, 6', 'GV06');
-insert into LopChungChiMo values ('LCC02', 'K3', 'A102, 7:30, Thu 3, 5, 7', 'GV07');
-insert into LopChungChiMo values ('LCC03', 'K3', 'A103, 9:30, Thu 2, 4, 6', 'GV08');
-insert into LopChungChiMo values ('LCC01', 'K4', 'A101, 7:30, Thu 2, 4, 6', 'GV06');
-insert into LopChungChiMo values ('LCC02', 'K4', 'A102, 7:30, Thu 3, 5, 7', 'GV07');
-insert into LopChungChiMo values ('LCC03', 'K4', 'A103, 9:30, Thu 2, 4, 6', 'GV08');
+insert into LopChungChiMo values ('LCC01', 'K1', 'A101, 7:30, Thu 2, 4, 6', 'GV06',1);
+insert into LopChungChiMo values ('LCC02', 'K1', 'A102, 7:30, Thu 3, 5, 7', 'GV07',1);
+insert into LopChungChiMo values ('LCC03', 'K1', 'A103, 9:30, Thu 2, 4, 6', 'GV08',1);
+insert into LopChungChiMo values ('LCC01', 'K2', 'A101, 7:30, Thu 2, 4, 6', 'GV06',1);
+insert into LopChungChiMo values ('LCC02', 'K2', 'A102, 7:30, Thu 3, 5, 7', 'GV07',1);
+insert into LopChungChiMo values ('LCC03', 'K2', 'A103, 9:30, Thu 2, 4, 6', 'GV08',1);
+insert into LopChungChiMo values ('LCC01', 'K3', 'A101, 7:30, Thu 2, 4, 6', 'GV06',1);
+insert into LopChungChiMo values ('LCC02', 'K3', 'A102, 7:30, Thu 3, 5, 7', 'GV07',1);
+insert into LopChungChiMo values ('LCC03', 'K3', 'A103, 9:30, Thu 2, 4, 6', 'GV08',1);
+insert into LopChungChiMo values ('LCC01', 'K4', 'A101, 7:30, Thu 2, 4, 6', 'GV06',1);
+insert into LopChungChiMo values ('LCC02', 'K4', 'A102, 7:30, Thu 3, 5, 7', 'GV07',1);
+insert into LopChungChiMo values ('LCC03', 'K4', 'A103, 9:30, Thu 2, 4, 6', 'GV08',1);
 
-insert into LopChungChiMo values ('LCC04', 'K1', 'B102, 7:30, Thu 3, 5, 7', 'GV09');
-insert into LopChungChiMo values ('LCC05', 'K1', 'B103, 7:30, Thu 2, 4, 6', 'GV10');
-insert into LopChungChiMo values ('LCC04', 'K2', 'B102, 7:30, Thu 3, 5, 7', 'GV09');
-insert into LopChungChiMo values ('LCC05', 'K2', 'B103, 7:30, Thu 2, 4, 6', 'GV10');
-insert into LopChungChiMo values ('LCC04', 'K3', 'B102, 7:30, Thu 3, 5, 7', 'GV09');
-insert into LopChungChiMo values ('LCC05', 'K3', 'B103, 7:30, Thu 2, 4, 6', 'GV10');
-insert into LopChungChiMo values ('LCC04', 'K4', 'B102, 7:30, Thu 3, 5, 7', 'GV09');
-insert into LopChungChiMo values ('LCC05', 'K4', 'B103, 7:30, Thu 2, 4, 6', 'GV10');
+insert into LopChungChiMo values ('LCC04', 'K1', 'B102, 7:30, Thu 3, 5, 7', 'GV09',1);
+insert into LopChungChiMo values ('LCC05', 'K1', 'B103, 7:30, Thu 2, 4, 6', 'GV10',1);
+insert into LopChungChiMo values ('LCC04', 'K2', 'B102, 7:30, Thu 3, 5, 7', 'GV09',1);
+insert into LopChungChiMo values ('LCC05', 'K2', 'B103, 7:30, Thu 2, 4, 6', 'GV10',1);
+insert into LopChungChiMo values ('LCC04', 'K3', 'B102, 7:30, Thu 3, 5, 7', 'GV09',1);
+insert into LopChungChiMo values ('LCC05', 'K3', 'B103, 7:30, Thu 2, 4, 6', 'GV10',1);
+insert into LopChungChiMo values ('LCC04', 'K4', 'B102, 7:30, Thu 3, 5, 7', 'GV09',1);
+insert into LopChungChiMo values ('LCC05', 'K4', 'B103, 7:30, Thu 2, 4, 6', 'GV10',1);
 
-insert into LopChungChiMo values ('LCC06', 'K1', 'B202, 7:30, Thu 3, 5, 7', 'GV01');
-insert into LopChungChiMo values ('LCC07', 'K1', 'B203, 7:30, Thu 2, 4, 6', 'GV02');
-insert into LopChungChiMo values ('LCC06', 'K2', 'B202, 7:30, Thu 3, 5, 7', 'GV01');
-insert into LopChungChiMo values ('LCC07', 'K2', 'B203, 7:30, Thu 2, 4, 6', 'GV02');
-insert into LopChungChiMo values ('LCC06', 'K3', 'B202, 7:30, Thu 3, 5, 7', 'GV01');
-insert into LopChungChiMo values ('LCC07', 'K3', 'B203, 7:30, Thu 2, 4, 6', 'GV02');
-insert into LopChungChiMo values ('LCC06', 'K4', 'B202, 7:30, Thu 3, 5, 7', 'GV01');
-insert into LopChungChiMo values ('LCC07', 'K4', 'B203, 7:30, Thu 2, 4, 6', 'GV02');
+insert into LopChungChiMo values ('LCC06', 'K1', 'B202, 7:30, Thu 3, 5, 7', 'GV01',1);
+insert into LopChungChiMo values ('LCC07', 'K1', 'B203, 7:30, Thu 2, 4, 6', 'GV02',1);
+insert into LopChungChiMo values ('LCC06', 'K2', 'B202, 7:30, Thu 3, 5, 7', 'GV01',1);
+insert into LopChungChiMo values ('LCC07', 'K2', 'B203, 7:30, Thu 2, 4, 6', 'GV02',1);
+insert into LopChungChiMo values ('LCC06', 'K3', 'B202, 7:30, Thu 3, 5, 7', 'GV01',1);
+insert into LopChungChiMo values ('LCC07', 'K3', 'B203, 7:30, Thu 2, 4, 6', 'GV02',1);
+insert into LopChungChiMo values ('LCC06', 'K4', 'B202, 7:30, Thu 3, 5, 7', 'GV01',1);
+insert into LopChungChiMo values ('LCC07', 'K4', 'B203, 7:30, Thu 2, 4, 6', 'GV02',1);
 go
 
 create table DangKyLopChungChi
@@ -1054,6 +1055,7 @@ create table LopChuyenDeMo
 	MaKhoa varchar(10),
 	LichHoc varchar(100),
 	MaGV varchar(10),
+	isFull int,
 	primary key (MaLCD, MaKhoa)
 )
 go
@@ -1061,25 +1063,25 @@ alter table LopChuyenDeMo add constraint FK_LCDM_LCD foreign key (MaLCD) referen
 alter table LopChuyenDeMo add constraint FK_LCDM_Khoa foreign key (MaKhoa) references Khoa(MaKhoa);
 alter table LopChuyenDeMo add constraint FK_LCDM_GV foreign key (MaGV) references GiangVien(MaGV);
 go
-insert into LopChuyenDeMo values ('CD01', 'K1', 'C101, 12:30, Thu 2, 4, 6', 'GV11');
-insert into LopChuyenDeMo values ('CD02', 'K1', 'C102, 12:30, Thu 2, 4, 6', 'GV12');
-insert into LopChuyenDeMo values ('CD03', 'K1', 'C103, 12:30, Thu 2, 4, 6', 'GV13');
-insert into LopChuyenDeMo values ('CD04', 'K1', 'C104, 12:30, Thu 2, 4, 6', 'GV14');
+insert into LopChuyenDeMo values ('CD01', 'K1', 'C101, 12:30, Thu 2, 4, 6', 'GV11',1);
+insert into LopChuyenDeMo values ('CD02', 'K1', 'C102, 12:30, Thu 2, 4, 6', 'GV12',1);
+insert into LopChuyenDeMo values ('CD03', 'K1', 'C103, 12:30, Thu 2, 4, 6', 'GV13',1);
+insert into LopChuyenDeMo values ('CD04', 'K1', 'C104, 12:30, Thu 2, 4, 6', 'GV14',1);
 
-insert into LopChuyenDeMo values ('CD01', 'K2', 'C101, 12:30, Thu 2, 4, 6', 'GV11');
-insert into LopChuyenDeMo values ('CD02', 'K2', 'C102, 12:30, Thu 2, 4, 6', 'GV12');
-insert into LopChuyenDeMo values ('CD03', 'K2', 'C103, 12:30, Thu 2, 4, 6', 'GV13');
-insert into LopChuyenDeMo values ('CD04', 'K2', 'C104, 12:30, Thu 2, 4, 6', 'GV14');
+insert into LopChuyenDeMo values ('CD01', 'K2', 'C101, 12:30, Thu 2, 4, 6', 'GV11',1);
+insert into LopChuyenDeMo values ('CD02', 'K2', 'C102, 12:30, Thu 2, 4, 6', 'GV12',1);
+insert into LopChuyenDeMo values ('CD03', 'K2', 'C103, 12:30, Thu 2, 4, 6', 'GV13',1);
+insert into LopChuyenDeMo values ('CD04', 'K2', 'C104, 12:30, Thu 2, 4, 6', 'GV14',1);
 
-insert into LopChuyenDeMo values ('CD01', 'K3', 'C101, 12:30, Thu 2, 4, 6', 'GV11');
-insert into LopChuyenDeMo values ('CD02', 'K3', 'C102, 12:30, Thu 2, 4, 6', 'GV12');
-insert into LopChuyenDeMo values ('CD03', 'K3', 'C103, 12:30, Thu 2, 4, 6', 'GV13');
-insert into LopChuyenDeMo values ('CD04', 'K3', 'C104, 12:30, Thu 2, 4, 6', 'GV14');
+insert into LopChuyenDeMo values ('CD01', 'K3', 'C101, 12:30, Thu 2, 4, 6', 'GV11',1);
+insert into LopChuyenDeMo values ('CD02', 'K3', 'C102, 12:30, Thu 2, 4, 6', 'GV12',1);
+insert into LopChuyenDeMo values ('CD03', 'K3', 'C103, 12:30, Thu 2, 4, 6', 'GV13',1);
+insert into LopChuyenDeMo values ('CD04', 'K3', 'C104, 12:30, Thu 2, 4, 6', 'GV14',1);
 
-insert into LopChuyenDeMo values ('CD01', 'K4', 'C101, 12:30, Thu 2, 4, 6', 'GV11');
-insert into LopChuyenDeMo values ('CD02', 'K4', 'C102, 12:30, Thu 2, 4, 6', 'GV12');
-insert into LopChuyenDeMo values ('CD03', 'K4', 'C103, 12:30, Thu 2, 4, 6', 'GV13');
-insert into LopChuyenDeMo values ('CD04', 'K4', 'C104, 12:30, Thu 2, 4, 6', 'GV14');
+insert into LopChuyenDeMo values ('CD01', 'K4', 'C101, 12:30, Thu 2, 4, 6', 'GV11',1);
+insert into LopChuyenDeMo values ('CD02', 'K4', 'C102, 12:30, Thu 2, 4, 6', 'GV12',1);
+insert into LopChuyenDeMo values ('CD03', 'K4', 'C103, 12:30, Thu 2, 4, 6', 'GV13',1);
+insert into LopChuyenDeMo values ('CD04', 'K4', 'C104, 12:30, Thu 2, 4, 6', 'GV14',1);
 
 go
 
@@ -1311,6 +1313,326 @@ insert into HocVien_TotNghiep values ('HV10', 'K3', 10, 100000, '12/30/2020', 'G
 
 
 
+go
+
+
+--insert,delete hoc vien, giang vien --> account
+-- trg diem trung binh
+
+-- proc: lấy ra 3 môn bắt buộc của học phần mà student đó đang update
+go
+create or alter proc checkPassedAllSub
+	@studentID varchar(10),@NHP_ID varchar(10), @check int output
+as
+begin
+	
+	set @check = 1
+	declare c cursor for select distinct bd.MaHV,bd.MaMon,bd.MaKhoa,bd.LanThi from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKiNhomHocPhan dk 
+												 where m.MaMon = lm.MaMon and bd.MaMon = lm.MaMon and hv.MaHV= bd.MaHV and hv.MaHV = dk.MaHV and m.MaNHP=dk.MaNHP and hv.MaHV = @studentID and m.BatBuoc = 1 and dk.MaNHP = @NHP_ID and bd.LanThi = 1
+
+	open c
+	declare @idStud varchar(10)
+	declare @idSubj varchar(10)
+	declare @idCour varchar(10)
+	declare @examCount int
+	fetch next from c into @idStud,@idSubj,@idCour,@examCount
+	while(@@fetch_status=0)
+	begin
+		declare @temp int
+		select @temp = DiemThi from BangDiem where MaHV = @idStud and MaMon = @idSubj and MaKhoa = @idCour and LanThi = @examCount
+		if (@temp = null)
+			set @check = 0
+			fetch next from c into @idStud,@idSubj,@idCour,@examCount
+	end
+	close c
+	deallocate c
+end;
+
+
+go
+--proc kiểm tra xem 1 môn truyền vào có phải là môn bắt buộc không
+create or alter proc checkSubjectIsRequired 
+	@subjectID varchar(10), @check int output
+as
+begin
+	declare @temp bit;
+	select @temp = BatBuoc from Mon where MaMon = @subjectID
+	if (@temp = 1) set @check = 1
+	else set @check = 0
+end
+
+go
+
+--> khi update 1 bảng điểm của môn bắt buộc -> check thi hết 3 môn bắt buộc chưa? -> nếu thi rồi thì update DTB ở DK NHP 
+--> nếu DTB < 5 thì insert 3 row BangDiem cho 3 môn bắt buộc với số lần thi lại tăng lên và ngày thi = ngày thi gần nhất + 3 
+
+
+go
+create or alter proc updateDTB 
+	@studentID varchar(10), @NHP_ID varchar(10), @courseID varchar(10)
+as
+begin 
+	declare c cursor for select distinct  bd.DiemThi,bd.MaMon
+						 from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKiNhomHocPhan dk 
+						 where m.MaMon = lm.MaMon and bd.MaMon = lm.MaMon and hv.MaHV= bd.MaHV and hv.MaHV = dk.MaHV and m.MaNHP=dk.MaNHP 
+									and hv.MaHV = @studentID and m.BatBuoc = 1 and dk.MaNHP = @NHP_ID and bd.MaKhoa = @courseID
+									and bd.LanThi >= all(select bd.LanThi from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKiNhomHocPhan dk 
+														 where m.MaMon = lm.MaMon and bd.MaMon = lm.MaMon and hv.MaHV= bd.MaHV and hv.MaHV = dk.MaHV and bd.MaKhoa = @courseID
+															   and m.MaNHP=dk.MaNHP and hv.MaHV = @studentID and m.BatBuoc = 1 and dk.MaNHP = @NHP_ID)
+	declare @total float = 0
+	declare @count int = 0;
+	declare @DiemThi float
+	declare @subID varchar(10)
+	open c
+	fetch next from c into @DiemThi,@subID
+	while(@@fetch_status=0)
+	begin
+		print(cast(@DiemThi as varchar))
+		set @total += @DiemThi
+		set @count += 1
+		fetch next from c into @DiemThi,@subID
+	end
+	print(cast(@total/@count as varchar))
+	print(cast(@total as varchar))
+	print(cast(@count as varchar))
+	update DangKiNhomHocPhan set DTB = @total/@count where MaHV = @studentID and MaNHP = @NHP_ID and MaKhoa = @courseID
+	close c
+	deallocate c
+
+end
+
+
+--BangDiem  lần thi 1 -> rớt -> insert lần thi 2 nhưng chưa thi : điểm là null 
+--> nếu đã thi lại 3 môn bb ở lần thi 2 ( check 3 môn bb -> != null) -> số lần thi lại lên 1
+
+--DangKiNHP số lần thi lại 0
+
+-- after -> update rồi 
+-- kiểm tra có phải môn bắt buộc? 
+-- kiểm tra (lần thi - 1 != số lần thi lại) thì reset DTB và số lần thi lại = lần thi -1 
+-->  kiểm tra thi hết 3 môn bắt buộc chưa ? -> 
+-- nếu có thì thực hiện update DTB  
+-- nếu DTB < 5 và if ( lần thi  <= 4 ) thì tăng số thi lại lên 1 và insert 3 row
+
+
+go
+create or alter proc insertNewBangDiem
+	@maHV varchar(10), @maKhoa varchar(10), @lanthi varchar(10), @date date, @NHP_ID varchar(10)
+	
+as
+begin
+	
+	declare c cursor for select distinct bd.MaHV,bd.MaMon,bd.MaKhoa,bd.LanThi from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKiNhomHocPhan dk 
+												 where m.MaMon = lm.MaMon and bd.MaMon = lm.MaMon and hv.MaHV= bd.MaHV and hv.MaHV = dk.MaHV and m.MaNHP=dk.MaNHP and hv.MaHV = @maHV and m.BatBuoc = 1 and dk.MaNHP = @NHP_ID and bd.LanThi = 1
+
+	open c
+	declare @idStud varchar(10)
+	declare @idSubj varchar(10)
+	declare @idCour varchar(10)
+	declare @examCount int
+	fetch next from c into @idStud,@idSubj,@idCour,@examCount
+	while(@@fetch_status=0)
+	begin
+		insert into BangDiem values (@maHV, @idSubj ,@maKhoa, @lanthi + 1, null, dateadd(day,3,@date))
+		fetch next from c into @idStud,@idSubj,@idCour,@examCount
+	end
+	close c
+	deallocate c
+end;
 
 
 
+
+go
+create or alter trigger trg_update_BangDiem
+on BangDiem
+after update 
+as
+begin
+	declare @check int
+	declare @mon varchar(10)
+	declare @maHV varchar(10)
+	declare @maKhoa varchar(10)
+	select @mon =MaMon,@maHV = MaHV, @maKhoa = MaKhoa from inserted
+	exec checkSubjectIsRequired @mon, @check output
+	if (@check = 1)
+	begin
+		declare @lanthi int
+		declare @solanthilai int
+		declare @maNHP varchar(10)
+		declare @DTB float
+		declare @date date
+		select @lanthi=LanThi from inserted
+		select @maNHP= m.MaNHP from Mon m where m.MaMon = @mon
+		select @solanthilai=SoLanThiLai from DangKiNhomHocPhan where MaHV = @maHV and MaNHP = @maNHP and MaKhoa = @maKhoa
+		select @date =NgayThi from inserted
+		if (@lanthi - @solanthilai != 1) 
+		begin
+			update DangKiNhomHocPhan set DTB = null, SoLanThiLai = @lanthi -1 where MaHV = @maHV and MaNHP = @maNHP and MaKhoa = @maKhoa
+		end
+		declare @check2 int
+		exec checkPassedAllSub @maHV, @maNHP, @check2 output
+		if (@check2 = 1) 
+		begin
+			exec updateDTB @maHV, @maNHP, @maKhoa 
+		end
+		select @DTB = DTB from DangKiNhomHocPhan where MaHV = @maHV and MaNHP = @maNHP and MaKhoa = @maKhoa
+		if (@DTB < 5 and @lanthi < 4)
+		begin
+			exec insertNewBangDiem @maHV, @maKhoa, @lanthi, @date, @maNHP
+		end
+	end
+end;
+
+
+
+
+
+--proc  insert Bảng Điểm của tất cả các môn của 1 NHP
+go
+create or alter proc insertBangDiem
+	@maHV varchar(10), @maKhoa varchar(10),  @NHP_ID varchar(10)	
+as
+begin
+	declare @date date
+	select @date = NgayKT from Khoa where MaKhoa = @maKhoa
+	set @date = dateadd(day,-15, @date) 
+	declare c cursor for select MaMon from Mon where MaNHP = @NHP_ID;
+	open c
+	declare @idSubj varchar(10)
+	fetch next from c into @idSubj
+	while(@@fetch_status=0)
+	begin
+		insert into BangDiem values (@maHV, @idSubj ,@maKhoa, 1, null, @date)
+		fetch next from c into @idSubj
+	end
+	close c
+	deallocate c
+end;
+go
+--trigger HV Đăng kí 1 nhóm học phần thì thêm tất cả Bảng điểm của môn có Học phần đó
+create or alter trigger trg_insert_DKNHP
+on DangKiNhomHocPhan
+after insert
+as
+begin
+	declare @studentID varchar(10)
+	declare @courseID varchar(10)
+	declare @NHP_ID varchar(10)
+	select @studentID = MaHV,@courseID = MaKhoa,@NHP_ID =  MaNHP from inserted
+	exec insertBangDiem @studentID,@courseID,@NHP_ID
+end;
+
+
+--proc  insert LopKTV Mo của tất cả các môn của 1 NHP Khi Thêm mới 1 NHP Mo
+go
+create or alter proc insertLopKTVMo
+	@maKhoa varchar(10),  @NHP_ID varchar(10)	
+as
+begin
+	declare c cursor for select MaMon from Mon where MaNHP = @NHP_ID;
+	open c
+	declare @idSubj varchar(10)
+	fetch next from c into @idSubj
+	while(@@fetch_status=0)
+	begin
+		insert into LopKTVMo values (@idSubj,@maKhoa, null, null)
+		fetch next from c into @idSubj
+	end
+	close c
+	deallocate c
+end;
+
+go
+--trigger Thêm 1 NHP Mo thi Auto insert cac Lop KTV Mo cua NHP do
+create or alter trigger trg_insert_LKTVMo
+on NhomHocPhanMo
+after insert
+as
+begin
+	declare @courseID varchar(10)
+	declare @NHP_ID varchar(10)
+	select @courseID = MaKhoa,@NHP_ID =  MaNHP from inserted
+	exec insertLopKTVMo @courseID,@NHP_ID
+	update NhomHocPhanMo set isFull = 1 where MaNHP = @NHP_ID and MaKhoa = @courseID
+end;
+
+
+
+
+
+
+go
+--trigger xóa HV -> xóa account
+create or alter trigger trg_delete_HocVien
+on HocVien
+after delete
+as
+begin
+	declare @id varchar(10)
+	select @id = MaHV from deleted
+	delete from Account where username = @id
+end;
+--drop trigger trg_delete_HocVien
+go
+--trigger thêm HV -> thêm account
+create or alter trigger trg_insert_HocVien
+on HocVien
+after insert 
+as
+begin
+	declare @id varchar(10)
+	select @id = MaHV from inserted
+	insert into Account values (@id,'a','3')
+end;
+
+go
+--trigger xóa GV -> xóa account
+create or alter trigger trg_delete_GiangVien
+on GiangVien
+after delete
+as
+begin
+	declare @id varchar(10)
+	select @id = MaGV from deleted
+	delete from Account where username = @id
+end;
+
+
+go
+--trigger thêm GV -> thêm account
+create or alter trigger trg_insert_GiangVien
+on GiangVien
+after insert 
+as
+begin
+	declare @id varchar(10)
+	select @id = MaGV from inserted
+	insert into Account values (@id,'a','2')
+end;
+
+go
+--trigger set isFull = 1 khi LopCCMo
+create or alter trigger trg_insert_LopCCMo
+on LopChungChiMo
+after insert 
+as
+begin
+	declare @courseID varchar(10)
+	declare @LCC_ID varchar(10)
+	select @courseID = MaKhoa,@LCC_ID =  MaLCC from inserted
+	update LopChungChiMo set isFull = 1 where MaLCC = @LCC_ID and MaKhoa = @courseID
+end;
+
+--trigger set isFull = 1 khi LopCDMo
+go
+create or alter trigger trg_insert_LopCDMo
+on LopChuyenDeMo
+after insert 
+as
+begin
+	declare @courseID varchar(10)
+	declare @LCD_ID varchar(10)
+	select @courseID = MaKhoa,@LCD_ID =  MaLCD from inserted
+	update LopChuyenDeMo set isFull = 1 where MaLCD = @LCD_ID and MaKhoa = @courseID
+end;

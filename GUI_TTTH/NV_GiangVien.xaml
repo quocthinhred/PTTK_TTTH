@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="NV_GiangVien" Height="700" Width="1300" ResizeMode="NoResize">
     <Grid>
-        <Label Content="DANH SÁCH HỌC VIÊN" HorizontalAlignment="Left" Margin="485,61,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
+        <Label Content="DANH SÁCH GIẢNG VIÊN" HorizontalAlignment="Left" Margin="485,61,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
         <DataGrid x:Name="dtg_teacher" HorizontalAlignment="Left" Height="478" Margin="295,161,0,0" VerticalAlignment="Top" Width="938" VerticalContentAlignment="Center" Loaded="dtg_teacher_Loaded">
         </DataGrid>
         <Button Cursor="Hand" x:Name="bt_back" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="43,35,0,0" VerticalAlignment="Top" Width="140" Height="40" BorderBrush="Black" Foreground="White" Background="Black" FontSize="18" FontWeight="Bold" Click="bt_back_Click"/>

@@ -29,5 +29,24 @@ namespace DAL_TTTH
             }
             return DSLopKTVMo;
         }
+
+        public static List<DTO_Lop> getClassNHP(DTO_NHPMo NHP)
+        {
+            List<DTO_Lop> Classes = new List<DTO_Lop>();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM LopKTVMo KTVM, Mon M WHERE M.MaMon = KTVM.MaMon and MaNHP = '" + NHP.ID + "' and MaKhoa = '" + NHP.ID_Course + "'", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach(DataRow row in dt.Rows)
+            {
+                string id = row["MaMon"].ToString();
+                string name = row["TenMon"].ToString();
+                string id_Course = row["MaKhoa"].ToString();
+                string id_Teacher = row["MaGV"].ToString();
+                string schedule = row["LichHoc"].ToString();
+                DTO_Lop Class = new DTO_Lop(id, name, id_Course, schedule, id_Teacher);
+                Classes.Add(Class);
+            }
+            return Classes;
+        }
     }
 }

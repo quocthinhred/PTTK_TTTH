@@ -42,6 +42,10 @@ namespace GUI_TTTH
 
         private void bt_class_Click(object sender, RoutedEventArgs e)
         {
+            NV_LopHoc Class = new NV_LopHoc();
+            this.Hide();
+            Class.ShowDialog();
+            this.ShowDialog();
 
         }
     }

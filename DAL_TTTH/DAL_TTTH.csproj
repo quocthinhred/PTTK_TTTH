@@ -55,6 +55,7 @@
     <Compile Include="DAL_LopCCMo.cs" />
     <Compile Include="DAL_LopCDMo.cs" />
     <Compile Include="DAL_LopKTVMo.cs" />
+    <Compile Include="DAL_NHPMo.cs" />
     <Compile Include="DBConnect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

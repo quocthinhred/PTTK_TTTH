@@ -13,6 +13,7 @@ namespace DTO_TTTH
         public string ID_Course { get; set; }
         public string Schedule { get; set; }
         public string ID_Teacher { get; set; }
+        public string IsFull { get; set; }
         public DTO_LopCCMo()
         {
             ID = "";
@@ -20,14 +21,16 @@ namespace DTO_TTTH
             ID_Course = "";
             Schedule = "";
             ID_Teacher = "";
+            IsFull = "";
         }
-        public DTO_LopCCMo(string id, string name, string id_Course, string id_Teacher, string schedule)
+        public DTO_LopCCMo(string id, string name, string id_Course, string id_Teacher, string schedule, string isFull)
         {
             ID = id;
             Name = name;
             ID_Course = id_Course;
             Schedule = schedule;
             ID_Teacher = id_Teacher;
+            IsFull = isFull;
         }
 
     }
