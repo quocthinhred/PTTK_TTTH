@@ -1516,7 +1516,7 @@ end;
 go
 --trigger HV Đăng kí 1 nhóm học phần thì thêm tất cả Bảng điểm của môn có Học phần đó
 create or alter trigger trg_insert_DKNHP
-on DangKiNhomHocPhan
+on DangKyNhomHocPhan
 after insert
 as
 begin
@@ -1708,3 +1708,25 @@ begin
 	if (@count >= 10) 
 		update LopChungChiMo set isFull = 1 where MaKhoa = @courseID and MaLCC = @LCD_ID
 end;
+
+
+
+go
+---trigger 1 HV dang ki Lop Chung Chi thi auto fill NgayThi
+create or alter trigger trg_fill_ExamDate_LCC
+on DangKyLopChungChi
+after insert 
+as
+begin
+	declare @courseID varchar(10)
+	declare @LCC_ID varchar(10)
+	declare @studentID varchar(10)
+	select @courseID = MaKhoa,@LCC_ID = MaLCC, @studentID = MaHV from inserted
+	declare @date date
+	select @date = NgayKT from Khoa where MaKhoa = @courseID
+	set @date = dateadd(day,-15, @date) 
+	update DangKyLopChungChi set NgayThi = @date where MaHV = @studentID and MaKhoa = @courseID and MaLCC = @LCC_ID
+end;
+
+
+
