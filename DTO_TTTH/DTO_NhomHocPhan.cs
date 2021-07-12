@@ -10,16 +10,19 @@ namespace DTO_TTTH
     {
         public string ID { get; set; }
         public string Name { get; set;}
+        public string Fee { get; set; }
         public DTO_NhomHocPhan()
         {
             ID = "";
             Name = "";
+            Fee = "";
         }
 
-        public DTO_NhomHocPhan(string id, string name)
+        public DTO_NhomHocPhan(string id, string name, string fee)
         {
             ID = id;
             Name = name;
+            Fee = fee;
         }
     }
 }

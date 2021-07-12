@@ -1,4 +1,5 @@
-﻿create database TTTH
+﻿drop database TTTH
+create database TTTH
 go
 use TTTH
 go
@@ -220,11 +221,12 @@ create table NhomHocPhan
 (
 	MaNHP varchar(10),
 	TenNHP varchar(50),
+	HocPhi int,
 	primary key (MaNHP)
 )
 go
-insert into NhomHocPhan values ('NHP01','Nhom Hoc Phan 1');
-insert into NhomHocPhan values ('NHP02','Nhom Hoc Phan 2');
+insert into NhomHocPhan values ('NHP01','Nhom Hoc Phan 1', 1000000);
+insert into NhomHocPhan values ('NHP02','Nhom Hoc Phan 2', 1500000);
 
 go
 create table Mon
@@ -693,19 +695,20 @@ create table LopChungChi
 	MaLCC varchar(10),
 	TenLCC varchar(50),
 	MaNhanh varchar(10),
+	HocPhi int,
 	primary key (MaLCC)
 )
 go
 alter table LopChungChi add constraint FK_LCC_Nhanh foreign key (MaNhanh) references Nhanh(MaNhanh);
 go
-insert into LopChungChi values ('LCC01', 'Lop Chung Chi 1', 'NCCA1');
-insert into LopChungChi values ('LCC02', 'Lop Chung Chi 2','NCCA1');
-insert into LopChungChi values ('LCC03', 'Lop Chung Chi 3','NCCA1');
+insert into LopChungChi values ('LCC01', 'Lop Chung Chi 1', 'NCCA1', 1000000);
+insert into LopChungChi values ('LCC02', 'Lop Chung Chi 2','NCCA1', 1100000);
+insert into LopChungChi values ('LCC03', 'Lop Chung Chi 3','NCCA1', 1200000);
 
-insert into LopChungChi values ('LCC04', 'Lop Chung Chi 4','NCCB1');
-insert into LopChungChi values ('LCC05', 'Lop Chung Chi 5','NCCB1');
-insert into LopChungChi values ('LCC06', 'Lop Chung Chi 6','NCCB2');
-insert into LopChungChi values ('LCC07', 'Lop Chung Chi 7','NCCB2');
+insert into LopChungChi values ('LCC04', 'Lop Chung Chi 4','NCCB1', 1300000);
+insert into LopChungChi values ('LCC05', 'Lop Chung Chi 5','NCCB1', 1400000);
+insert into LopChungChi values ('LCC06', 'Lop Chung Chi 6','NCCB2', 1500000);
+insert into LopChungChi values ('LCC07', 'Lop Chung Chi 7','NCCB2', 1600000);
 
 
 create table LopChungChiMo
@@ -1039,15 +1042,16 @@ create table LopChuyenDe
 	MaLCD varchar(10),
 	TenCD varchar(50),
 	MaNCD varchar(10),
+	HocPhi int,
 	primary key (MaLCD)
 )
 go
 alter table LopChuyenDe add constraint FK_LCD_NCD foreign key (MaNCD) references NhomChuyenDe(MaNCD);
 go
-insert into LopChuyenDe values ('CD01', 'Chuyen De 1', 'NCD01');
-insert into LopChuyenDe values ('CD02', 'Chuyen De 2', 'NCD01');
-insert into LopChuyenDe values ('CD03', 'Chuyen De 3', 'NCD02');
-insert into LopChuyenDe values ('CD04', 'Chuyen De 4', 'NCD02');
+insert into LopChuyenDe values ('CD01', 'Chuyen De 1', 'NCD01', 700000);
+insert into LopChuyenDe values ('CD02', 'Chuyen De 2', 'NCD01', 600000);
+insert into LopChuyenDe values ('CD03', 'Chuyen De 3', 'NCD02', 800000);
+insert into LopChuyenDe values ('CD04', 'Chuyen De 4', 'NCD02', 900000);
 
 create table LopChuyenDeMo
 (

@@ -21,7 +21,8 @@ namespace DAL_TTTH
             {
                 string name_NHP = row["TenNHP"].ToString();
                 string id_NHP = row["MaNHP"].ToString();
-                DTO_NhomHocPhan NHP = new DTO_NhomHocPhan(id_NHP, name_NHP);
+                string fee = row["HocPhi"].ToString();
+                DTO_NhomHocPhan NHP = new DTO_NhomHocPhan(id_NHP, name_NHP, fee);
                 AllNHP.Add(NHP);
             }
             return AllNHP;

@@ -22,7 +22,6 @@ namespace GUI_TTTH
     public partial class NV_LopKTV : Window
     {
         DTO_NHPMo ClassNHP = new DTO_NHPMo();
-
         int status = 0;
         public NV_LopKTV()
         {
@@ -149,7 +148,15 @@ namespace GUI_TTTH
             }
             else
             {
-
+                if (cbb_student.Text != " ")
+                {
+                    string notifi = BUS_DangKyNHP.addDKNHP(cbb_student.Text.Substring(0, cbb_student.Text.IndexOf(" ")), ClassNHP);
+                    MessageBox.Show(notifi);
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn Học viên!");
+                }
             }
         }
 
