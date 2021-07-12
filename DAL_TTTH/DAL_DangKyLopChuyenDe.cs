@@ -28,5 +28,14 @@ namespace DAL_TTTH
             }
             return Registers;
         }
+
+
+
+        public static void addStudent(string id_student, DTO_LopCDMo LCDM)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("INSERT INTO DangKyLopChuyenDe VALUES('" + id_student + "','" + LCDM.ID + "','" + LCDM.ID_Course + "', NULL)", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
     }
 }

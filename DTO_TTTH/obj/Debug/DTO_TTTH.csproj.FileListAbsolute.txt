@@ -4,9 +4,3 @@ C:\Users\Kuokkutin\source\repos\PTTK_TTTH\DTO_TTTH\obj\Debug\DTO_TTTH.csprojAsse
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\DTO_TTTH\obj\Debug\DTO_TTTH.csproj.CoreCompileInputs.cache
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\DTO_TTTH\obj\Debug\DTO_TTTH.dll
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\DTO_TTTH\obj\Debug\DTO_TTTH.pdb
-C:\Users\PC\Desktop\PTTK_TTTH\DTO_TTTH\bin\Debug\DTO_TTTH.dll
-C:\Users\PC\Desktop\PTTK_TTTH\DTO_TTTH\bin\Debug\DTO_TTTH.pdb
-C:\Users\PC\Desktop\PTTK_TTTH\DTO_TTTH\obj\Debug\DTO_TTTH.csproj.AssemblyReference.cache
-C:\Users\PC\Desktop\PTTK_TTTH\DTO_TTTH\obj\Debug\DTO_TTTH.csproj.CoreCompileInputs.cache
-C:\Users\PC\Desktop\PTTK_TTTH\DTO_TTTH\obj\Debug\DTO_TTTH.dll
-C:\Users\PC\Desktop\PTTK_TTTH\DTO_TTTH\obj\Debug\DTO_TTTH.pdb

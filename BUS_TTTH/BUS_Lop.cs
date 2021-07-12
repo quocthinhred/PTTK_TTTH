@@ -190,5 +190,32 @@ namespace BUS_TTTH
                 return exc.Message;
             }
         }
+
+
+        public static string LCD_updateIsFull(DTO_LopCDMo LCDM)
+        {
+            try
+            {
+                DAL_LopCDMo.updateIsFull(LCDM);
+                return "Cập nhật thành công!";
+            }
+            catch (Exception exc)
+            {
+                return exc.Message;
+            }
+        }
+
+        public static string LCD_addLCDM(DTO_LopCDMo LCDM)
+        {
+            try
+            {
+                DAL_LopCDMo.addLCD(LCDM);
+                return "Thêm thành công!";
+            }
+            catch (Exception exc)
+            {
+                return exc.Message;
+            }
+        }
     }
 }

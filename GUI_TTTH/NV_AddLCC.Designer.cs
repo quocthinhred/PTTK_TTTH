@@ -185,7 +185,7 @@ namespace GUI_TTTH
             this.Text = "NV_AddLCC";
             this.ResumeLayout(false);
             this.PerformLayout();
-            this.CenterToScreen();
+            
         }
 
         #endregion

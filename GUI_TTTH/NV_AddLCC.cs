@@ -14,29 +14,61 @@ namespace GUI_TTTH
 {
     public partial class NV_AddLCC : Form
     {
+        string type2;
         public NV_AddLCC()
         {
             InitializeComponent();
-            List<DTO_LopCCMo> L_LCCM = BUS_Lop.getLopCCMo();
-            for (int i = 0; i < L_LCCM.Count; i++)
+        }
+        public NV_AddLCC(string type)
+        {
+            type2 = type;
+            InitializeComponent();
+            if (type2 == "LCC")
             {
-                int temp = 0;
-                for (int j = 0; j < i; j++)
+                List<DTO_LopCCMo> L_LCCM = BUS_Lop.getLopCCMo();
+                for (int i = 0; i < L_LCCM.Count; i++)
                 {
-                    if (L_LCCM[i].ID == L_LCCM[j].ID)
-                        temp++;
+                    int temp = 0;
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (L_LCCM[i].ID == L_LCCM[j].ID)
+                            temp++;
+                    }
+                    if (temp == 0)
+                        cbb_id.Items.Add(L_LCCM[i].ID);
                 }
-                if (temp == 0)
-                    cbb_id.Items.Add(L_LCCM[i].ID);
-            }
 
-            List<DTO_GiangVien> Teachers = BUS_GiangVien.getAllTeachers();
-            for (int i = 0; i < Teachers.Count; i++)
+                List<DTO_GiangVien> Teachers = BUS_GiangVien.getAllTeachers();
+                for (int i = 0; i < Teachers.Count; i++)
+                {
+                    cbb_teacher.Items.Add(Teachers[i].ID);
+                }
+
+                tb_course.Text = BUS_Khoa.getNewCourse().ID;
+            }
+            else
             {
-                cbb_teacher.Items.Add(Teachers[i].ID);
-            }
+                List<DTO_LopCDMo> L_LCDM = BUS_Lop.getLopCDMo();
+                for (int i = 0; i < L_LCDM.Count; i++)
+                {
+                    int temp = 0;
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (L_LCDM[i].ID == L_LCDM[j].ID)
+                            temp++;
+                    }
+                    if (temp == 0)
+                        cbb_id.Items.Add(L_LCDM[i].ID);
+                }
 
-            tb_course.Text = BUS_Khoa.getNewCourse().ID;
+                List<DTO_GiangVien> Teachers = BUS_GiangVien.getAllTeachers();
+                for (int i = 0; i < Teachers.Count; i++)
+                {
+                    cbb_teacher.Items.Add(Teachers[i].ID);
+                }
+
+                tb_course.Text = BUS_Khoa.getNewCourse().ID;
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -51,22 +83,46 @@ namespace GUI_TTTH
 
         private void cbb_id_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<DTO_LopCCMo> L_LCCM = BUS_Lop.getLopCCMo();
-            for (int i = 0; i < L_LCCM.Count; i++)
+            if (type2 == "LCC")
             {
-                if (L_LCCM[i].ID == cbb_id.Text)
+                List<DTO_LopCCMo> L_LCCM = BUS_Lop.getLopCCMo();
+                for (int i = 0; i < L_LCCM.Count; i++)
                 {
-                    tb_name.Text = L_LCCM[i].Name;
+                    if (L_LCCM[i].ID == cbb_id.Text)
+                    {
+                        tb_name.Text = L_LCCM[i].Name;
+                    }
+                }
+            }
+            else
+            {
+                List<DTO_LopCDMo> L_LCDM = BUS_Lop.getLopCDMo();
+                for (int i = 0; i < L_LCDM.Count; i++)
+                {
+                    if (L_LCDM[i].ID == cbb_id.Text)
+                    {
+                        tb_name.Text = L_LCDM[i].Name;
+                    }
                 }
             }
         }
 
         private void bt_OK_Click(object sender, EventArgs e)
         {
-            DTO_LopCCMo LCCM = new DTO_LopCCMo(cbb_id.Text, tb_name.Text, tb_course.Text, cbb_teacher.Text, tb_schedule.Text, "1");
-            string notifi = BUS_Lop.LCC_addLCCM(LCCM);
-            MessageBox.Show(notifi);
-            this.Close();
+            if (type2 == "LCC")
+            {
+                DTO_LopCCMo LCCM = new DTO_LopCCMo(cbb_id.Text, tb_name.Text, tb_course.Text, cbb_teacher.Text, tb_schedule.Text, "1");
+                string notifi = BUS_Lop.LCC_addLCCM(LCCM);
+                MessageBox.Show(notifi);
+                this.Close();
+            }
+            else
+            {
+                DTO_LopCDMo LCDM = new DTO_LopCDMo(cbb_id.Text, tb_name.Text, tb_course.Text, cbb_teacher.Text, tb_schedule.Text, "1");
+                string notifi = BUS_Lop.LCD_addLCDM(LCDM);
+                MessageBox.Show(notifi);
+                this.Close();
+            }
         }
     }
 }

@@ -29,5 +29,28 @@ namespace DAL_TTTH
             }
             return DSLopCDMo;
         }
+
+        public static void updateIsFull(DTO_LopCDMo LCDM)
+        {
+            string sql;
+            if (LCDM.IsFull == "0")
+            {
+                sql = "UPDATE LopChuyenDeMo SET isFull = 1 WHERE MaLCD = '" + LCDM.ID + "' and MaKhoa = '" + LCDM.ID_Course + "'";
+            }
+            else
+            {
+                sql = "UPDATE LopChuyenDeMo SET isFull = 0 WHERE MaLCD = '" + LCDM.ID + "' and MaKhoa = '" + LCDM.ID_Course + "'";
+            }
+            SqlDataAdapter da = new SqlDataAdapter(sql, DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
+
+        public static void addLCD(DTO_LopCDMo LCDM)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("INSERT INTO LopChuyenDeMo VALUES('" + LCDM.ID + "','" + LCDM.ID_Course + "','" + LCDM.Schedule + "','" + LCDM.ID_Teacher + "',1)", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
     }
 }

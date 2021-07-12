@@ -64,7 +64,7 @@ namespace GUI_TTTH
         {
             if (status == 0)
             {
-                NV_AddLCC add = new NV_AddLCC();
+                NV_AddLCC add = new NV_AddLCC("LCC");
                 add.ShowDialog();
                 bt_off.Visibility = Visibility.Visible;
                 bt_add.Visibility = Visibility.Visible;
