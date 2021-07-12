@@ -10,6 +10,12 @@ namespace BUS_TTTH
     public class BUS_HocVien
     {
         public static List<DTO_HocVien> AllStudents = DAL_HocVien.getStudents();
+
+        public static List<DTO_HocVien> getAllStudents()
+        {
+            List<DTO_HocVien> Students = DAL_HocVien.getStudents();
+            return Students;
+        }
         public static DTO_HocVien getStudent(string id)
         {
             DTO_HocVien student = new DTO_HocVien();

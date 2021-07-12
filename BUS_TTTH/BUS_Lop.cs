@@ -123,11 +123,26 @@ namespace BUS_TTTH
             return schedules;
         }
 
-        public static List<DTO_Lop> getLopKTV(DTO_NHPMo NHP)
+        public static List<DTO_Lop> getLopKTV(DTO_NHPMo NHPM)
         {
             List<DTO_Lop> L_KTV = new List<DTO_Lop>();
-            L_KTV = DAL_LopKTVMo.getClassNHP(NHP);
+            L_KTV = DAL_LopKTVMo.getClassNHP(NHPM);
             return L_KTV;
+        }
+
+
+        public static string updateClassKTV(DTO_LopKTVMo KTVM)
+        {
+            try
+            {
+                DAL_LopKTVMo.updateClassNHP(KTVM);
+                return "Cập nhật thành công!";
+            }
+
+            catch (Exception exc)
+            {
+                return exc.Message;
+            }
         }
 
     }

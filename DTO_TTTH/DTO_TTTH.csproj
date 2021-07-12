@@ -53,6 +53,7 @@
     <Compile Include="DTO_LopCCMo.cs" />
     <Compile Include="DTO_LopCDMo.cs" />
     <Compile Include="DTO_LopKTVMo.cs" />
+    <Compile Include="DTO_NhomHocPhan.cs" />
     <Compile Include="DTO_NHPMo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -48,6 +48,7 @@
     <Compile Include="BUS_HocVien.cs" />
     <Compile Include="BUS_Khoa.cs" />
     <Compile Include="BUS_Lop.cs" />
+    <Compile Include="BUS_NhomHocPhan.cs" />
     <Compile Include="BUS_NHPMo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

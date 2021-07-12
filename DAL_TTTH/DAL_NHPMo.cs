@@ -28,5 +28,28 @@ namespace DAL_TTTH
             }
             return L_NHPM;
         }
+
+        public static void addNHPM(DTO_NhomHocPhan NHP, DTO_Khoa course)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("INSERT INTO NhomHocPhanMo VALUES('" + NHP.ID + "', '" + course.ID +"', '1')", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
+
+        public static void updateIsFull(DTO_NHPMo NHPM)
+        {
+            string sql = "";
+            if (NHPM.IsFull == "0")
+            {
+                sql = "UPDATE NhomHocPhanMo SET isFull = 1 WHERE MaNHP = '" + NHPM.ID + "' and MaKhoa = '" + NHPM.ID_Course + "'";
+            }
+            else
+            {
+                sql = "UPDATE NhomHocPhanMo SET isFull = 0 WHERE MaNHP = '" + NHPM.ID + "' and MaKhoa = '" + NHPM.ID_Course + "'";
+            }
+            SqlDataAdapter da = new SqlDataAdapter(sql, DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
     }
 }

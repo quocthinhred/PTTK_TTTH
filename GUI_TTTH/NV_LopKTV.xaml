@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="NV_LopKTV" Height="700" Width="1300" ResizeMode="NoResize">
     <Grid>
-        <Label Content="DANH SÁCH NHÓM HỌC PHẦN MỞ" HorizontalAlignment="Left" Margin="350,61,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
+        <Label x:Name="lb_title" Content="DANH SÁCH NHÓM HỌC PHẦN MỞ" HorizontalAlignment="Left" Margin="350,61,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
         <DataGrid x:Name="dtg_NHP" HorizontalAlignment="Left" Height="478" Margin="295,161,0,0" VerticalAlignment="Top" Width="938" VerticalContentAlignment="Center" Loaded="dtg_NHP_Loaded" IsReadOnly="True">
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
@@ -16,9 +16,9 @@
             </DataGrid.Resources>
         </DataGrid>
         <Button Cursor="Hand" x:Name="bt_back" Content="TRỞ LẠI" HorizontalAlignment="Left" Margin="74,35,0,0" VerticalAlignment="Top" Width="140" Height="40" BorderBrush="Black" Foreground="White" Background="Black" FontSize="18" FontWeight="Bold" Click="bt_back_Click"/>
-        <Button Cursor="Hand" x:Name="bt_on" Content="MỞ ĐĂNG KÍ" HorizontalAlignment="Left" Margin="43,494,0,0" VerticalAlignment="Top" Width="200" Height="40" BorderBrush="Black" Foreground="White" Background="Black" FontSize="18" FontWeight="Bold" Click="bt_edit_Click"/>
-        <Button Cursor="Hand" x:Name="bt_add" Content="THÊM" HorizontalAlignment="Left" Margin="43,382,0,0" VerticalAlignment="Top" Width="200" Height="40" BorderBrush="Black" Foreground="White" Background="Black" FontSize="18" FontWeight="Bold" Click="bt_add_Click"/>
-        <Button Cursor="Hand" x:Name="bt_off" Content="TẮT ĐĂNG KÍ" HorizontalAlignment="Left" Margin="43,599,0,0" VerticalAlignment="Top" Width="200" Height="40" BorderBrush="Black" Foreground="White" Background="Black" FontSize="18" FontWeight="Bold" Click="bt_delete_Click"/>
+        <Button Cursor="Hand" x:Name="bt_add" Content="THÊM NHP" HorizontalAlignment="Left" Margin="43,494,0,0" VerticalAlignment="Top" Width="200" Height="40" BorderBrush="Black" Foreground="White" Background="Black" FontSize="18" FontWeight="Bold" Click="bt_add_Click"/>
+        <Button Cursor="Hand" x:Name="bt_off" Content="ĐÓNG/MỞ ĐĂNG KÍ" HorizontalAlignment="Left" Margin="43,599,0,0" VerticalAlignment="Top" Width="200" Height="40" BorderBrush="Black" Foreground="White" Background="Black" FontSize="18" FontWeight="Bold" Click="bt_off_Click"/>
+        <ComboBox x:Name="cbb_student" HorizontalAlignment="Left" Margin="43,439,0,0" VerticalAlignment="Top" Width="200" Height="29" IsReadOnly="True" Visibility="Hidden" FontSize="16" MaxDropDownHeight="150"/>
 
     </Grid>
 </Window>

@@ -48,5 +48,12 @@ namespace DAL_TTTH
             }
             return Classes;
         }
+
+        public static void updateClassNHP(DTO_LopKTVMo KTVM)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("UPDATE LopKTVMo SET MaGV = '" + KTVM.ID_Teacher + "', LichHoc = '" + KTVM.Schedule + "' WHERE MaMon = '" + KTVM.ID + "' and MaKhoa = '" + KTVM.ID_Course + "'", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
     }
 }

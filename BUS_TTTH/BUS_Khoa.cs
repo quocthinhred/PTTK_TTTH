@@ -15,18 +15,29 @@ namespace BUS_TTTH
         public static List<DTO_Khoa> Courses = DAL_Khoa.getCourses();
         public static DTO_Khoa getNewCourse()
         {
+            List<DTO_Khoa> AllCourses = DAL_Khoa.getCourses();
             DTO_Khoa course = new DTO_Khoa();
-            course = Courses[0];
-            for(int i = 1; i < Courses.Count; i++)
+            course = AllCourses[0];
+            int intCourse;
+            for(int i = 1; i < AllCourses.Count; i++)
             {
-                if (string.Compare(course.ID, Courses[i].ID) <= 0)
+                intCourse = Int32.Parse(course.ID.Substring(1));
+                string temp = AllCourses[i].ID.Substring(1);
+                int intTemp = Int32.Parse(temp);
+                if (intTemp >= intCourse)
                 {
-                    course = Courses[i];
+                    course = AllCourses[i];
                 }
             }
             return course;
         }
 
+
+        public static List<DTO_Khoa> addCourse(DTO_Khoa newCourse)
+        {
+            List<DTO_Khoa> Courses = DAL_Khoa.addCourse(newCourse);
+            return Courses;
+        }
         
     }
 }

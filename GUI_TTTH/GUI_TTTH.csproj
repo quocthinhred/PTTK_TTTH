@@ -36,6 +36,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -58,6 +59,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Course.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GV_LopHoc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -85,6 +90,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Course.xaml.cs">
+      <DependentUpon>Course.xaml</DependentUpon>
     </Compile>
     <Compile Include="GV_BangDiem.cs">
       <SubType>Form</SubType>
@@ -158,6 +166,12 @@
     <Compile Include="Menu_NhanVien.xaml.cs">
       <DependentUpon>Menu_NhanVien.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NV_AddCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NV_AddCourse.Designer.cs">
+      <DependentUpon>NV_AddCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="NV_GiangVien.xaml.cs">
       <DependentUpon>NV_GiangVien.xaml</DependentUpon>
     </Compile>
@@ -176,6 +190,18 @@
     <Compile Include="NV_LopKTV.xaml.cs">
       <DependentUpon>NV_LopKTV.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NV_LopKTVMo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NV_LopKTVMo.Designer.cs">
+      <DependentUpon>NV_LopKTVMo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NV_ThemNHP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NV_ThemNHP.Designer.cs">
+      <DependentUpon>NV_ThemNHP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -191,6 +217,15 @@
     </Compile>
     <EmbeddedResource Include="GV_BangDiem.resx">
       <DependentUpon>GV_BangDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NV_AddCourse.resx">
+      <DependentUpon>NV_AddCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NV_LopKTVMo.resx">
+      <DependentUpon>NV_LopKTVMo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NV_ThemNHP.resx">
+      <DependentUpon>NV_ThemNHP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
