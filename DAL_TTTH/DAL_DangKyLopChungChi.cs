@@ -37,5 +37,13 @@ namespace DAL_TTTH
             DataTable dt = new DataTable();
             da.Fill(dt);
         }
+
+
+        public static void addStudent(string id_student, DTO_LopCCMo LCCM)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("INSERT INTO DangKyLopChungChi VALUES('"+id_student+"','"+LCCM.ID+"','"+LCCM.ID_Course+"', NULL, NULL, '')", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
     }
 }

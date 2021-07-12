@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="BUS_Account.cs" />
     <Compile Include="BUS_BangDiemHV.cs" />
+    <Compile Include="BUS_DangKyLopChungChi.cs" />
+    <Compile Include="BUS_DangKyLopChuyenDe.cs" />
     <Compile Include="BUS_DangKyNHP.cs" />
     <Compile Include="BUS_GiangVien.cs" />
     <Compile Include="BUS_HocVien.cs" />

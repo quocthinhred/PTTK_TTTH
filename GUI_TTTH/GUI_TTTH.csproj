@@ -172,6 +172,12 @@
     <Compile Include="NV_AddCourse.Designer.cs">
       <DependentUpon>NV_AddCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="NV_AddLCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NV_AddLCC.Designer.cs">
+      <DependentUpon>NV_AddLCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="NV_GiangVien.xaml.cs">
       <DependentUpon>NV_GiangVien.xaml</DependentUpon>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NV_AddCourse.resx">
       <DependentUpon>NV_AddCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NV_AddLCC.resx">
+      <DependentUpon>NV_AddLCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NV_LopKTVMo.resx">
       <DependentUpon>NV_LopKTVMo.cs</DependentUpon>

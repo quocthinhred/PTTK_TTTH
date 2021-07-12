@@ -30,5 +30,28 @@ namespace DAL_TTTH
             }
             return DSLopCCMo;
         }
+
+        public static void updateIsFull(DTO_LopCCMo LCCM)
+        {
+            string sql;
+            if (LCCM.IsFull == "0")
+            {
+                sql = "UPDATE LopChungChiMo SET isFull = 1 WHERE MaLCC = '"+LCCM.ID+"' and MaKhoa = '"+LCCM.ID_Course+"'";
+            }
+            else
+            {
+                sql = "UPDATE LopChungChiMo SET isFull = 0 WHERE MaLCC = '" + LCCM.ID + "' and MaKhoa = '" + LCCM.ID_Course + "'";
+            }
+            SqlDataAdapter da = new SqlDataAdapter(sql, DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
+
+        public static void addLCC(DTO_LopCCMo LCCM)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("INSERT INTO LopChungChiMo VALUES('" + LCCM.ID + "','" + LCCM.ID_Course + "','" + LCCM.Schedule + "','" + LCCM.ID_Teacher + "',1)", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
     }
 }

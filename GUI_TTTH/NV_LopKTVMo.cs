@@ -26,10 +26,10 @@ namespace GUI_TTTH
             tb_id.Text = Class.ID_Class;
             tb_name.Text = Class.Name;
             tb_course.Text = Class.ID_Course;
-            List<DTO_GiangVien> Teachers = BUS_GiangVien.AllTeachers;
-            for (int i =0; i < Teachers.Count; i++)
+            List<DTO_GiangVien> Teachers = BUS_GiangVien.getAllTeachers();
+            for (int i = 0; i < Teachers.Count; i++)
             {
-                cbb_teacher.Items.Add(Teachers[i].ID);
+                 cbb_teacher.Items.Add(Teachers[i].ID);
             }
         }
 

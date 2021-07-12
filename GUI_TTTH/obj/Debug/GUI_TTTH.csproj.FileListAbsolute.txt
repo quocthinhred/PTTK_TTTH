@@ -97,3 +97,4 @@ C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.NV_LopKTVM
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\Course.g.cs
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\Course.baml
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.NV_AddCourse.resources
+C:\Users\Kuokkutin\source\repos\PTTK_TTTH\GUI_TTTH\obj\Debug\GUI_TTTH.NV_AddLCC.resources

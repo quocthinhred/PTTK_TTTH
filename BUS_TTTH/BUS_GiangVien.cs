@@ -11,6 +11,11 @@ namespace BUS_TTTH
     public class BUS_GiangVien
     {
         public static List<DTO_GiangVien> AllTeachers = DAL_GiangVien.getTeachers();
+        public static List<DTO_GiangVien> getAllTeachers()
+        {
+            List<DTO_GiangVien> Teachers = DAL_GiangVien.getTeachers();
+            return Teachers;
+        }
         public static DTO_GiangVien getTeacher(string id)
         {
             DTO_GiangVien teacher = new DTO_GiangVien();
