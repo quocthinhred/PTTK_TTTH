@@ -1640,3 +1640,71 @@ begin
 	select @courseID = MaKhoa,@LCD_ID =  MaLCD from inserted
 	update LopChuyenDeMo set isFull = 1 where MaLCD = @LCD_ID and MaKhoa = @courseID
 end;
+
+
+
+
+
+go
+--proc kiem tra si so 1 nhom hoc phan mo? da full hay chua? 
+create or alter proc checkNHPIsFull
+	@maKhoa varchar(10),  @NHP_ID varchar(10), @check int output
+as
+begin
+	set @check = 0
+	declare @idSub varchar(10)
+	declare @count int = 0
+	select top(1) @idSub = MaMon from Mon where MaNHP = @NHP_ID
+	select @count = count(*) from LopKTVMo l, BangDiem b where l.MaKhoa = b.MaKhoa and l.MaMon = b.MaMon and l.MaKhoa = @maKhoa and l.MaMon = @idSub and b.LanThi = 1
+	if (@count >= 10) set @check = 1
+end;
+
+
+go
+-- trigger update isFull = 1 khi so luong hoc sinh = 10 khi insert bang DangKyNhomHocPhan
+create or alter trigger trg_check_isFull_NHPMo
+on DangKyNhomHocPhan
+after insert 
+as
+begin
+	declare @courseID varchar(10)
+	declare @NHP_ID varchar(10)
+	declare @check int
+	select @courseID = MaKhoa,@NHP_ID = MaNHP from inserted
+	exec checkNHPIsFull @courseID, @NHP_ID, @check output
+	if (@check = 1) 
+		update NhomHocPhanMo set isFull = 1 where MaKhoa = @courseID and MaNHP = @NHP_ID
+end;
+
+go
+-- trigger update isFull = 1 khi so luong hoc sinh = 10 khi insert bang DangKyLopChungChi
+create or alter trigger trg_check_isFull_LopCCMo
+on DangKyLopChungChi
+after insert 
+as
+begin
+	declare @courseID varchar(10)
+	declare @LCC_ID varchar(10)
+	declare @count int = 0
+	select @courseID = MaKhoa,@LCC_ID = MaLCC from inserted
+	select @count = count(*) from LopChungChiMo l, DangKyLopChungChi d where l.MaLCC = @LCC_ID and l.MaKhoa = @courseID and l.MaLCC = d.MaLCC and l.MaKhoa = d.MaKhoa
+	if (@count >= 10) 
+		update LopChungChiMo set isFull = 1 where MaKhoa = @courseID and MaLCC = @LCC_ID
+end;
+
+
+go
+-- trigger update isFull = 1 khi so luong hoc sinh = 10 khi insert bang DangKyLopChuyenDe
+create or alter trigger trg_check_isFull_LopCDMo
+on DangKyLopChuyenDe
+after insert 
+as
+begin
+	declare @courseID varchar(10)
+	declare @LCD_ID varchar(10)
+	declare @count int = 0
+	select @courseID = MaKhoa,@LCD_ID = MaLCD from inserted
+	select @count = count(*) from LopChuyenDeMo l, DangKyLopChuyenDe d where l.MaLCD = @LCD_ID and l.MaKhoa = @courseID and l.MaLCD = d.MaLCD and l.MaKhoa = d.MaKhoa
+	if (@count >= 10) 
+		update LopChungChiMo set isFull = 1 where MaKhoa = @courseID and MaLCC = @LCD_ID
+end;
