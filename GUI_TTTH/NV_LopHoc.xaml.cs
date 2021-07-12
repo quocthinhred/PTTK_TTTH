@@ -56,5 +56,15 @@ namespace GUI_TTTH
             NV_AddCourse add = new NV_AddCourse();
             add.ShowDialog();
         }
+
+        private void bt_fee_Click(object sender, RoutedEventArgs e)
+        {
+            NV_HocPhi fee = new NV_HocPhi();
+            this.Hide();
+            fee.ShowDialog();
+            this.ShowDialog();
+        }
+
+
     }
 }

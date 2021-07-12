@@ -10,6 +10,7 @@ namespace DAL_TTTH
 {
     public class DAL_DangKyLopChungChi
     {
+        public static int intFee;
         public static List<DTO_DangKyLopChungChi> getRegisterCerti()
         {
             List<DTO_DangKyLopChungChi> Registers = new List<DTO_DangKyLopChungChi>();
@@ -42,6 +43,27 @@ namespace DAL_TTTH
         public static void addStudent(string id_student, DTO_LopCCMo LCCM)
         {
             SqlDataAdapter da = new SqlDataAdapter("INSERT INTO DangKyLopChungChi VALUES('"+id_student+"','"+LCCM.ID+"','"+LCCM.ID_Course+"', NULL, NULL, '')", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
+
+        public static void getFee(string id_class)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM LopChungChi WHERE MaLCC = '" + id_class + "'", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string fee = row["HocPhi"].ToString();
+                intFee = Int32.Parse(fee);
+            }
+        }
+
+        public static void payFee(string id_student, string id_class, string id_course)
+        {
+            getFee(id_class);
+            SqlDataAdapter da = new SqlDataAdapter("UPDATE DangKyLopChungChi SET HocPhi = " + intFee + " WHERE MaHV = '" + id_student + "' and MaLCC = '" + id_class + "' and MaKhoa = '" + id_course + "'", DBConnect.conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
         }

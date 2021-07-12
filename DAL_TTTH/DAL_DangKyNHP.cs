@@ -11,6 +11,7 @@ namespace DAL_TTTH
 {
     public class DAL_DangKyNHP
     {
+        public static int intFee;
         public static List<DTO_DangKyNHP> getList()
         {
             List<DTO_DangKyNHP> Lists = new List<DTO_DangKyNHP>();
@@ -35,6 +36,27 @@ namespace DAL_TTTH
         public static void addDKNHP(string id_student, DTO_NHPMo NHPM)
         {
             SqlDataAdapter da = new SqlDataAdapter("INSERT INTO DangKyNhomHocPhan VALUES('" + id_student + "','" + NHPM.ID + "','" + NHPM.ID_Course + "',NULL,0,0,NULL)", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
+
+        public static void getFee(string id_NHP)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM NhomHocPhan WHERE MaNHP = '"+id_NHP+"'", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            
+            foreach (DataRow row in dt.Rows)
+            {
+                string fee = row["HocPhi"].ToString();
+                intFee = Int32.Parse(fee);
+            }
+        }
+
+        public static void payFee(string id_student, string id_NHP, string id_course)
+        {
+            getFee(id_NHP);
+            SqlDataAdapter da = new SqlDataAdapter("UPDATE DangKyNhomHocPhan SET HocPhi = "+ intFee +" WHERE MaHV = '" + id_student + "' and MaNHP = '" + id_NHP + "' and MaKhoa = '" + id_course + "'", DBConnect.conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
         }

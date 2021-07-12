@@ -11,7 +11,8 @@
         <Button Cursor="Hand" x:Name="bt_LopKTV" Content="LỚP KĨ THUẬT VIÊN" HorizontalAlignment="Left" Margin="162,331,0,0" VerticalAlignment="Top" Width="250" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_LopKTV_Click"/>
         <Button Cursor="Hand" x:Name="bt_LopCC" Content="LỚP CHỨNG CHỈ" HorizontalAlignment="Left" Margin="529,331,0,0" VerticalAlignment="Top" Width="250" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_LopCC_Click"/>
         <Button Cursor="Hand" x:Name="bt_LopCD" Content="LỚP CHUYÊN ĐỀ" HorizontalAlignment="Left" Margin="905,331,0,0" VerticalAlignment="Top" Width="250" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_LopCD_Click"/>
-        <Button Cursor="Hand" x:Name="bt_addCourse" Content="MỞ KHOÁ HỌC MỚI" HorizontalAlignment="Left" Margin="529,492,0,0" VerticalAlignment="Top" Width="250" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_addCourse_Click"/>
+        <Button Cursor="Hand" x:Name="bt_addCourse" Content="MỞ KHOÁ HỌC MỚI" HorizontalAlignment="Left" Margin="162,498,0,0" VerticalAlignment="Top" Width="250" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_addCourse_Click"/>
+        <Button Cursor="Hand" x:Name="bt_fee" Content="HỌC PHÍ" HorizontalAlignment="Left" Margin="529,498,0,0" VerticalAlignment="Top" Width="250" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_fee_Click"/>
 
     </Grid>
 </Window>

@@ -11,6 +11,7 @@ namespace DAL_TTTH
 {
     public class DAL_DangKyLopChuyenDe
     {
+        public static int intFee;
         public static List<DTO_DangKyLopChuyenDe> getRegisterTheme()
         {
             List<DTO_DangKyLopChuyenDe> Registers = new List<DTO_DangKyLopChuyenDe>();
@@ -34,6 +35,28 @@ namespace DAL_TTTH
         public static void addStudent(string id_student, DTO_LopCDMo LCDM)
         {
             SqlDataAdapter da = new SqlDataAdapter("INSERT INTO DangKyLopChuyenDe VALUES('" + id_student + "','" + LCDM.ID + "','" + LCDM.ID_Course + "', NULL)", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
+
+
+        public static void getFee(string id_class)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM LopChuyenDe WHERE MaLCD = '" + id_class + "'", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                string fee = row["HocPhi"].ToString();
+                intFee = Int32.Parse(fee);
+            }
+        }
+
+        public static void payFee(string id_student, string id_class, string id_course)
+        {
+            getFee(id_class);
+            SqlDataAdapter da = new SqlDataAdapter("UPDATE DangKyLopChuyenDe SET HocPhi = " + intFee + " WHERE MaHV = '" + id_student + "' and MaLCD = '" + id_class + "' and MaKhoa = '" + id_course + "'", DBConnect.conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
         }

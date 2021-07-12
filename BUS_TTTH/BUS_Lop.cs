@@ -10,13 +10,20 @@ namespace BUS_TTTH
 {
     public class BUS_Lop
     {
-        
 
+        public static List<DTO_LopCCMo> DSLopCCMo = DAL_LopCCMo.getDSLopCCMo();
+        public static List<DTO_LopCDMo> DSLopCDMo = DAL_LopCDMo.getDSLopCDMo();
+        public static List<DTO_LopKTVMo> DSLopKTVMo = DAL_LopKTVMo.getDSLopKTVMo();
+
+        public static void reload()
+        {
+            DSLopCCMo = DAL_LopCCMo.getDSLopCCMo();
+            DSLopCDMo = DAL_LopCDMo.getDSLopCDMo();
+            DSLopKTVMo = DAL_LopKTVMo.getDSLopKTVMo();
+        }
         public static List<DTO_Lop> getAllClasses()
         {
-            List<DTO_LopCCMo> DSLopCCMo = DAL_LopCCMo.getDSLopCCMo();
-            List<DTO_LopCDMo> DSLopCDMo = DAL_LopCDMo.getDSLopCDMo();
-            List<DTO_LopKTVMo> DSLopKTVMo = DAL_LopKTVMo.getDSLopKTVMo();
+            
             List<DTO_Lop> Classes = new List<DTO_Lop>();
             for (int i = 0; i < DSLopCCMo.Count; i++)
             {
@@ -38,9 +45,7 @@ namespace BUS_TTTH
         }
         public static List<DTO_Lop> getScheduleTeacher(string id_teacher)
         {
-            List<DTO_LopCCMo> DSLopCCMo = DAL_LopCCMo.getDSLopCCMo();
-            List<DTO_LopCDMo> DSLopCDMo = DAL_LopCDMo.getDSLopCDMo();
-            List<DTO_LopKTVMo> DSLopKTVMo = DAL_LopKTVMo.getDSLopKTVMo();
+
             List<DTO_Lop> schedules = new List<DTO_Lop>();
             DTO_Khoa course = BUS_Khoa.getNewCourse();
             for (int i = 0; i < DSLopCCMo.Count; i++)
@@ -71,9 +76,7 @@ namespace BUS_TTTH
         }
         public static List<DTO_Lop> getClassesTeacher(string id_teacher)
         {
-            List<DTO_LopCCMo> DSLopCCMo = DAL_LopCCMo.getDSLopCCMo();
-            List<DTO_LopCDMo> DSLopCDMo = DAL_LopCDMo.getDSLopCDMo();
-            List<DTO_LopKTVMo> DSLopKTVMo = DAL_LopKTVMo.getDSLopKTVMo();
+
             List<DTO_Lop> Classes = new List<DTO_Lop>();
             for (int i = 0; i < DSLopCCMo.Count; i++)
             {

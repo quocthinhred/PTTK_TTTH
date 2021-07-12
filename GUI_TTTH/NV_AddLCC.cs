@@ -48,6 +48,9 @@ namespace GUI_TTTH
             }
             else
             {
+                label1.Text = "Thêm Lớp Chuyên Đề";
+                label2.Text = "Mã LCD";
+                label6.Text = "Tên LCD";
                 List<DTO_LopCDMo> L_LCDM = BUS_Lop.getLopCDMo();
                 for (int i = 0; i < L_LCDM.Count; i++)
                 {

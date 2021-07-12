@@ -67,6 +67,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="HocPhi_KTV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HocPhi_LCC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HocPhi_LCD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HV_BangDiem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +115,15 @@
     <Compile Include="GV_LopHoc.xaml.cs">
       <DependentUpon>GV_LopHoc.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HocPhi_KTV.xaml.cs">
+      <DependentUpon>HocPhi_KTV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HocPhi_LCC.xaml.cs">
+      <DependentUpon>HocPhi_LCC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HocPhi_LCD.xaml.cs">
+      <DependentUpon>HocPhi_LCD.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HV_BangDiem.xaml.cs">
       <DependentUpon>HV_BangDiem.xaml</DependentUpon>
     </Compile>
@@ -132,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="NV_GiangVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NV_HocPhi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,6 +211,9 @@
     </Compile>
     <Compile Include="NV_GiangVien.xaml.cs">
       <DependentUpon>NV_GiangVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NV_HocPhi.xaml.cs">
+      <DependentUpon>NV_HocPhi.xaml</DependentUpon>
     </Compile>
     <Compile Include="NV_HocVien.xaml.cs">
       <DependentUpon>NV_HocVien.xaml</DependentUpon>
