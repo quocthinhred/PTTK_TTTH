@@ -45,14 +45,14 @@ namespace GUI_TTTH
                 }
                 else if (account.Type == "2")
                 {
-                    Menu_GiangVien giangVien = new Menu_GiangVien(tb_username.Text);
+                    Menu_GiangVien giangVien = new Menu_GiangVien(tb_username.Text.ToUpper());
                     this.Hide();
                     giangVien.ShowDialog();
                     this.ShowDialog();
                 }
                 else 
                 {
-                    Menu_HocVien hocVien = new Menu_HocVien(tb_username.Text);
+                    Menu_HocVien hocVien = new Menu_HocVien(tb_username.Text.ToUpper());
                     this.Hide();
                     hocVien.ShowDialog();
                     this.ShowDialog();

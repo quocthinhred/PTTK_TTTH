@@ -83,6 +83,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="HV_LopCC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HV_LopCD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HV_LopKTV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HV_LopMo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LichDay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +142,18 @@
     </Compile>
     <Compile Include="HV_BangDiem.xaml.cs">
       <DependentUpon>HV_BangDiem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HV_LopCC.xaml.cs">
+      <DependentUpon>HV_LopCC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HV_LopCD.xaml.cs">
+      <DependentUpon>HV_LopCD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HV_LopKTV.xaml.cs">
+      <DependentUpon>HV_LopKTV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HV_LopMo.xaml.cs">
+      <DependentUpon>HV_LopMo.xaml</DependentUpon>
     </Compile>
     <Compile Include="LichDay.xaml.cs">
       <DependentUpon>LichDay.xaml</DependentUpon>

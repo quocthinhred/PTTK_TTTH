@@ -162,10 +162,32 @@ namespace BUS_TTTH
             return DSLopCCMo;
         }
 
+        public static List<DTO_LopCCMo> getLopCCMo_Available()
+        {
+            List<DTO_LopCCMo> DSLopCCMo = DAL_LopCCMo.getDSLopCCMo();
+            List<DTO_LopCCMo> temp = new List<DTO_LopCCMo>();
+            for (int i = 0; i < DSLopCCMo.Count; i++)
+            {
+                if (DSLopCCMo[i].IsFull == "0") temp.Add(DSLopCCMo[i]);
+            }
+            return temp;
+        }
+
         public static List<DTO_LopCDMo> getLopCDMo()
         {
             List<DTO_LopCDMo> DSLopCDMo = DAL_LopCDMo.getDSLopCDMo();
             return DSLopCDMo;
+        }
+
+        public static List<DTO_LopCDMo> getLopCDMo_Available()
+        {
+            List<DTO_LopCDMo> DSLopCDMo = DAL_LopCDMo.getDSLopCDMo();
+            List<DTO_LopCDMo> temp = new List<DTO_LopCDMo>();
+            for (int i = 0; i < DSLopCDMo.Count; i++)
+            {
+                if (DSLopCDMo[i].IsFull == "0") temp.Add(DSLopCDMo[i]);
+            }
+            return temp;
         }
 
         public static string LCC_updateIsFull(DTO_LopCCMo LCCM)

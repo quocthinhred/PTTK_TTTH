@@ -16,6 +16,17 @@ namespace BUS_TTTH
             return L_NHPM;
         }
 
+        public static List<DTO_NHPMo> getNHPM_Available()
+        {
+            List<DTO_NHPMo> L_NHPM = DAL_NHPMo.getListNHPM();
+            List<DTO_NHPMo> temp = new List<DTO_NHPMo>();
+            for (int i = 0; i < L_NHPM.Count; i++)
+            {
+                if (L_NHPM[i].IsFull == "0") temp.Add(L_NHPM[i]);
+            }
+            return temp;
+        }
+
         public static string addNHPM(string name_NHP)
         {
             DTO_NhomHocPhan NHP = BUS_NhomHocPhan.getNHPbyName(name_NHP);
@@ -55,6 +66,8 @@ namespace BUS_TTTH
                 return exc.Message;
             }
         }
+
+
 
     }
     

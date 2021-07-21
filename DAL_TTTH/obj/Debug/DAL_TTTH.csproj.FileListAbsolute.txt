@@ -9,3 +9,14 @@ C:\Users\Kuokkutin\source\repos\PTTK_TTTH\DAL_TTTH\obj\Debug\DAL_TTTH.csproj.Cor
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\DAL_TTTH\obj\Debug\DAL_TTTH.csproj.CopyComplete
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\DAL_TTTH\obj\Debug\DAL_TTTH.dll
 C:\Users\Kuokkutin\source\repos\PTTK_TTTH\DAL_TTTH\obj\Debug\DAL_TTTH.pdb
+C:\Users\PC\Desktop\PTTK_TTTH\DAL_TTTH\bin\Debug\DAL_TTTH.dll
+C:\Users\PC\Desktop\PTTK_TTTH\DAL_TTTH\bin\Debug\DAL_TTTH.pdb
+C:\Users\PC\Desktop\PTTK_TTTH\DAL_TTTH\bin\Debug\DTO_TTTH.dll
+C:\Users\PC\Desktop\PTTK_TTTH\DAL_TTTH\bin\Debug\System.Data.SqlClient.dll
+C:\Users\PC\Desktop\PTTK_TTTH\DAL_TTTH\bin\Debug\DTO_TTTH.pdb
+C:\Users\PC\Desktop\PTTK_TTTH\DAL_TTTH\bin\Debug\System.Data.SqlClient.xml
+C:\Users\PC\Desktop\PTTK_TTTH\DAL_TTTH\obj\Debug\DAL_TTTH.csproj.AssemblyReference.cache
+C:\Users\PC\Desktop\PTTK_TTTH\DAL_TTTH\obj\Debug\DAL_TTTH.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\PTTK_TTTH\DAL_TTTH\obj\Debug\DAL_TTTH.csproj.CopyComplete
+C:\Users\PC\Desktop\PTTK_TTTH\DAL_TTTH\obj\Debug\DAL_TTTH.dll
+C:\Users\PC\Desktop\PTTK_TTTH\DAL_TTTH\obj\Debug\DAL_TTTH.pdb

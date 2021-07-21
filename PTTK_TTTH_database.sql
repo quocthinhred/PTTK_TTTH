@@ -1,4 +1,4 @@
-﻿drop database TTTH
+﻿
 create database TTTH
 go
 use TTTH
@@ -95,6 +95,8 @@ insert into Account values ('HV57', 'a', 3);
 insert into Account values ('HV58', 'a', 3);
 insert into Account values ('HV59', 'a', 3);
 insert into Account values ('HV60', 'a', 3);
+
+
 
 go
 

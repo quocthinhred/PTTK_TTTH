@@ -50,9 +50,9 @@ namespace GUI_TTTH
 
         private void bt_openclass_Click(object sender, RoutedEventArgs e)
         {
-            LichDay lichDay = new LichDay(id2);
+            HV_LopMo lopMo = new HV_LopMo(id2);
             this.Hide();
-            lichDay.ShowDialog();
+            lopMo.ShowDialog();
             this.ShowDialog();
         }
     }

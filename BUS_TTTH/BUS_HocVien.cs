@@ -61,7 +61,7 @@ namespace BUS_TTTH
             try
             {
                 DAL_HocVien.updateStudent(student);
-                return "Cập Viên Thành Công!";
+                return "Cập Nhật Thành Công!";
             }
             catch (Exception exc)
             {
