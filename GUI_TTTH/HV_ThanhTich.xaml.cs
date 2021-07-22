@@ -87,6 +87,8 @@ namespace GUI_TTTH
             List<DTO_HV_TN> lopKTV = new List<DTO_HV_TN>();
             lopKTV = BUS_ThanhTich.getHV_TN(id2);
             dtg_lopKTV.ItemsSource = lopKTV;
+            int check = BUS_ThanhTich.checkPassed(id2);
+            if (check == 1) bt_register.Visibility = Visibility.Hidden;
             dtg_lopKTV.Columns[0].Width = 150;
             dtg_lopKTV.FontSize = 20;
             dtg_lopKTV.RowHeight = 35;
