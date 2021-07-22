@@ -1732,3 +1732,108 @@ end;
 
 
 
+
+
+
+
+
+--trigger auto update Ngay thi khi insert 1 HV_TN
+go
+create or alter trigger trg_fill_NgayThi_HV_TN
+on HocVien_TotNghiep
+after insert 
+as
+begin
+	declare @courseID varchar(10)
+	declare @studentID varchar(10)
+	select @courseID = MaKhoa,@studentID = MaHV from inserted
+	declare @date date
+	select @date = NgayKT from Khoa where MaKhoa = @courseID
+	update HocVien_TotNghiep set NgayThi = @date where MaHV = @studentID and MaKhoa = @courseID 
+end;
+
+select * from HocVien_TotNghiep
+insert into HocVien_TotNghiep(MaHV,MaKhoa) values ('HV11','K15')
+
+--- proc getChungChi truyền vào 1 mã nhánh return MaCC
+go
+create or alter proc getMaChungChi
+	@maNhanh varchar(10), @maCC varchar(10) output
+as
+begin
+	select @maCC = c.MaCC from ChungChi c, Nhanh n where c.MaCC = n.MaCC and n.MaNhanh = @maNhanh;
+end;
+
+--proc getMaNhanh truyền vào 1 mã lớp cc và return mã nhánh
+go
+create or alter proc getMaNhanh
+	@maLopCC varchar(10), @maNhanh varchar(10) output
+as
+begin
+	select @maNhanh = n.MaNhanh from LopChungChi l, Nhanh n where l.MaNhanh = n.MaNhanh and l.MaLCC = @maLopCC
+end;
+
+go
+--proc checkPassedAllClass truyền vào 1 mã nhánh cc và check xem đã pass hết lớp trong nhánh đó chưa
+go
+create or alter proc checkPassedAllClass
+	@maNhanh varchar(10),  @maHV varchar(10), @maKhoa varchar(10) ,@check int output
+as
+begin
+	set @check = 1
+	declare c cursor for select l.MaLCC from Nhanh n, LopChungChi l
+						 where n.MaNhanh = l.MaNhanh and n.MaNhanh = @maNhanh
+	open c
+	declare @maLCC varchar(10)
+	declare @diem float
+	fetch next from c into @maLCC
+	while(@@fetch_status=0)
+	begin
+		select @diem = DiemThi from DangKyLopChungChi where MaHV = @maHV and MaLCC = @maLCC and MaKhoa = @maKhoa
+		if (@diem < 5 or @diem is null) 
+		begin
+			set @check = 0
+			close c
+			deallocate c
+			return
+		end
+		fetch next from c into @maLCC
+	end
+	close c
+	deallocate c
+end;
+
+
+
+go
+--trigger update KQ khi update DangKyLopChungChi
+create or alter trigger trg_update_KQ_HV_CC
+on DangKyLopChungChi
+after update
+as
+begin
+	declare @maHV varchar(10)
+	declare @maLCC varchar(10)
+	declare @maKhoa varchar(10)
+	declare @maNhanh varchar(10)
+	declare @maCC varchar(10)
+	declare @check int
+	select @maHV = MaHV, @maLCC = MaLCC , @maKhoa = MaKhoa from inserted
+
+	exec getMaNhanh @maLCC, @maNhanh output
+
+	exec getMaChungChi @maNhanh, @maCC output
+
+	exec checkPassedAllClass @maNhanh ,  @maHV , @maKhoa ,@check output
+
+	if (@check = 1) update HocVien_ChungChi set KetQua = 1 where MaHV = @maHV and MaCC = @maCC
+end
+
+
+/*update DangKyLopChungChi set DiemThi = 6 where MaHV = 'HV46' and MaKhoa = 'K4' and MaLCC = 'LCC01'
+update DangKyLopChungChi set DiemThi = 6 where MaHV = 'HV46' and MaKhoa = 'K4' and MaLCC = 'LCC02'
+update DangKyLopChungChi set DiemThi = 7 where MaHV = 'HV46' and MaKhoa = 'K4' and MaLCC = 'LCC03'
+select * from DangKyLopChungChi where MaHV = 'HV46' and MaKhoa = 'K4' and MaLCC = 'LCC02'
+select * from HocVien_ChungChi where MaHV = 'HV46' and MaCC = 'CCA'*/
+
+
