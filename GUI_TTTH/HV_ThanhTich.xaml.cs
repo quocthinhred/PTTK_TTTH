@@ -31,7 +31,6 @@ namespace GUI_TTTH
         {
             id2 = id;
             InitializeComponent();
-            BUS_ThanhTich.reload();
             List<DTO_HV_TN> lopKTV = new List<DTO_HV_TN>();
             List<DTO_HV_CC> lopCC = new List<DTO_HV_CC>();
             List<DTO_DangKyLopChuyenDe> lopCD = new List<DTO_DangKyLopChuyenDe>();
@@ -82,7 +81,21 @@ namespace GUI_TTTH
 
         private void bt_register_Click(object sender, RoutedEventArgs e)
         {
-            
+            DTO_HV_TN student = new DTO_HV_TN(id2, BUS_Khoa.getNewCourse().ID, "null","100000","","null");
+            MessageBox.Show(BUS_ThanhTich.insertHV_TN(student));
+            BUS_ThanhTich.reload();
+            List<DTO_HV_TN> lopKTV = new List<DTO_HV_TN>();
+            lopKTV = BUS_ThanhTich.getHV_TN(id2);
+            dtg_lopKTV.ItemsSource = lopKTV;
+            dtg_lopKTV.Columns[0].Width = 150;
+            dtg_lopKTV.FontSize = 20;
+            dtg_lopKTV.RowHeight = 35;
+            dtg_lopKTV.Columns[1].Width = 100;
+            dtg_lopKTV.Columns[2].Width = 100;
+            dtg_lopKTV.Columns[3].Width = 150;
+            dtg_lopKTV.Columns[4].Width = 250;
+            dtg_lopKTV.Columns[5].Width = 145;
+
         }
 
 

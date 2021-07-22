@@ -32,5 +32,12 @@ namespace DAL_TTTH
             return Achievements;
         }
 
+        public static void insertHV_TN(DTO_HV_TN student)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("INSERT INTO HocVien_TotNghiep values ('"+student.ID_Student+ "','" + student.ID_Course + "',null,100000,'" + student.ExamDate + "',null)", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
+
     }
 }

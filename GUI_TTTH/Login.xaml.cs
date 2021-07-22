@@ -32,7 +32,7 @@ namespace GUI_TTTH
             DTO_Account account = BUS_Account.checkLogin(tb_username.Text, tb_password.Password);
             if (account == null)
             {
-                MessageBox.Show("Có Con Cặc Mà Hack Được App Của Tui!");
+                MessageBox.Show("Có gì đó sai vui lòng thử lại!");
             }
             else
             {
