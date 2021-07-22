@@ -1752,8 +1752,6 @@ begin
 	update HocVien_TotNghiep set NgayThi = @date where MaHV = @studentID and MaKhoa = @courseID 
 end;
 
-select * from HocVien_TotNghiep
-insert into HocVien_TotNghiep(MaHV,MaKhoa) values ('HV11','K15')
 
 --- proc getChungChi truyền vào 1 mã nhánh return MaCC
 go
