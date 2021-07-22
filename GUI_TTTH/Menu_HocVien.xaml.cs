@@ -55,5 +55,13 @@ namespace GUI_TTTH
             lopMo.ShowDialog();
             this.ShowDialog();
         }
+
+        private void bt_achievements_Click(object sender, RoutedEventArgs e)
+        {
+            HV_ThanhTich thanhTich = new HV_ThanhTich(id2);
+            this.Hide();
+            thanhTich.ShowDialog();
+            this.ShowDialog();
+        }
     }
 }

@@ -8,8 +8,9 @@
         Title="Menu_HocVien" Height="700" Width="1300" ResizeMode="NoResize">
     <Grid>
         <Label Content="HỌC VIÊN" HorizontalAlignment="Left" Margin="524,124,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
-        <Button Cursor="Hand" x:Name="bt_schedule2" Content="LỊCH HỌC" HorizontalAlignment="Left" Margin="240,331,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_schedule2_Click" RenderTransformOrigin="0.728,1.825"/>
-        <Button Cursor="Hand" x:Name="bt_myGrades" Content="BẢNG ĐIỂM" HorizontalAlignment="Left" Margin="574,331,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_myGrades_Click"/>
-        <Button Cursor="Hand" x:Name="bt_openclass" Content="LỚP MỞ" HorizontalAlignment="Left" Margin="915,331,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_openclass_Click"/>
+        <Button Cursor="Hand" x:Name="bt_schedule2" Content="LỊCH HỌC" HorizontalAlignment="Left" Margin="148,331,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_schedule2_Click" RenderTransformOrigin="0.728,1.825"/>
+        <Button Cursor="Hand" x:Name="bt_myGrades" Content="BẢNG ĐIỂM" HorizontalAlignment="Left" Margin="419,331,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_myGrades_Click"/>
+        <Button Cursor="Hand" x:Name="bt_openclass" Content="LỚP MỞ" HorizontalAlignment="Left" Margin="705,331,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_openclass_Click"/>
+        <Button Cursor="Hand" x:Name="bt_achievements" Content="THÀNH TÍCH" HorizontalAlignment="Left" Margin="987,331,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_achievements_Click"/>
     </Grid>
 </Window>

@@ -99,6 +99,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="HV_ThanhTich.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LichDay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,6 +158,9 @@
     </Compile>
     <Compile Include="HV_LopMo.xaml.cs">
       <DependentUpon>HV_LopMo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HV_ThanhTich.xaml.cs">
+      <DependentUpon>HV_ThanhTich.xaml</DependentUpon>
     </Compile>
     <Compile Include="LichDay.xaml.cs">
       <DependentUpon>LichDay.xaml</DependentUpon>

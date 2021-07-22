@@ -138,3 +138,5 @@ C:\Users\PC\Desktop\PTTK_TTTH\GUI_TTTH\obj\Debug\HV_LopCC.baml
 C:\Users\PC\Desktop\PTTK_TTTH\GUI_TTTH\obj\Debug\HV_LopCD.baml
 C:\Users\PC\Desktop\PTTK_TTTH\GUI_TTTH\obj\Debug\HV_LopKTV.baml
 C:\Users\PC\Desktop\PTTK_TTTH\GUI_TTTH\obj\Debug\HV_LopMo.baml
+C:\Users\PC\Desktop\PTTK_TTTH\GUI_TTTH\obj\Debug\HV_ThanhTich.g.cs
+C:\Users\PC\Desktop\PTTK_TTTH\GUI_TTTH\obj\Debug\HV_ThanhTich.baml

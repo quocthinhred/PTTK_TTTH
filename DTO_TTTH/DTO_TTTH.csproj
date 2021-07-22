@@ -49,6 +49,8 @@
     <Compile Include="DTO_DangKyNHP.cs" />
     <Compile Include="DTO_GiangVien.cs" />
     <Compile Include="DTO_HocVien.cs" />
+    <Compile Include="DTO_HV_CC.cs" />
+    <Compile Include="DTO_HV_TN.cs" />
     <Compile Include="DTO_Khoa.cs" />
     <Compile Include="DTO_Lop.cs" />
     <Compile Include="DTO_LopCCMo.cs" />
