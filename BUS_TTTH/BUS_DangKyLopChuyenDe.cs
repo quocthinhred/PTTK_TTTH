@@ -41,5 +41,17 @@ namespace BUS_TTTH
                 return exc.Message;
             }
         }
+
+        public static List<DTO_DangKyLopChuyenDe> getClassesOfAStudent(string id)
+        {
+            List<DTO_DangKyLopChuyenDe> Lists = new List<DTO_DangKyLopChuyenDe>();
+            Lists = DAL_DangKyLopChuyenDe.getRegisterTheme();
+            List<DTO_DangKyLopChuyenDe> temp = new List<DTO_DangKyLopChuyenDe>();
+            for (int i = 0; i < Lists.Count; i++)
+            {
+                if (Lists[i].ID_Student == id) temp.Add(Lists[i]);
+            }
+            return temp;
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace DAL_TTTH
                 string point = row["Diem"].ToString();
                 string fee = row["PhiDuThi"].ToString();
                 string examDate = row["NgayThi"].ToString();
+                examDate = examDate.Substring(0, examDate.IndexOf(" "));
                 string id_Teacher = row["MaGV"].ToString();
                 DTO_HV_TN achievement = new DTO_HV_TN(id_Student, id_Course, point, fee, examDate, id_Teacher);
                 Achievements.Add(achievement);

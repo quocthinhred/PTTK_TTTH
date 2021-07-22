@@ -42,6 +42,7 @@ namespace GUI_TTTH
                 status = 0;
                 bt_off.Visibility = Visibility.Visible;
                 bt_add.Visibility = Visibility.Visible;
+                cbb_student.Visibility = Visibility.Hidden;
                 bt_add.Content = "THÊM LỚP CC";
                 lb_title.Content = "DANH SÁCH LỚP CHỨNG CHỈ MỞ";
                 dtg_chuyende.ItemsSource = BUS_Lop.getLopCDMo();

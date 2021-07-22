@@ -14,7 +14,7 @@ namespace DAL_TTTH
         public static List<DTO_HV_CC> getAchievements()
         {
             List<DTO_HV_CC> Achievements = new List<DTO_HV_CC>();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM HocVien_TotNghiep", DBConnect.conn);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM HocVien_ChungChi", DBConnect.conn);
             DataTable dt = new DataTable();
             da.Fill(dt);
             foreach (DataRow row in dt.Rows)

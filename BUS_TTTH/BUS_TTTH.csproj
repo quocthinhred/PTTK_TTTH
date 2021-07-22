@@ -53,6 +53,7 @@
     <Compile Include="BUS_Lop.cs" />
     <Compile Include="BUS_NhomHocPhan.cs" />
     <Compile Include="BUS_NHPMo.cs" />
+    <Compile Include="BUS_ThanhTich.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
