@@ -39,5 +39,11 @@ namespace DAL_TTTH
             da.Fill(dt);
         }
 
+        public static void updateGrade(DTO_HV_TN student)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("UPDATE HocVien_TotNghiep SET Diem = " + student.Point + ", MaGV = '"+ student.ID_Teacher  + "' WHERE MaHV = '"+student.ID_Student + "' and MaKhoa = '"+ student.ID_Course+"'", DBConnect.conn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+        }
     }
 }

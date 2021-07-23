@@ -8,7 +8,8 @@
         Title="Menu_GiangVien" Height="700" Width="1300" ResizeMode="NoResize">
     <Grid>
         <Label Content="GIẢNG VIÊN" HorizontalAlignment="Left" Margin="504,100,0,0" VerticalAlignment="Top" FontSize="48" FontWeight="Bold"/>
-        <Button Cursor="Hand" x:Name="bt_schedule" Content="LỊCH DẠY" HorizontalAlignment="Left" Margin="362,319,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_schedule_Click"/>
-        <Button Cursor="Hand" x:Name="bt_class" Content="LỚP HỌC" HorizontalAlignment="Left" Margin="791,319,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_class_Click"/>
+        <Button Cursor="Hand" x:Name="bt_schedule" Content="LỊCH DẠY" HorizontalAlignment="Left" Margin="322,319,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_schedule_Click"/>
+        <Button Cursor="Hand" x:Name="bt_class" Content="LỚP HỌC" HorizontalAlignment="Left" Margin="579,319,0,0" VerticalAlignment="Top" Width="140" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_class_Click"/>
+        <Button Cursor="Hand" x:Name="bt_grade" Content="CHẤM ĐIỂM TN" HorizontalAlignment="Left" Margin="837,319,0,0" VerticalAlignment="Top" Width="180" Height="60" FontSize="20" FontWeight="Bold" Foreground="White" Background="Black" BorderBrush="Black" Click="bt_grade_Click"/>
     </Grid>
 </Window>

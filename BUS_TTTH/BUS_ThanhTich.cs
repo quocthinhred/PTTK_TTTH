@@ -27,6 +27,7 @@ namespace BUS_TTTH
 
         }
         
+
         public static List<DTO_HV_TN> getHV_TN(string id)
         {
             reload();
@@ -88,6 +89,19 @@ namespace BUS_TTTH
                 }
             }
             return temp;
+        }
+
+        public static string updateGrade(DTO_HV_TN student)
+        {
+            try
+            {
+                DAL_HV_TN.updateGrade(student);
+                return "Cập nhật thành công !!!";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
     }
 }

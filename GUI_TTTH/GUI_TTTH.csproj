@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GV_ChamDiemTN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GV_LopHoc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +135,9 @@
     </Compile>
     <Compile Include="GV_BangDiem.Designer.cs">
       <DependentUpon>GV_BangDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GV_ChamDiemTN.xaml.cs">
+      <DependentUpon>GV_ChamDiemTN.xaml</DependentUpon>
     </Compile>
     <Compile Include="GV_LopHoc.xaml.cs">
       <DependentUpon>GV_LopHoc.xaml</DependentUpon>

@@ -1,5 +1,4 @@
-﻿
-create database TTTH
+﻿create database TTTH
 go
 use TTTH
 go

@@ -46,5 +46,13 @@ namespace GUI_TTTH
             lop.ShowDialog();
             this.ShowDialog();
         }
+
+        private void bt_grade_Click(object sender, RoutedEventArgs e)
+        {
+            GV_ChamDiemTN cd = new GV_ChamDiemTN(id2);
+            this.Hide();
+            cd.ShowDialog();
+            this.ShowDialog();
+        }
     }
 }

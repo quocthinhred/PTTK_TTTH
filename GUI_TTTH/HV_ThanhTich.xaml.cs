@@ -34,6 +34,9 @@ namespace GUI_TTTH
             List<DTO_HV_TN> lopKTV = new List<DTO_HV_TN>();
             List<DTO_HV_CC> lopCC = new List<DTO_HV_CC>();
             List<DTO_DangKyLopChuyenDe> lopCD = new List<DTO_DangKyLopChuyenDe>();
+            List<DTO_DangKyNHP> dkNHP = new List<DTO_DangKyNHP>();
+            dkNHP = BUS_DangKyNHP.getNHPOf1Student(id);
+            dtg_NHP.ItemsSource = dkNHP;
             lopKTV = BUS_ThanhTich.getHV_TN(id);
             dtg_lopKTV.ItemsSource = lopKTV;
             lopCC = BUS_ThanhTich.getHV_CC(id);
@@ -41,7 +44,9 @@ namespace GUI_TTTH
             lopCD = BUS_DangKyLopChuyenDe.getClassesOfAStudent(id);
             dtg_lopCD.ItemsSource = lopCD;
             int check = BUS_ThanhTich.checkPassed(id);
-            if (check == 1) bt_register.Visibility = Visibility.Hidden;
+            int check2 = BUS_DangKyNHP.checkDone2Courses(id);
+            if (check == 1 || check2 == 0) bt_register.Visibility = Visibility.Hidden;
+
         }
 
         private void bt_back_Click(object sender, RoutedEventArgs e)
@@ -100,6 +105,17 @@ namespace GUI_TTTH
 
         }
 
-
+        private void dtg_NHP_Loaded(object sender, RoutedEventArgs e)
+        {
+            dtg_NHP.Columns[0].Width = 150;
+            dtg_NHP.FontSize = 20;
+            dtg_NHP.RowHeight = 35;
+            dtg_NHP.Columns[1].Width = 150;
+            dtg_NHP.Columns[2].Width = 150;
+            dtg_NHP.Columns[3].Width = 100;
+            dtg_NHP.Columns[4].Width = 150;
+            dtg_NHP.Columns[5].Width = 95;
+            dtg_NHP.Columns[6].Width = 100;
+        }
     }
 }

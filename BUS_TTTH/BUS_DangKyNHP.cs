@@ -40,5 +40,30 @@ namespace BUS_TTTH
                 return exc.Message;
             }
         }
+
+        public static int checkDone2Courses(string id)
+        {
+            List<DTO_DangKyNHP> list = DAL_DangKyNHP.getList();
+            List<DTO_DangKyNHP> temp = new List<DTO_DangKyNHP>();
+            int count = 0;
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].ID_Student == id && list[i].Result == "1") count++;
+
+            }
+            if (count == 2) return 1;
+            else return 0;
+        }
+
+        public static List<DTO_DangKyNHP> getNHPOf1Student(string id)
+        {
+            List<DTO_DangKyNHP> list = DAL_DangKyNHP.getList();
+            List<DTO_DangKyNHP> temp = new List<DTO_DangKyNHP>();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].ID_Student == id ) temp.Add(list[i]);
+            }
+            return temp;
+        }
     }
 }
