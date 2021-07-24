@@ -1332,7 +1332,7 @@ as
 begin
 	
 	set @check = 1
-	declare c cursor for select distinct bd.MaHV,bd.MaMon,bd.MaKhoa,bd.LanThi from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKiNhomHocPhan dk 
+	declare c cursor for select distinct bd.MaHV,bd.MaMon,bd.MaKhoa,bd.LanThi from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKyNhomHocPhan dk 
 												 where m.MaMon = lm.MaMon and bd.MaMon = lm.MaMon and hv.MaHV= bd.MaHV and hv.MaHV = dk.MaHV and m.MaNHP=dk.MaNHP and hv.MaHV = @studentID and m.BatBuoc = 1 and dk.MaNHP = @NHP_ID and bd.LanThi = 1
 
 	open c
@@ -1378,10 +1378,10 @@ create or alter proc updateDTB
 as
 begin 
 	declare c cursor for select distinct  bd.DiemThi,bd.MaMon
-						 from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKiNhomHocPhan dk 
+						 from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKyNhomHocPhan dk 
 						 where m.MaMon = lm.MaMon and bd.MaMon = lm.MaMon and hv.MaHV= bd.MaHV and hv.MaHV = dk.MaHV and m.MaNHP=dk.MaNHP 
 									and hv.MaHV = @studentID and m.BatBuoc = 1 and dk.MaNHP = @NHP_ID and bd.MaKhoa = @courseID
-									and bd.LanThi >= all(select bd.LanThi from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKiNhomHocPhan dk 
+									and bd.LanThi >= all(select bd.LanThi from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKyNhomHocPhan dk 
 														 where m.MaMon = lm.MaMon and bd.MaMon = lm.MaMon and hv.MaHV= bd.MaHV and hv.MaHV = dk.MaHV and bd.MaKhoa = @courseID
 															   and m.MaNHP=dk.MaNHP and hv.MaHV = @studentID and m.BatBuoc = 1 and dk.MaNHP = @NHP_ID)
 	declare @total float = 0
@@ -1400,7 +1400,7 @@ begin
 	print(cast(@total/@count as varchar))
 	print(cast(@total as varchar))
 	print(cast(@count as varchar))
-	update DangKiNhomHocPhan set DTB = @total/@count where MaHV = @studentID and MaNHP = @NHP_ID and MaKhoa = @courseID
+	update DangKyNhomHocPhan set DTB = @total/@count where MaHV = @studentID and MaNHP = @NHP_ID and MaKhoa = @courseID
 	close c
 	deallocate c
 
@@ -1410,7 +1410,7 @@ end
 --BangDiem  lần thi 1 -> rớt -> insert lần thi 2 nhưng chưa thi : điểm là null 
 --> nếu đã thi lại 3 môn bb ở lần thi 2 ( check 3 môn bb -> != null) -> số lần thi lại lên 1
 
---DangKiNHP số lần thi lại 0
+--DangKyNHP số lần thi lại 0
 
 -- after -> update rồi 
 -- kiểm tra có phải môn bắt buộc? 
@@ -1427,7 +1427,7 @@ create or alter proc insertNewBangDiem
 as
 begin
 	
-	declare c cursor for select distinct bd.MaHV,bd.MaMon,bd.MaKhoa,bd.LanThi from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKiNhomHocPhan dk 
+	declare c cursor for select distinct bd.MaHV,bd.MaMon,bd.MaKhoa,bd.LanThi from Mon m, LopKTVMo lm, BangDiem bd,HocVien hv, DangKyNhomHocPhan dk 
 												 where m.MaMon = lm.MaMon and bd.MaMon = lm.MaMon and hv.MaHV= bd.MaHV and hv.MaHV = dk.MaHV and m.MaNHP=dk.MaNHP and hv.MaHV = @maHV and m.BatBuoc = 1 and dk.MaNHP = @NHP_ID and bd.LanThi = 1
 
 	open c
@@ -1469,11 +1469,11 @@ begin
 		declare @date date
 		select @lanthi=LanThi from inserted
 		select @maNHP= m.MaNHP from Mon m where m.MaMon = @mon
-		select @solanthilai=SoLanThiLai from DangKiNhomHocPhan where MaHV = @maHV and MaNHP = @maNHP and MaKhoa = @maKhoa
+		select @solanthilai=SoLanThiLai from DangKyNhomHocPhan where MaHV = @maHV and MaNHP = @maNHP and MaKhoa = @maKhoa
 		select @date =NgayThi from inserted
 		if (@lanthi - @solanthilai != 1) 
 		begin
-			update DangKiNhomHocPhan set DTB = null, SoLanThiLai = @lanthi -1 where MaHV = @maHV and MaNHP = @maNHP and MaKhoa = @maKhoa
+			update DangKyNhomHocPhan set DTB = null, SoLanThiLai = @lanthi -1 where MaHV = @maHV and MaNHP = @maNHP and MaKhoa = @maKhoa
 		end
 		declare @check2 int
 		exec checkPassedAllSub @maHV, @maNHP, @check2 output
@@ -1481,7 +1481,7 @@ begin
 		begin
 			exec updateDTB @maHV, @maNHP, @maKhoa 
 		end
-		select @DTB = DTB from DangKiNhomHocPhan where MaHV = @maHV and MaNHP = @maNHP and MaKhoa = @maKhoa
+		select @DTB = DTB from DangKyNhomHocPhan where MaHV = @maHV and MaNHP = @maNHP and MaKhoa = @maKhoa
 		if (@DTB < 5 and @lanthi < 4)
 		begin
 			exec insertNewBangDiem @maHV, @maKhoa, @lanthi, @date, @maNHP
